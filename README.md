@@ -1,7 +1,7 @@
 # Discord AI Chatbot
 
 ## Overview
-This is a Discord chatbot that integrates OpenAI's assistant with MySQL for tracking user interactions. The bot allows specific roles to interact with it via Direct Messages (DMs) and supports text, image, and file processing.
+This is a Discord chatbot that integrates OpenAI's assistant API with MySQL for tracking user interactions. The bot allows specific roles to interact with it via Direct Messages (DMs) and supports text, image, and file processing. Files are stored temporarily lcoally and deleted after a response is sent. It's lightweight and easy to set up!
 
 ## Features
 - ✅ AI-powered responses using OpenAI's Assistant API
@@ -19,7 +19,8 @@ Before setting up the bot, ensure you have the following installed:
 - `pip` (Python package manager)
 - `git` (for version control)
 - `MySQL Server 8.0+`
-- A Discord bot account
+- A Discord Developer Account
+- Discord bot token
 - An OpenAI API key
 
 ## Setup Instructions
