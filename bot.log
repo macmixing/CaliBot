@@ -1,0 +1,92 @@
+nohup: ignoring input
+✅ Connected to MySQL database
+[2025-02-19 16:36:44] [INFO    ] discord.client: logging in using static token
+[2025-02-19 16:36:45] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: b86c6821ca434ac3097be93535d5fd41).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is gator?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what are good market trends to spot?
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-19 16:52:23] [INFO    ] discord.client: logging in using static token
+[2025-02-19 16:52:23] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 5998b6b192626c188e8bb0a9958d523d).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hello
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-19 16:53:55] [INFO    ] discord.client: logging in using static token
+[2025-02-19 16:53:56] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: bde2090ef11a1537892aeb0c024ac745).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is the captial of maine
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: summarize this document please
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1341818060981534771/Discord_Developer_Portal_Documentation_Teams.pdf?ex=67b760f3&is=67b60f73&hm=a3424d98d54d39c68f3bc26702b1ae1b06fa2bfa9fdb447abe073a424b295bbb&
+✅ File successfully saved at: discord-files/discord_developer_portal_documentation_teams.pdf
+✅ Extracted 2301 characters from discord_developer_portal_documentation_teams.pdf
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-19 17:15:33] [INFO    ] discord.client: logging in using static token
+[2025-02-19 17:15:34] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 5c6164d6e7fac4de6acec6b1d6e812ff).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: thanks
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-19 17:17:04] [INFO    ] discord.client: logging in using static token
+[2025-02-19 17:17:04] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 88a16cce595d0e2228b6277a93f22892).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-19 17:17:57] [INFO    ] discord.client: logging in using static token
+[2025-02-19 17:17:58] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 41c04219cac9849515f052e4d61ca3de).
+✅ Logged in as AI Assistant#5463
+✅ Connected to MySQL database
+[2025-02-19 17:20:45] [INFO    ] discord.client: logging in using static token
+[2025-02-19 17:20:45] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 02c92c9fa9c65c14362cd17064c34405).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-19 17:23:01] [INFO    ] discord.client: logging in using static token
+[2025-02-19 17:23:01] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 224906e660c1db66423ef902f47f5838).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: describe this
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341092221046493275/1341822487683534940/banger.png?ex=67b76512&is=67b61392&hm=f1a896209e79eab03aaa55a4b8e94cae69f008c8202e045dce49e14de4a024ad&
+✅ Image successfully saved at: discord-images/banger.png
+✅ Image uploaded to OpenAI. File ID: file-ErqaQBEPWEoaC6uR6LqiL3
+✅ Image uploaded to OpenAI. File ID: file-ErqaQBEPWEoaC6uR6LqiL3
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-19 17:26:26] [INFO    ] discord.client: logging in using static token
+[2025-02-19 17:26:26] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: e1027d564f7d13a091e83c1b637c6fcd).
+✅ Logged in as AI Assistant#5463
+✅ Connected to MySQL database
+[2025-02-19 17:29:02] [INFO    ] discord.client: logging in using static token
+[2025-02-19 17:29:02] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: c47e22bddbaf9f042f8a7a82a596dc63).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hello
+⏳ Processing OpenAI request...
+[2025-02-19 17:52:41] [ERROR   ] discord.client: Attempting a reconnect in 1.23s
+Traceback (most recent call last):
+  File "/home/ec2-user/discord-bot/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/discord-bot/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-19 17:52:42] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session c47e22bddbaf9f042f8a7a82a596dc63.
