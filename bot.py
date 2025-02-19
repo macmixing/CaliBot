@@ -116,152 +116,156 @@ async def handle_user_message(message):
     if message.author == bot.user:
         return  # Ignore bot's own messages
 
-    if isinstance(message.channel, discord.DMChannel):  # Only respond to DMs
-        user_id = str(message.author.id)
+    async with message.channel.typing():  # ✅ Bot shows "typing" indicator
 
-        user_id = str(message.author.id)
+        if isinstance(message.channel, discord.DMChannel):  # Only respond to DMs
+            user_id = str(message.author.id)
 
-        # ✅ Check if user has an existing thread, or create one
-        thread_id = get_thread_id(user_id)
+            user_id = str(message.author.id)
 
-        if not thread_id:
-            thread = await asyncio.to_thread(lambda: client.beta.threads.create())
-            thread_id = thread.id
-            save_thread(user_id, thread_id)  # ✅ Store in MySQL
-            print(f"✅ Created new thread for user {user_id}: {thread_id}")
-        else:
-            print(f"✅ Retrieved existing thread for user {user_id}: {thread_id}")
+            # ✅ Check if user has an existing thread, or create one
+            thread_id = get_thread_id(user_id)
 
-        try:
-            content_data = []
-            image_saved = False
-            file_saved = False
-
-            # ✅ Handle text messages
-            if message.content:
-                print(f"📝 Received text: {message.content}")
-                content_data.append({"type": "text", "text": message.content})
-
-            # ✅ Handle images and files
-            if message.attachments:
-                for attachment in message.attachments:
-                    file_url = attachment.url
-                    filename = attachment.filename.lower()
-                    parsed_url = urlparse(file_url)
-
-                    # ✅ Image Handling
-                    if filename.endswith((".png", ".jpg", ".jpeg", ".gif", ".webp")):
-                        print(f"🔹 Detected image: {file_url}")
-                        image_path = os.path.join(IMAGE_DIR, filename)
-
-                        # ✅ Download the image
-                        response = requests.get(file_url, stream=True)
-                        if response.status_code == 200:
-                            with open(image_path, "wb") as file:
-                                for chunk in response.iter_content(1024):
-                                    file.write(chunk)
-                            print(f"✅ Image successfully saved at: {image_path}")
-                            image_saved = True
-                        else:
-                            print(f"❌ Image request failed, status code: {response.status_code}")
-                            await message.channel.send("⚠️ Image download failed. Please try again.")
-                            return
-
-                        # ✅ Upload image to OpenAI
-                        with open(image_path, "rb") as image_file:
-                            try:
-                                file_response = await asyncio.to_thread(client.files.create, file=image_file, purpose="vision")
-                                file_id = file_response.id
-                                print(f"✅ Image uploaded to OpenAI. File ID: {file_id}")
-                                content_data.append({"type": "image_file", "image_file": {"file_id": file_id}})
-                                file_id = file_response.id
-                                print(f"✅ Image uploaded to OpenAI. File ID: {file_id}")
-
-                                # ✅ Add image to content_data
-                                content_data.append({"type": "image_file", "image_file": {"file_id": file_id}})
-                            except Exception as upload_error:
-                                print(f"❌ OpenAI upload failed: {upload_error}")
-                                await message.channel.send("⚠️ Image upload failed.")
-                                return
-                        os.remove(image_path)
-
-                    # ✅ File Handling (.DOCX, .PDF, .XLSX)
-                    elif filename.endswith((".pdf", ".docx", ".xlsx")):
-                        print(f"📄 Detected file: {file_url}")
-                        file_path = os.path.join(FILE_DIR, filename)
-
-                        # ✅ Download the file
-                        response = requests.get(file_url, stream=True)
-                        if response.status_code == 200:
-                            with open(file_path, "wb") as file:
-                                for chunk in response.iter_content(1024):
-                                    file.write(chunk)
-                            print(f"✅ File successfully saved at: {file_path}")
-                            file_saved = True
-                        else:
-                            print(f"❌ File request failed, status code: {response.status_code}")
-                            await message.channel.send("⚠️ File download failed. Please try again.")
-                            return
-
-                        # ✅ Extract text from supported files
-                        extracted_text = None
-                        if filename.endswith(".pdf"):
-                            with fitz.open(file_path) as pdf:
-                                extracted_text = "\n".join([page.get_text() for page in pdf])
-                        elif filename.endswith(".docx"):
-                            doc = Document(file_path)
-                            extracted_text = "\n".join([para.text for para in doc.paragraphs])
-                        elif filename.endswith(".xlsx"):
-                            workbook = openpyxl.load_workbook(file_path)
-                            extracted_text = "\n".join(
-                                [str(cell.value) for sheet in workbook.worksheets for row in sheet.iter_rows() for cell in row if cell.value]
-                            )
-
-                        # ✅ Add extracted text to OpenAI request
-                        if extracted_text:
-                            print(f"✅ Extracted {len(extracted_text)} characters from {filename}")
-                            content_data.append({"type": "text", "text": extracted_text})
-                        else:
-                            print(f"⚠️ No readable content in {filename}")
-                            await message.channel.send("⚠️ No readable content found in the file.")
-                        os.remove(file_path)
- 
-            # ✅ Ensure OpenAI receives valid input
-            if not content_data:
-                print("❌ No valid input for AI. Skipping processing.")
-                await message.channel.send("⚠️ Please send a message, an image, or a supported file.")
-                return
-
-            # ✅ Send message + image/file (if available) to OpenAI
-            await asyncio.to_thread(client.beta.threads.messages.create, thread_id=thread_id, role="user", content=content_data)
-
-             # ✅ Run AI processing
-            print("⏳ Processing OpenAI request...")
-            run_task = asyncio.create_task(asyncio.to_thread(client.beta.threads.runs.create_and_poll, thread_id=thread_id, assistant_id=ASSISTANT_ID))
-            await run_task  # ✅ Ensures AI processing completes
-
-            # ✅ Retrieve the **latest** message only
-            message_task = asyncio.create_task(
-                asyncio.to_thread(
-                    client.beta.threads.messages.list,
-                    thread_id=thread_id,
-                    order="desc",
-                    limit=1
-                )
-            )
-
-            messages = await message_task  # ✅ Ensures response is retrieved correctly
-
-            if messages.data and messages.data[0].role == "assistant":
-                assistant_reply = messages.data[0].content[0].text.value
+            if not thread_id:
+                thread = await asyncio.to_thread(lambda: client.beta.threads.create())
+                thread_id = thread.id
+                save_thread(user_id, thread_id)  # ✅ Store in MySQL
+                print(f"✅ Created new thread for user {user_id}: {thread_id}")
             else:
-                assistant_reply = "⚠️ No response from the assistant."
+                print(f"✅ Retrieved existing thread for user {user_id}: {thread_id}")
 
-            send_task = asyncio.create_task(message.channel.send(assistant_reply[:2000]))
-            await send_task  # ✅ Ensures response is sent without blocking
+            try:
+                content_data = []
+                image_saved = False
+                file_saved = False
 
-        except Exception as e:
-            print(f"❌ Error: {e}")
+                # ✅ Handle text messages
+                if message.content:
+                    print(f"📝 Received text: {message.content}")
+                    content_data.append({"type": "text", "text": message.content})
+
+                # ✅ Handle images and files
+                if message.attachments:
+                    for attachment in message.attachments:
+                        file_url = attachment.url
+                        filename = attachment.filename.lower()
+                        parsed_url = urlparse(file_url)
+
+                        # ✅ Image Handling
+                        if filename.endswith((".png", ".jpg", ".jpeg", ".gif", ".webp")):
+                            print(f"🔹 Detected image: {file_url}")
+                            image_path = os.path.join(IMAGE_DIR, filename)
+
+                            # ✅ Download the image
+                            response = requests.get(file_url, stream=True)
+                            if response.status_code == 200:
+                                with open(image_path, "wb") as file:
+                                    for chunk in response.iter_content(1024):
+                                        file.write(chunk)
+                                print(f"✅ Image successfully saved at: {image_path}")
+                                image_saved = True
+                            else:
+                                print(f"❌ Image request failed, status code: {response.status_code}")
+                                await message.channel.send("⚠️ Image download failed. Please try again.")
+                                return
+
+                            # ✅ Upload image to OpenAI
+                            with open(image_path, "rb") as image_file:
+                                try:
+                                    file_response = await asyncio.to_thread(client.files.create, file=image_file, purpose="vision")
+                                    file_id = file_response.id
+                                    print(f"✅ Image uploaded to OpenAI. File ID: {file_id}")
+                                    content_data.append({"type": "image_file", "image_file": {"file_id": file_id}})
+                                    file_id = file_response.id
+                                    print(f"✅ Image uploaded to OpenAI. File ID: {file_id}")
+
+                                    # ✅ Add image to content_data
+                                    content_data.append({"type": "image_file", "image_file": {"file_id": file_id}})
+                                except Exception as upload_error:
+                                    print(f"❌ OpenAI upload failed: {upload_error}")
+                                    await message.channel.send("⚠️ Image upload failed.")
+                                    return
+                            os.remove(image_path)
+
+                        # ✅ File Handling (.DOCX, .PDF, .XLSX)
+                        elif filename.endswith((".pdf", ".docx", ".xlsx")):
+                            print(f"📄 Detected file: {file_url}")
+                            file_path = os.path.join(FILE_DIR, filename)
+
+                            # ✅ Download the file
+                            response = requests.get(file_url, stream=True)
+                            if response.status_code == 200:
+                                with open(file_path, "wb") as file:
+                                    for chunk in response.iter_content(1024):
+                                        file.write(chunk)
+                                print(f"✅ File successfully saved at: {file_path}")
+                                file_saved = True
+                            else:
+                                print(f"❌ File request failed, status code: {response.status_code}")
+                                await message.channel.send("⚠️ File download failed. Please try again.")
+                                return
+
+                            # ✅ Extract text from supported files
+                            extracted_text = None
+                            if filename.endswith(".pdf"):
+                                with fitz.open(file_path) as pdf:
+                                    extracted_text = "\n".join([page.get_text() for page in pdf])
+                            elif filename.endswith(".docx"):
+                                doc = Document(file_path)
+                                extracted_text = "\n".join([para.text for para in doc.paragraphs])
+                            elif filename.endswith(".xlsx"):
+                                workbook = openpyxl.load_workbook(file_path)
+                                extracted_text = "\n".join(
+                                    [str(cell.value) for sheet in workbook.worksheets for row in sheet.iter_rows() for cell in row if cell.value]
+                                )
+
+                            # ✅ Add extracted text to OpenAI request
+                            if extracted_text:
+                                print(f"✅ Extracted {len(extracted_text)} characters from {filename}")
+                                content_data.append({"type": "text", "text": extracted_text})
+                            else:
+                                print(f"⚠️ No readable content in {filename}")
+                                await message.channel.send("⚠️ No readable content found in the file.")
+                            os.remove(file_path)
+    
+                # ✅ Ensure OpenAI receives valid input
+                if not content_data:
+                    print("❌ No valid input for AI. Skipping processing.")
+                    await message.channel.send("⚠️ Please send a message, an image, or a supported file.")
+                    return
+
+                # ✅ Send message + image/file (if available) to OpenAI
+                await asyncio.to_thread(client.beta.threads.messages.create, thread_id=thread_id, role="user", content=content_data)
+
+                # ✅ Run AI processing
+                async with message.channel.typing():  # ✅ Show typing while AI processes request
+                    print("⏳ Processing OpenAI request...")
+                    run_task = asyncio.create_task(asyncio.to_thread(client.beta.threads.runs.create_and_poll, thread_id=thread_id, assistant_id=ASSISTANT_ID))
+                    await run_task  # ✅ Ensures AI processing completes
+
+
+                    # ✅ Retrieve the **latest** message only
+                    message_task = asyncio.create_task(
+                        asyncio.to_thread(
+                            client.beta.threads.messages.list,
+                            thread_id=thread_id,
+                            order="desc",
+                            limit=1
+                        )
+                    )
+
+                messages = await message_task  # ✅ Ensures response is retrieved correctly
+
+                if messages.data and messages.data[0].role == "assistant":
+                    assistant_reply = messages.data[0].content[0].text.value
+                else:
+                    assistant_reply = "⚠️ No response from the assistant."
+
+                send_task = asyncio.create_task(message.channel.send(assistant_reply[:2000]))
+                await send_task  # ✅ Ensures response is sent without blocking
+
+            except Exception as e:
+                print(f"❌ Error: {e}")
 
 
 
