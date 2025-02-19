@@ -4,7 +4,7 @@
 This is a Discord chatbot that integrates OpenAI's assistant with MySQL for tracking user interactions. The bot allows specific roles to interact with it via Direct Messages (DMs) and supports text, image, and file processing.
 
 ## Features
-- ✅ AI-powered responses using OpenAI's API
+- ✅ AI-powered responses using OpenAI's Assistant API
 - ✅ Supports text, image, and document uploads
 - ✅ Role-based access control
 - ✅ MySQL integration for tracking user threads
