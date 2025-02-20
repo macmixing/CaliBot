@@ -203,3 +203,49 @@ IndentationError: unexpected indent
 ✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
 📝 Received text: What is this?
 ⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 17:33:13] [INFO    ] discord.client: logging in using static token
+[2025-02-20 17:33:14] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 6feebf01a747adb764083e1df675378e).
+✅ Logged in as AI Assistant#5463
+✅ Connected to MySQL database
+[2025-02-20 17:34:02] [INFO    ] discord.client: logging in using static token
+[2025-02-20 17:34:02] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: e4eb8eea6278a963d422faa7a93f3416).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What is this?
+📄 Detected file: https://cdn.discordapp.com/attachments/1341170981867225140/1342187639918301255/eufy_Smart_Lock_E30T85F1_KOL_Scene_Display.pdf?ex=67b8b925&is=67b767a5&hm=ba8d1156c030fb39809b5feb3d299175282e6c7156e0f98ad2d1163b311751c7&
+✅ File successfully saved at: discord-files/eufy_smart_lock_e30t85f1_kol_scene_display.pdf
+✅ Extracted 4501 characters from eufy_smart_lock_e30t85f1_kol_scene_display.pdf
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: he
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: summarizr this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1342188024582242304/Channels_for_Discord.docx?ex=67b8b981&is=67b76801&hm=f2a1595785f492f0330bfcc3f601709fd8c8fcb986ffd3a84df476de8a865507&
+✅ File successfully saved at: discord-files/channels_for_discord.docx
+✅ Extracted 2135 characters from channels_for_discord.docx
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 17:42:56] [INFO    ] discord.client: logging in using static token
+[2025-02-20 17:42:57] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: b0388be9e85239922cb043d8eec04f39).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: My favorite color is blue
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 17:43:39] [INFO    ] discord.client: logging in using static token
+[2025-02-20 17:43:39] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 4ed8e766c7ba85f03d9f2948fe5aa01e).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What’s my favorite color?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what's my favorite color
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: tell me about the invoice again? Real quick summary
+⏳ Processing OpenAI request...

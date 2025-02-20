@@ -46,6 +46,9 @@ def create_db_connection():
 db_connection = create_db_connection()
 db_cursor = db_connection.cursor()
 
+# ✅ Thread cache dictionary (in-memory storage for thread IDs)
+thread_cache = {}
+
 # Initialize OpenAI client
 client = OpenAI(api_key=OPENAI_API_KEY)
 
@@ -66,6 +69,10 @@ os.makedirs(FILE_DIR, exist_ok=True)
 # ✅ Function to store user thread ID in MySQL
 def save_thread(user_id, thread_id):
     try:
+        # ✅ Update cache
+        thread_cache[user_id] = thread_id  
+
+        # ✅ Store in MySQL
         query = """
         INSERT INTO user_threads (user_id, thread_id) 
         VALUES (%s, %s) 
@@ -73,15 +80,25 @@ def save_thread(user_id, thread_id):
         """
         db_cursor.execute(query, (user_id, thread_id))
         db_connection.commit()
-        print(f"✅ Stored thread ID for user {user_id}.")
+        print(f"✅ Stored thread ID for user {user_id}. (Cached & MySQL)")
     except Error as e:
         print(f"❌ Failed to store thread ID: {e}")
 
 # ✅ Function to get a user's thread ID from MySQL
 def get_thread_id(user_id):
+    # ✅ Check if thread ID is in cache first
+    if user_id in thread_cache:
+        return thread_cache[user_id]
+
+    # ✅ Otherwise, query MySQL as a fallback
     db_cursor.execute("SELECT thread_id FROM user_threads WHERE user_id = %s", (user_id,))
     result = db_cursor.fetchone()
-    return result[0] if result else None
+
+    if result:
+        thread_cache[user_id] = result[0]  # ✅ Store in cache
+        return result[0]
+
+    return None  # No thread found
 
 @bot.event
 async def on_ready():
@@ -123,16 +140,17 @@ async def handle_user_message(message):
 
             user_id = str(message.author.id)
 
-            # ✅ Check if user has an existing thread, or create one
+            # ✅ Check if user has an existing thread, using cache first
             thread_id = get_thread_id(user_id)
 
             if not thread_id:
                 thread = await asyncio.to_thread(lambda: client.beta.threads.create())
                 thread_id = thread.id
-                save_thread(user_id, thread_id)  # ✅ Store in MySQL
+                save_thread(user_id, thread_id)  # ✅ Store in cache & MySQL
                 print(f"✅ Created new thread for user {user_id}: {thread_id}")
             else:
-                print(f"✅ Retrieved existing thread for user {user_id}: {thread_id}")
+                print(f"✅ Retrieved existing thread from cache/MySQL for user {user_id}: {thread_id}")
+
 
             try:
                 content_data = []
@@ -239,17 +257,23 @@ async def handle_user_message(message):
                 async with message.channel.typing():
                     print("⏳ Processing OpenAI request...")
 
-                        # ✅ Run OpenAI processing FIRST
-                await asyncio.to_thread(client.beta.threads.runs.create_and_poll, thread_id=thread_id, assistant_id=ASSISTANT_ID)
+                    # ✅ Run OpenAI processing first
+                    run_task = asyncio.create_task(asyncio.to_thread(
+                        client.beta.threads.runs.create_and_poll, 
+                        thread_id=thread_id, 
+                        assistant_id=ASSISTANT_ID
+                    ))
 
-                # ✅ Fetch the latest message AFTER processing completes
-                messages = await asyncio.to_thread(
-                    client.beta.threads.messages.list,
-                    thread_id=thread_id,
-                    order="desc",
-                    limit=1
-                        )
+                    # ✅ Wait for OpenAI processing to finish BEFORE fetching response
+                    await run_task  # Ensures the response exists before fetching
 
+                    # ✅ Now fetch the latest response
+                    messages = await asyncio.to_thread(
+                        client.beta.threads.messages.list,
+                        thread_id=thread_id,
+                        order="desc",
+                        limit=1
+                    )
 
                 # ✅ Extract AI response
                 if messages.data and messages.data[0].role == "assistant":
