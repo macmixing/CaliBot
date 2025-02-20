@@ -176,8 +176,6 @@ async def handle_user_message(message):
                                     file_id = file_response.id
                                     print(f"✅ Image uploaded to OpenAI. File ID: {file_id}")
                                     content_data.append({"type": "image_file", "image_file": {"file_id": file_id}})
-                                    file_id = file_response.id
-                                    print(f"✅ Image uploaded to OpenAI. File ID: {file_id}")
 
                                     # ✅ Add image to content_data
                                     content_data.append({"type": "image_file", "image_file": {"file_id": file_id}})
@@ -237,32 +235,37 @@ async def handle_user_message(message):
                 # ✅ Send message + image/file (if available) to OpenAI
                 await asyncio.to_thread(client.beta.threads.messages.create, thread_id=thread_id, role="user", content=content_data)
 
-                # ✅ Run AI processing
-                async with message.channel.typing():  # ✅ Show typing while AI processes request
+                # ✅ Show typing indicator while processing
+                async with message.channel.typing():
                     print("⏳ Processing OpenAI request...")
-                    run_task = asyncio.create_task(asyncio.to_thread(client.beta.threads.runs.create_and_poll, thread_id=thread_id, assistant_id=ASSISTANT_ID))
-                    await run_task  # ✅ Ensures AI processing completes
 
+                    # ✅ Run OpenAI processing first
+                    run_task = asyncio.create_task(asyncio.to_thread(
+                        client.beta.threads.runs.create_and_poll, 
+                        thread_id=thread_id, 
+                        assistant_id=ASSISTANT_ID
+                    ))
 
-                    # ✅ Retrieve the **latest** message only
-                    message_task = asyncio.create_task(
-                        asyncio.to_thread(
-                            client.beta.threads.messages.list,
-                            thread_id=thread_id,
-                            order="desc",
-                            limit=1
-                        )
+                    # ✅ Wait for OpenAI processing to finish BEFORE fetching response
+                    await run_task  # Ensures the response exists before fetching
+
+                    # ✅ Now fetch the latest response
+                    messages = await asyncio.to_thread(
+                        client.beta.threads.messages.list,
+                        thread_id=thread_id,
+                        order="desc",
+                        limit=1
                     )
 
-                messages = await message_task  # ✅ Ensures response is retrieved correctly
-
+                # ✅ Extract AI response
                 if messages.data and messages.data[0].role == "assistant":
                     assistant_reply = messages.data[0].content[0].text.value
                 else:
                     assistant_reply = "⚠️ No response from the assistant."
 
-                send_task = asyncio.create_task(message.channel.send(assistant_reply[:2000]))
-                await send_task  # ✅ Ensures response is sent without blocking
+                # ✅ Send the AI response in a single message
+                await message.channel.send(assistant_reply[:2000])
+
 
             except Exception as e:
                 print(f"❌ Error: {e}")

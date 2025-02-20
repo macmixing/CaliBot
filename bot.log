@@ -1,0 +1,195 @@
+✅ Connected to MySQL database
+[2025-02-20 16:05:49] [INFO    ] discord.client: logging in using static token
+[2025-02-20 16:05:50] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 525c6126908078de0bf5ff6ec184e2fd).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hi
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+❌ No valid input for AI. Skipping processing.
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: add together the line items on this invoice
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1342167034095730791/Invoice-F9717370-0012.pdf?ex=67b8a5f5&is=67b75475&hm=1debdbe3184ce7c09a917866fa1068fe07e752ae8cd61deba7bb3a852b49fb44&
+✅ File successfully saved at: discord-files/invoice-f9717370-0012.pdf
+✅ Extracted 1541 characters from invoice-f9717370-0012.pdf
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what information is attached to each line item?
+⏳ Processing OpenAI request...
+[2025-02-20 16:20:33] [ERROR   ] discord.client: Attempting a reconnect in 1.80s
+Traceback (most recent call last):
+  File "/home/ec2-user/discord-bot/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/discord-bot/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-20 16:20:35] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 525c6126908078de0bf5ff6ec184e2fd.
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is it for?
+⏳ Processing OpenAI request...
+[2025-02-20 16:27:19] [ERROR   ] discord.client: Attempting a reconnect in 0.29s
+Traceback (most recent call last):
+  File "/home/ec2-user/discord-bot/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/discord-bot/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-20 16:27:20] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 525c6126908078de0bf5ff6ec184e2fd.
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: thanks
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What is the biggest city in the US?
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is the capital of Washington?
+⏳ Processing OpenAI request...
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 16:51:56] [INFO    ] discord.client: logging in using static token
+[2025-02-20 16:51:56] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 9efca062194b8dc2472fd367677a5d20).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hello
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 16:55:27] [INFO    ] discord.client: logging in using static token
+[2025-02-20 16:55:27] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: be1254d1f164455b0338c6d627db8220).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What is the biggest city in the US?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is the capital of Washington?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: and how many people live in it?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Okay
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: okay tell me about this
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341092221046493275/1342178308426694676/IMG_1634.jpg?ex=67b8b075&is=67b75ef5&hm=522ee4262d8093951f8122edaa21448e14c76494eaed42a83f8ce480c9a20b6b&
+✅ Image successfully saved at: discord-images/img_1634.jpg
+✅ Image uploaded to OpenAI. File ID: file-7VVjHfMztBk77pSG8GCeze
+✅ Image uploaded to OpenAI. File ID: file-7VVjHfMztBk77pSG8GCeze
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What is that?
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1342178345957457970/IMG_1634.png?ex=67b8b07e&is=67b75efe&hm=74f93923feb87f881b114b0172d65542541a52dc640b169ff21bf74cb07114b9&
+✅ Image successfully saved at: discord-images/img_1634.png
+✅ Image uploaded to OpenAI. File ID: file-Gsnm7c1ncQD6WrBaweTVHJ
+✅ Image uploaded to OpenAI. File ID: file-Gsnm7c1ncQD6WrBaweTVHJ
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Thanks
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 17:04:27] [INFO    ] discord.client: logging in using static token
+[2025-02-20 17:04:28] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: db38d28031e1fd8420399ca43b242fab).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 17:06:58] [INFO    ] discord.client: logging in using static token
+[2025-02-20 17:06:58] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 2ac58ae4b5a4ee516fe7d587b0a99429).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 17:08:20] [INFO    ] discord.client: logging in using static token
+[2025-02-20 17:08:20] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: c4998f4a703a903cde0313ffeec4f575).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 17:10:50] [INFO    ] discord.client: logging in using static token
+[2025-02-20 17:10:50] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 4f6a60c979ba296393a823b7e9e44a29).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+⏳ Processing OpenAI request...
+  File "/home/ec2-user/discord-bot/bot.py", line 245
+    await asyncio.to_thread(client.beta.threads.runs.create_and_poll, thread_id=thread_id, assistant_id=ASSISTANT_ID)
+IndentationError: unexpected indent
+  File "/home/ec2-user/discord-bot/bot.py", line 245
+    await asyncio.to_thread(client.beta.threads.runs.create_and_poll, thread_id=thread_id, assistant_id=ASSISTANT_ID)
+IndentationError: unexpected indent
+  File "/home/ec2-user/discord-bot/bot.py", line 245
+    await asyncio.to_thread(client.beta.threads.runs.create_and_poll, thread_id=thread_id, assistant_id=ASSISTANT_ID)
+IndentationError: unexpected indent
+  File "/home/ec2-user/discord-bot/bot.py", line 245
+    await asyncio.to_thread(client.beta.threads.runs.create_and_poll, thread_id=thread_id, assistant_id=ASSISTANT_ID)
+IndentationError: unexpected indent
+  File "/home/ec2-user/discord-bot/bot.py", line 245
+    await asyncio.to_thread(client.beta.threads.runs.create_and_poll, thread_id=thread_id, assistant_id=ASSISTANT_ID)
+IndentationError: unexpected indent
+✅ Connected to MySQL database
+[2025-02-20 17:13:36] [INFO    ] discord.client: logging in using static token
+[2025-02-20 17:13:37] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: e32bfa7a76d9138dfd3069db1962d8c8).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: who are you?
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Who are you?
+⏳ Processing OpenAI request...
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1342182825763541044/IMG_1634.png?ex=67b8b4aa&is=67b7632a&hm=897a762f80192980df207514dd7923e7e73b3fdd48a0ad97441fac9916c9dc96&
+✅ Image successfully saved at: discord-images/img_1634.png
+✅ Image uploaded to OpenAI. File ID: file-2BDV14fY7WouLZNgUqGePo
+✅ Image uploaded to OpenAI. File ID: file-2BDV14fY7WouLZNgUqGePo
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 17:16:56] [INFO    ] discord.client: logging in using static token
+[2025-02-20 17:16:56] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 4e7ae5cf7c2a98066114404a3b451a54).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Why is this
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1342183292388245566/IMG_1631.jpg?ex=67b8b519&is=67b76399&hm=3967f3d1263f0517cb60df4b80fe1498ac14d13ee1ff79ac4799a1087dfbca61&
+✅ Image successfully saved at: discord-images/img_1631.jpg
+✅ Image uploaded to OpenAI. File ID: file-LhSwhUnuXqjYtNrB48m548
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 17:19:45] [INFO    ] discord.client: logging in using static token
+[2025-02-20 17:19:46] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: f7ce3532186f8897fe31673afbeb639d).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hello
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 17:25:42] [INFO    ] discord.client: logging in using static token
+[2025-02-20 17:25:43] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 1113c23e0c3105fa9360f5e73760948b).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hello
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hello
+⏳ Processing OpenAI request...
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hello
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
