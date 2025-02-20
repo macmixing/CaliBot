@@ -998,3 +998,30 @@ SyntaxError: unmatched ')'
 ✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
 📝 Received text: hey
 ⚠️ Ignoring message in thread thread_p7tGyRMDGr4SsHAQoXf9jIGX - already processing.
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what was on the invoic?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: no
+⚠️ Ignoring message in thread thread_p7tGyRMDGr4SsHAQoXf9jIGX - already processing.
+python3: can't open file '/home/ec2-user/ai-assistant/bot.pyRestart=always': [Errno 2] No such file or directory
+✅ Connected to MySQL database
+[2025-02-20 22:13:25] [INFO    ] discord.client: logging in using static token
+[2025-02-20 22:13:25] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 6762d05dbb8df6f3252251d0483ade01).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 22:16:19] [INFO    ] discord.client: logging in using static token
+[2025-02-20 22:16:19] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 687cdebec5c139783034d988a223eba7).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: howdy
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is this?
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1342259283315654807/podcast-export-2-script.txt?ex=67b8fbdf&is=67b7aa5f&hm=d03e439545705a2a10e5c2539a36a6dd1c2582baf9d7b36736786e854f8b2632&
+✅ File successfully saved at: discord-files/podcast-export-2-script.txt
+✅ Extracted 35237 characters from podcast-export-2-script.txt
+⏳ Processing OpenAI request...
