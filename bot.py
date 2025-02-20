@@ -239,23 +239,17 @@ async def handle_user_message(message):
                 async with message.channel.typing():
                     print("⏳ Processing OpenAI request...")
 
-                    # ✅ Run OpenAI processing first
-                    run_task = asyncio.create_task(asyncio.to_thread(
-                        client.beta.threads.runs.create_and_poll, 
-                        thread_id=thread_id, 
-                        assistant_id=ASSISTANT_ID
-                    ))
+                        # ✅ Run OpenAI processing FIRST
+                await asyncio.to_thread(client.beta.threads.runs.create_and_poll, thread_id=thread_id, assistant_id=ASSISTANT_ID)
 
-                    # ✅ Wait for OpenAI processing to finish BEFORE fetching response
-                    await run_task  # Ensures the response exists before fetching
+                # ✅ Fetch the latest message AFTER processing completes
+                messages = await asyncio.to_thread(
+                    client.beta.threads.messages.list,
+                    thread_id=thread_id,
+                    order="desc",
+                    limit=1
+                        )
 
-                    # ✅ Now fetch the latest response
-                    messages = await asyncio.to_thread(
-                        client.beta.threads.messages.list,
-                        thread_id=thread_id,
-                        order="desc",
-                        limit=1
-                    )
 
                 # ✅ Extract AI response
                 if messages.data and messages.data[0].role == "assistant":
