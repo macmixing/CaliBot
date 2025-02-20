@@ -249,3 +249,19 @@ IndentationError: unexpected indent
 ✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
 📝 Received text: tell me about the invoice again? Real quick summary
 ⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 17:52:57] [INFO    ] discord.client: logging in using static token
+[2025-02-20 17:52:57] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 32d21189b9f9a16e085a21ff24cdd3cf).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What’s this?
+📄 Detected file: https://cdn.discordapp.com/attachments/1341170981867225140/1342192341011927132/Untitled_50.txt?ex=67b8bd86&is=67b76c06&hm=10672337485a982cbfcffa806c28482cef14a274ed662712585cd23da50cb769&
+✅ File successfully saved at: discord-files/untitled_50.txt
+✅ Extracted 660 characters from untitled_50.txt
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341170981867225140/1342192498491261142/Dom_Esposito_x_RayNeo_Agreement_Addendum.pdf?ex=67b8bdac&is=67b76c2c&hm=ce35008f552c34061da37215f5e30766db3b501b5dba8d5ef839d39f9467e7dd&
+✅ File successfully saved at: discord-files/dom_esposito_x_rayneo_agreement_addendum.pdf
+✅ Extracted 3071 characters from dom_esposito_x_rayneo_agreement_addendum.pdf
+⏳ Processing OpenAI request...

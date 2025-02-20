@@ -203,8 +203,8 @@ async def handle_user_message(message):
                                     return
                             os.remove(image_path)
 
-                        # ✅ File Handling (.DOCX, .PDF, .XLSX)
-                        elif filename.endswith((".pdf", ".docx", ".xlsx")):
+                        # ✅ File Handling (.DOCX, .PDF, .XLSX, .TXT)
+                        elif filename.endswith((".pdf", ".docx", ".xlsx", ".txt")):
                             print(f"📄 Detected file: {file_url}")
                             file_path = os.path.join(FILE_DIR, filename)
 
@@ -234,6 +234,9 @@ async def handle_user_message(message):
                                 extracted_text = "\n".join(
                                     [str(cell.value) for sheet in workbook.worksheets for row in sheet.iter_rows() for cell in row if cell.value]
                                 )
+                            elif filename.endswith(".txt"):  # ✅ NEW TXT FILE SUPPORT
+                                with open(file_path, "r", encoding="utf-8") as txt_file:
+                                    extracted_text = txt_file.read()
 
                             # ✅ Add extracted text to OpenAI request
                             if extracted_text:
@@ -243,6 +246,7 @@ async def handle_user_message(message):
                                 print(f"⚠️ No readable content in {filename}")
                                 await message.channel.send("⚠️ No readable content found in the file.")
                             os.remove(file_path)
+
     
                 # ✅ Ensure OpenAI receives valid input
                 if not content_data:
