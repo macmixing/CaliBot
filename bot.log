@@ -265,3 +265,736 @@ IndentationError: unexpected indent
 ✅ File successfully saved at: discord-files/dom_esposito_x_rayneo_agreement_addendum.pdf
 ✅ Extracted 3071 characters from dom_esposito_x_rayneo_agreement_addendum.pdf
 ⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: how many words are in this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1342192731920793723/Channels_for_Discord.docx?ex=67b8bde4&is=67b76c64&hm=daa1af56e36344840cd78f5f3253a6889d07c80f8f5f74abcce2925ca7c85baf&
+✅ File successfully saved at: discord-files/channels_for_discord.docx
+✅ Extracted 2135 characters from channels_for_discord.docx
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1342192827865501746/Video_Stats.xlsx?ex=67b8bdfa&is=67b76c7a&hm=d961c1b00d774cebc3a9bbc9f5341691327504d4a926c10f772cc3f758185c5a&
+✅ File successfully saved at: discord-files/video_stats.xlsx
+✅ Extracted 1181 characters from video_stats.xlsx
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What’s this
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1342193006194855936/IMG_1632.png?ex=67b8be25&is=67b76ca5&hm=c66c77c92885f2a5c986ded3d47fdc30955f288fe905673915c06ad93513e1ff&
+✅ Image successfully saved at: discord-images/img_1632.png
+✅ Image uploaded to OpenAI. File ID: file-7Tgh5uxzC19bE5Fh3seVpX
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is your system instructions?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hello
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: How are you
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hi
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 18:08:02] [INFO    ] discord.client: logging in using static token
+[2025-02-20 18:08:02] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 0ae01eb7ca8a2d1626b8df35c8350e28).
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+✅ Logged in as AI Assistant#5463
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+❌ Error: Error code: 400 - {'error': {'message': "Can't add messages to thread_p7tGyRMDGr4SsHAQoXf9jIGX while a run run_g6oCvy0ddk4nMU7csr8tTRZW is active.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: how are you
+❌ Error: Error code: 400 - {'error': {'message': "Can't add messages to thread_p7tGyRMDGr4SsHAQoXf9jIGX while a run run_Y2gHQAhZYdbvwDUuIiy74ZuY is active.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+✅ Connected to MySQL database
+[2025-02-20 18:12:09] [INFO    ] discord.client: logging in using static token
+[2025-02-20 18:12:10] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 4cf54b570dc627a6d625bc8330309043).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+⏳ Processing OpenAI request...
+❌ Error: Error code: 400 - {'error': {'message': 'Thread thread_p7tGyRMDGr4SsHAQoXf9jIGX already has an active run run_u4mhG094qadYP4btprl3Fhjh.', 'type': 'invalid_request_error', 'param': None, 'code': None}}
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hello
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hello
+❌ Error: Error code: 400 - {'error': {'message': "Can't add messages to thread_p7tGyRMDGr4SsHAQoXf9jIGX while a run run_eQRaN075eqhwDB5i92Z7nzSM is active.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: is chocolate or vanilla better?
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 18:17:11] [INFO    ] discord.client: logging in using static token
+[2025-02-20 18:17:12] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: c7875ff219d2a5f5e42271d6c225fe1b).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 18:18:00] [INFO    ] discord.client: logging in using static token
+[2025-02-20 18:18:01] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: c264a576dd7fdd377acc9bd32516559c).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+❌ Error: Error code: 400 - {'error': {'message': "Can't add messages to thread_p7tGyRMDGr4SsHAQoXf9jIGX while a run run_lJhZBhZc2EM9an50mvYdHFHd is active.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+✅ Connected to MySQL database
+[2025-02-20 18:21:30] [INFO    ] discord.client: logging in using static token
+[2025-02-20 18:21:31] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 9bf2e0c9a3fd20cb1f1b40911e9ae6a7).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 18:21:53] [INFO    ] discord.client: logging in using static token
+[2025-02-20 18:21:54] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 4e39740c2b012839def05555337a78a5).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: whats my fav color
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+⏳ Waiting for active run to finish for thread thread_p7tGyRMDGr4SsHAQoXf9jIGX...
+⏳ Waiting for active run to finish for thread thread_p7tGyRMDGr4SsHAQoXf9jIGX...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is going on?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: how can you help me?
+❌ Error: Error code: 400 - {'error': {'message': "Can't add messages to thread_p7tGyRMDGr4SsHAQoXf9jIGX while a run run_08XHf3s41nvGlWIpgqTWml0e is active.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: how can you help me
+❌ Error: Error code: 400 - {'error': {'message': "Can't add messages to thread_p7tGyRMDGr4SsHAQoXf9jIGX while a run run_08XHf3s41nvGlWIpgqTWml0e is active.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What is the name I gave you
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1342201118737956954/IMG_1616.jpg?ex=67b8c5b3&is=67b77433&hm=7e56d5b189f4518e2af7a5fb444f86d613cf9d7e0482b90dce1032ea7ed46a9c&
+✅ Image successfully saved at: discord-images/img_1616.jpg
+✅ Image uploaded to OpenAI. File ID: file-AyZigLYy7rqN6AYDx8LdHt
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What breed do you think it is?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: How much are dog DNA tests?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Who does the cheap ones?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What about option 2
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: These are siblings of the dog
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1342204446901407774/IMG_7451.jpg?ex=67b8c8cd&is=67b7774d&hm=13db0a887a5a86b3a406ff9d630a1dfecd72aee1a83a6eb8a8771d7b2e2475e2&
+✅ Image successfully saved at: discord-images/img_7451.jpg
+✅ Image uploaded to OpenAI. File ID: file-1b3qEx2J9Hq76oE96xEzGv
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Potentially a parent or two is in that photo as well. Unsure
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 18:44:36] [INFO    ] discord.client: logging in using static token
+[2025-02-20 18:44:37] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 5cc02cfeee41f98a151242420a2c19cd).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: thanks for tht
+⏳ Processing OpenAI request...
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+✅ Connected to MySQL database
+[2025-02-20 18:48:57] [INFO    ] discord.client: logging in using static token
+[2025-02-20 18:48:58] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: d429d3709de1f347ca6e8e721ee3d362).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what's up
+⏳ Processing OpenAI request...
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    async def wait_for_run_completion(thread_id):
+IndentationError: unexpected unindent
+✅ Connected to MySQL database
+[2025-02-20 18:51:34] [INFO    ] discord.client: logging in using static token
+[2025-02-20 18:51:35] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: f1427c8fa389eb78b9f8c578179cfd89).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: whats my favorite color
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 18:55:19] [INFO    ] discord.client: logging in using static token
+[2025-02-20 18:55:19] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 9052e14464b56a705db9d4b2b7b0e95d).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 18:56:14] [INFO    ] discord.client: logging in using static token
+[2025-02-20 18:56:14] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 7c174a03d4bc7ad4d6e6486236311ae2).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: whats up
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 18:57:58] [INFO    ] discord.client: logging in using static token
+[2025-02-20 18:57:58] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: e65b7d638e589f7bbc49818f05ad0948).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: my favorite color is blue
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: whats my favorite color
+❌ Error: Error code: 400 - {'error': {'message': "Can't add messages to thread_p7tGyRMDGr4SsHAQoXf9jIGX while a run run_cWoeMh8VLDT04hb4uS3wtT72 is active.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+  File "/home/ec2-user/discord-bot/bot.py", line 167
+    async with message.channel.typing():  # ✅ Bot shows "typing" indicator
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 167
+    async with message.channel.typing():  # ✅ Bot shows "typing" indicator
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 167
+    async with message.channel.typing():  # ✅ Bot shows "typing" indicator
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 167
+    async with message.channel.typing():  # ✅ Bot shows "typing" indicator
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 167
+    async with message.channel.typing():  # ✅ Bot shows "typing" indicator
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 170
+    if isinstance(message.channel, discord.DMChannel):  # Only respond to DMs
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 170
+    if isinstance(message.channel, discord.DMChannel):  # Only respond to DMs
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 170
+    if isinstance(message.channel, discord.DMChannel):  # Only respond to DMs
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 170
+    if isinstance(message.channel, discord.DMChannel):  # Only respond to DMs
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 170
+    if isinstance(message.channel, discord.DMChannel):  # Only respond to DMs
+    ^
+IndentationError: expected an indented block
+✅ Connected to MySQL database
+[2025-02-20 19:18:23] [INFO    ] discord.client: logging in using static token
+[2025-02-20 19:18:24] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: ba4c23f9ae4cf5ae17457317662c01ec).
+✅ Logged in as AI Assistant#5463
+  File "/home/ec2-user/discord-bot/bot.py", line 167
+    async with message.channel.typing():  # ✅ Bot shows "typing" indicator
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 167
+    async with message.channel.typing():  # ✅ Bot shows "typing" indicator
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 167
+    async with message.channel.typing():  # ✅ Bot shows "typing" indicator
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 167
+    async with message.channel.typing():  # ✅ Bot shows "typing" indicator
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 167
+    async with message.channel.typing():  # ✅ Bot shows "typing" indicator
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 170
+    if isinstance(message.channel, discord.DMChannel):  # Only respond to DMs
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 170
+    if isinstance(message.channel, discord.DMChannel):  # Only respond to DMs
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 170
+    if isinstance(message.channel, discord.DMChannel):  # Only respond to DMs
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 170
+    if isinstance(message.channel, discord.DMChannel):  # Only respond to DMs
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 170
+    if isinstance(message.channel, discord.DMChannel):  # Only respond to DMs
+    ^
+IndentationError: expected an indented block
+✅ Connected to MySQL database
+[2025-02-20 19:25:27] [INFO    ] discord.client: logging in using static token
+[2025-02-20 19:25:28] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: cc6411272b62e66f6d64a66456140831).
+✅ Logged in as AI Assistant#5463
+Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<handle_user_message() done, defined at /home/ec2-user/discord-bot/bot.py:150> exception=UnboundLocalError("local variable 'process_message' referenced before assignment")>
+Traceback (most recent call last):
+  File "/home/ec2-user/discord-bot/bot.py", line 162, in handle_user_message
+    await process_message(message)  # Move actual processing to a separate function
+UnboundLocalError: local variable 'process_message' referenced before assignment
+  File "/home/ec2-user/discord-bot/bot.py", line 151
+    async with message.channel.typing():  # ✅ Bot shows "typing" indicator
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 151
+    async with message.channel.typing():  # ✅ Bot shows "typing" indicator
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 151
+    async with message.channel.typing():  # ✅ Bot shows "typing" indicator
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 151
+    async with message.channel.typing():  # ✅ Bot shows "typing" indicator
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 151
+    async with message.channel.typing():  # ✅ Bot shows "typing" indicator
+    ^
+IndentationError: expected an indented block
+✅ Connected to MySQL database
+[2025-02-20 19:35:15] [INFO    ] discord.client: logging in using static token
+[2025-02-20 19:35:16] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: a57619fae38a0e42d1d114d8106d0c6d).
+✅ Logged in as AI Assistant#5463
+Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<handle_user_message() done, defined at /home/ec2-user/discord-bot/bot.py:223> exception=NameError("name 'process_message' is not defined")>
+Traceback (most recent call last):
+  File "/home/ec2-user/discord-bot/bot.py", line 235, in handle_user_message
+    await process_message(message)  # Move actual processing to a separate function
+NameError: name 'process_message' is not defined
+✅ Connected to MySQL database
+[2025-02-20 19:39:00] [INFO    ] discord.client: logging in using static token
+[2025-02-20 19:39:01] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: b83f3eed01f078a81daf5212f61b215c).
+✅ Logged in as AI Assistant#5463
+✅ Connected to MySQL database
+Traceback (most recent call last):
+  File "/home/ec2-user/discord-bot/bot.py", line 153, in <module>
+    asyncio.create_task(handle_user_message(message))  # ✅ Runs in the background
+NameError: name 'handle_user_message' is not defined
+✅ Connected to MySQL database
+Traceback (most recent call last):
+  File "/home/ec2-user/discord-bot/bot.py", line 153, in <module>
+    asyncio.create_task(handle_user_message(message))  # ✅ Runs in the background
+NameError: name 'handle_user_message' is not defined
+✅ Connected to MySQL database
+Traceback (most recent call last):
+  File "/home/ec2-user/discord-bot/bot.py", line 153, in <module>
+    asyncio.create_task(handle_user_message(message))  # ✅ Runs in the background
+NameError: name 'handle_user_message' is not defined
+✅ Connected to MySQL database
+Traceback (most recent call last):
+  File "/home/ec2-user/discord-bot/bot.py", line 153, in <module>
+    asyncio.create_task(handle_user_message(message))  # ✅ Runs in the background
+NameError: name 'handle_user_message' is not defined
+✅ Connected to MySQL database
+Traceback (most recent call last):
+  File "/home/ec2-user/discord-bot/bot.py", line 153, in <module>
+    asyncio.create_task(handle_user_message(message))  # ✅ Runs in the background
+NameError: name 'handle_user_message' is not defined
+✅ Connected to MySQL database
+[2025-02-20 19:45:29] [INFO    ] discord.client: logging in using static token
+[2025-02-20 19:45:29] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 50ba7abca6f81fefb276ba6954154672).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: summarize this
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 19:48:34] [INFO    ] discord.client: logging in using static token
+[2025-02-20 19:48:35] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: af0d48e2b94ebaae2046db3c13a9dfb4).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: whats my favorite color
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 19:50:18] [INFO    ] discord.client: logging in using static token
+[2025-02-20 19:50:18] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 10ee580d1e05883fbba7c0f89856d5ea).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hello there
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: whats my fav color
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: A
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Okay
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: thanks
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: ive named you dirk
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What is your name?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: whats this in one sentence
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: now summarize it please
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What’s this
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 19:54:33] [INFO    ] discord.client: logging in using static token
+[2025-02-20 19:54:34] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 1884781fced88ee9ccaf3ce603440448).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is this in one sentence
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1342222952632160407/subscription_and_onboarding_lifecycle.pdf?ex=67b8da09&is=67b78889&hm=bccb949cda74ab2b7ccad1d92c2ff1d0f67cf3c7bce0256a8580941d0d3c6077&
+✅ File successfully saved at: discord-files/subscription_and_onboarding_lifecycle.pdf
+✅ Extracted 1951 characters from subscription_and_onboarding_lifecycle.pdf
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: thanks
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: thanks
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: you are silly
+❌ Error: Error code: 400 - {'error': {'message': "Can't add messages to thread_p7tGyRMDGr4SsHAQoXf9jIGX while a run run_Njtc3KxOKXXaDuLOWz7PuKXO is active.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hello
+❌ Error: Error code: 400 - {'error': {'message': "Can't add messages to thread_p7tGyRMDGr4SsHAQoXf9jIGX while a run run_Njtc3KxOKXXaDuLOWz7PuKXO is active.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What hex color is used here
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1342224117109231657/IMG_1632.png?ex=67b8db1e&is=67b7899e&hm=6805ce4e9159e75125c93285da8e52a1391b15ff3d7c00bf63204b8be9a3335a&
+✅ Image successfully saved at: discord-images/img_1632.png
+✅ Image uploaded to OpenAI. File ID: file-WneARYuMtPextrNG89XuGD
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What is the file size
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What’s my favorite color
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What was in the invoice from earlier?
+⏳ Processing OpenAI request...
+  File "/home/ec2-user/discord-bot/bot.py", line 257
+    await asyncio.to_thread(client.beta.threads.messages.create, thread_id=thread_id, role="user", content=content_data)
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 257
+    await asyncio.to_thread(client.beta.threads.messages.create, thread_id=thread_id, role="user", content=content_data)
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 257
+    await asyncio.to_thread(client.beta.threads.messages.create, thread_id=thread_id, role="user", content=content_data)
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 257
+    await asyncio.to_thread(client.beta.threads.messages.create, thread_id=thread_id, role="user", content=content_data)
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 257
+    await asyncio.to_thread(client.beta.threads.messages.create, thread_id=thread_id, role="user", content=content_data)
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    except Exception as e:
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    except Exception as e:
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    except Exception as e:
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    except Exception as e:
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 258
+    except Exception as e:
+IndentationError: unexpected unindent
+  File "/home/ec2-user/discord-bot/bot.py", line 299
+    )
+    ^
+SyntaxError: unmatched ')'
+  File "/home/ec2-user/discord-bot/bot.py", line 299
+    )
+    ^
+SyntaxError: unmatched ')'
+  File "/home/ec2-user/discord-bot/bot.py", line 299
+    )
+    ^
+SyntaxError: unmatched ')'
+  File "/home/ec2-user/discord-bot/bot.py", line 299
+    )
+    ^
+SyntaxError: unmatched ')'
+  File "/home/ec2-user/discord-bot/bot.py", line 299
+    )
+    ^
+SyntaxError: unmatched ')'
+  File "/home/ec2-user/discord-bot/bot.py", line 299
+    )
+    ^
+SyntaxError: unmatched ')'
+  File "/home/ec2-user/discord-bot/bot.py", line 299
+    )
+    ^
+SyntaxError: unmatched ')'
+  File "/home/ec2-user/discord-bot/bot.py", line 299
+    )
+    ^
+SyntaxError: unmatched ')'
+  File "/home/ec2-user/discord-bot/bot.py", line 299
+    )
+    ^
+SyntaxError: unmatched ')'
+  File "/home/ec2-user/discord-bot/bot.py", line 299
+    )
+    ^
+SyntaxError: unmatched ')'
+  File "/home/ec2-user/discord-bot/bot.py", line 291
+    try:
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/discord-bot/bot.py", line 291
+    try:
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/discord-bot/bot.py", line 291
+    try:
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/discord-bot/bot.py", line 291
+    try:
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/discord-bot/bot.py", line 291
+    try:
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/discord-bot/bot.py", line 296
+    )
+    ^
+SyntaxError: unmatched ')'
+  File "/home/ec2-user/discord-bot/bot.py", line 296
+    )
+    ^
+SyntaxError: unmatched ')'
+  File "/home/ec2-user/discord-bot/bot.py", line 296
+    )
+    ^
+SyntaxError: unmatched ')'
+  File "/home/ec2-user/discord-bot/bot.py", line 296
+    )
+    ^
+SyntaxError: unmatched ')'
+  File "/home/ec2-user/discord-bot/bot.py", line 296
+    )
+    ^
+SyntaxError: unmatched ')'
+✅ Connected to MySQL database
+[2025-02-20 21:19:08] [INFO    ] discord.client: logging in using static token
+[2025-02-20 21:19:08] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: a12105b248f4d61a785fb65bcac53982).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hello
+✅ Connected to MySQL database
+[2025-02-20 21:20:13] [INFO    ] discord.client: logging in using static token
+[2025-02-20 21:20:14] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 37b7a8168e8dc63c31c82ebffa994c9a).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+❌ Error: Error code: 400 - {'error': {'message': "Can't add messages to thread_p7tGyRMDGr4SsHAQoXf9jIGX while a run run_wqDh373ghQkR07vEw9Hucf07 is active.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+✅ Connected to MySQL database
+[2025-02-20 21:27:27] [INFO    ] discord.client: logging in using static token
+[2025-02-20 21:27:27] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: ec2dfc1869e70ccddae070a4948d21fd).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hello
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⚠️ Ignoring message in thread thread_p7tGyRMDGr4SsHAQoXf9jIGX - already processing.
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: not much jus testing you out.
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hello
+⏳ Processing OpenAI request...
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hi
+⚠️ Ignoring message in thread thread_p7tGyRMDGr4SsHAQoXf9jIGX - already processing.
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hey
+⚠️ Ignoring message in thread thread_MfghNnO43DVnJGmgn4QlPU6T - already processing.
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What’s this?
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1342246566945099827/IMG_1631.jpg?ex=67b8f007&is=67b79e87&hm=a79a3815c14fc4a357cb1a06df65ed3baf8bdfdf9d7f439e0745cc68010bb895&
+✅ Image successfully saved at: discord-images/img_1631.jpg
+✅ Image uploaded to OpenAI. File ID: file-EjhaUbDRzQ6kAtrKipvcJh
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hey
+⚠️ Ignoring message in thread thread_MfghNnO43DVnJGmgn4QlPU6T - already processing.
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341170981867225140/1342246717294116906/apple-ios-11.txt?ex=67b8f02b&is=67b79eab&hm=d22f39ef738baa093f3527eb8a3a9dc6c0840e1cfa70d41cdd13c619cef25ce0&
+✅ File successfully saved at: discord-files/apple-ios-11.txt
+✅ Extracted 4407 characters from apple-ios-11.txt
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: whats my fav color
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is yours?
+⚠️ Ignoring message in thread thread_p7tGyRMDGr4SsHAQoXf9jIGX - already processing.
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⚠️ Ignoring message in thread thread_p7tGyRMDGr4SsHAQoXf9jIGX - already processing.
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⚠️ Ignoring message in thread thread_p7tGyRMDGr4SsHAQoXf9jIGX - already processing.
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⚠️ Ignoring message in thread thread_p7tGyRMDGr4SsHAQoXf9jIGX - already processing.

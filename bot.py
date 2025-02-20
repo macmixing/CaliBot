@@ -49,6 +49,9 @@ db_cursor = db_connection.cursor()
 # ✅ Thread cache dictionary (in-memory storage for thread IDs)
 thread_cache = {}
 
+# ✅ Track active threads to prevent duplicate processing
+active_threads = set()
+
 # Initialize OpenAI client
 client = OpenAI(api_key=OPENAI_API_KEY)
 
@@ -254,8 +257,23 @@ async def handle_user_message(message):
                     await message.channel.send("⚠️ Please send a message, an image, or a supported file.")
                     return
 
+                # ✅ Check if thread is already running
+                if thread_id in active_threads:
+                    print(f"⚠️ Ignoring message in thread {thread_id} - already processing.")
+                    return  # Simply ignore the message
+
+
                 # ✅ Send message + image/file (if available) to OpenAI
-                await asyncio.to_thread(client.beta.threads.messages.create, thread_id=thread_id, role="user", content=content_data)
+                # ✅ Mark the thread as active
+                active_threads.add(thread_id)
+
+                try:
+                    await asyncio.to_thread(client.beta.threads.messages.create, thread_id=thread_id, role="user", content=content_data)
+                except Exception as e:
+                    print(f"⚠️ Error sending message to OpenAI: {e}")
+                    await message.channel.send("⚠️ Message could not be sent to AI. Please try again later.")
+                    active_threads.discard(thread_id)  # ✅ Remove from active threads if failed
+                    return  # Stop further processing
 
                 # ✅ Show typing indicator while processing
                 async with message.channel.typing():
@@ -270,6 +288,9 @@ async def handle_user_message(message):
 
                     # ✅ Wait for OpenAI processing to finish BEFORE fetching response
                     await run_task  # Ensures the response exists before fetching
+
+                    # ✅ Mark the thread as completed
+                    active_threads.discard(thread_id)
 
                     # ✅ Now fetch the latest response
                     messages = await asyncio.to_thread(
