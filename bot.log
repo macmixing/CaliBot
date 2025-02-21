@@ -1236,3 +1236,371 @@ discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
 📝 Received text: send me a 4,000 character poem
 ⏳ Processing OpenAI request...
 [2025-02-21 17:33:06] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 1a7093d4dfd26a5828f641437c9e4f5e.
+✅ Connected to MySQL database
+[2025-02-21 18:08:21] [INFO    ] discord.client: logging in using static token
+[2025-02-21 18:08:21] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 0f41ef24152dae323ae32a7dab785f3e).
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is the website of the last logo i sent you
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: thanks and what was on the invoice?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What was the last receipt I sent
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: It was from cvs
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What does this show
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1342561474828046448/IMG_1637.jpg?ex=67ba154f&is=67b8c3cf&hm=17088b3839fb6d751dbf7305d933ad3936d3fc8ed5ea7e577133df74bb3bf165&
+✅ Image successfully saved at: discord-images/img_1637.jpg
+✅ Image uploaded to OpenAI. File ID: file-PA7fCqWXtHXJ9aZbdj2udJ
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What was on the water bottle
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What are the two top features in iOS 11 that we discussed before
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Did I show you a ticket before?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: No a parking ticket
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: This is it
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1342563476018565173/IMG_1638.jpg?ex=67ba172c&is=67b8c5ac&hm=40f95845ebf7756338408e779c0281fc7e61c51a43ccbcbad3b35651c283e655&
+✅ Image successfully saved at: discord-images/img_1638.jpg
+✅ Image uploaded to OpenAI. File ID: file-W7SrWeMB8TdJXNexbGRAQH
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Remember the crystal ball?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: thanks
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-21 19:17:24] [INFO    ] discord.client: logging in using static token
+[2025-02-21 19:17:24] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: ddb5a0ac7f97dde567382048b27071f9).
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is the capital of north dakota?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what was the interview with Maha?
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-21 19:19:16] [INFO    ] discord.client: logging in using static token
+[2025-02-21 19:19:17] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 59b09b5799ac4258ab4d37ff73e680fc).
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what was on the invoice?
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-21 19:27:06] [INFO    ] discord.client: logging in using static token
+[2025-02-21 19:27:07] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 1732968d24bb73697df06d267e0753cd).
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what was the last logo i sent you
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: who is Maha again
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-21 19:31:00] [INFO    ] discord.client: logging in using static token
+[2025-02-21 19:31:00] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: e3a8a20277f7509c74b1d0ce74467491).
+✅ Logged in as Cali#5463
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 283
+    run_task = asyncio.create_task(asyncio.to_thread(
+IndentationError: unexpected unindent
+  File "/home/ec2-user/ai-assistant/bot.py", line 283
+    run_task = asyncio.create_task(asyncio.to_thread(
+IndentationError: unexpected unindent
+  File "/home/ec2-user/ai-assistant/bot.py", line 283
+    run_task = asyncio.create_task(asyncio.to_thread(
+IndentationError: unexpected unindent
+  File "/home/ec2-user/ai-assistant/bot.py", line 283
+    run_task = asyncio.create_task(asyncio.to_thread(
+IndentationError: unexpected unindent
+  File "/home/ec2-user/ai-assistant/bot.py", line 283
+    run_task = asyncio.create_task(asyncio.to_thread(
+IndentationError: unexpected unindent
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 287
+    truncation_strategy={  # ✅ Correctly placed here
+    ^
+SyntaxError: invalid syntax
+✅ Connected to MySQL database
+[2025-02-21 19:45:19] [INFO    ] discord.client: logging in using static token
+[2025-02-21 19:45:20] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: e941a8e88df0b2af666681f26b828bea).
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what about the invoice?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: who is Maha?
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-21 19:46:38] [INFO    ] discord.client: logging in using static token
+[2025-02-21 19:46:39] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: af13e677eeddd60983d96cefff9344af).
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: who is Maha
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what are the invoice details?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is the captitL OF arizona?
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-21 19:49:32] [INFO    ] discord.client: logging in using static token
+[2025-02-21 19:49:32] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 5cc72ca4b1d5add9ed298abb5508ea02).
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hello
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: tell me about the invoic
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1342584258598014976/PMS_-_003_-_Maha_Abouelenein.txt?ex=67ba2a87&is=67b8d907&hm=d9fdbda0301a3b42300e4b6e29affb418294a90d663f7223307701e1ee5d6dab&
+✅ File successfully saved at: discord-files/pms_-_003_-_maha_abouelenein.txt
+✅ Extracted 61482 characters from pms_-_003_-_maha_abouelenein.txt
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: Who is maha
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What was on the parking ticket
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: How about the cvs receipt
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What was the price on it
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Here it is
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1342586088191033415/IMG_1637.jpg?ex=67ba2c3b&is=67b8dabb&hm=1cff55e2f87a51f1e7fc05891b361eb092898e01cd05e846958707a99dffac1c&
+✅ Image successfully saved at: discord-images/img_1637.jpg
+✅ Image uploaded to OpenAI. File ID: file-HzPThtCfLi3BvkpyRhN91v
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: That took a long time
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What was the total again
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Where are you getting that price from?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What item was listed here
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1342586837943848970/IMG_1637.jpg?ex=67ba2cee&is=67b8db6e&hm=57aa5775fedfebeaaa97052783f95546c3b44db10b0d9b15997f9e94ba417219&
+✅ Image successfully saved at: discord-images/img_1637.jpg
+✅ Image uploaded to OpenAI. File ID: file-2sDMsED9DEvyyXUZsqHLWy
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What’s the total?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What is the tax amount on this?
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1342587143398232154/IMG_1637.jpg?ex=67ba2d37&is=67b8dbb7&hm=f130f38499dcd301f5c038de3b3db52d40e29bcec0cb580f03a4d40a4b9d59dc&
+✅ Image successfully saved at: discord-images/img_1637.jpg
+✅ Image uploaded to OpenAI. File ID: file-PMcEeB1bzECBxsg1C7hbqn
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: List all of the information on the receipt
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What was on the parking ticket
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Tell me about this ticket
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1342588351085281411/IMG_1639.jpg?ex=67ba2e56&is=67b8dcd6&hm=69163628cb29b191ae8aebb907b45dff098baadac2a7cdf12a18abd472894b11&
+✅ Image successfully saved at: discord-images/img_1639.jpg
+✅ Image uploaded to OpenAI. File ID: file-QXAYWJSPkVTkfWJxF5Kkfc
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+[2025-02-21 20:27:05] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 5cc72ca4b1d5add9ed298abb5508ea02.
+[2025-02-21 20:43:47] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 5cc72ca4b1d5add9ed298abb5508ea02.
+[2025-02-21 21:11:23] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 5cc72ca4b1d5add9ed298abb5508ea02.
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: okay
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is the captial of CA?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: who is Maha?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what about China?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: What is the capital of china
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1342608963610476647/Channels_for_Discord.docx?ex=67ba4189&is=67b8f009&hm=d3849a568bf53190351c82e43a9c774f0f04cb4df0ed4593b8ca0f8b8faacb2a&
+✅ File successfully saved at: discord-files/channels_for_discord.docx
+✅ Extracted 2135 characters from channels_for_discord.docx
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-21 22:36:53] [INFO    ] discord.client: logging in using static token
+[2025-02-21 22:36:53] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 70e4dffb7024c238d46df70f30c57432).
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: send me a 1,000 word poem about dragons
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: make a 2,000 word poem
+⏳ Processing OpenAI request...

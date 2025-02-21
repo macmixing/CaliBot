@@ -283,7 +283,11 @@ async def handle_user_message(message):
                     run_task = asyncio.create_task(asyncio.to_thread(
                         client.beta.threads.runs.create_and_poll, 
                         thread_id=thread_id, 
-                        assistant_id=ASSISTANT_ID
+                        assistant_id=ASSISTANT_ID,
+                        truncation_strategy={  # ✅ Correctly placed here
+                                            "type": "last_messages",
+                                            "last_messages": 15
+                                            }
                     ))
 
                     # ✅ Wait for OpenAI processing to finish BEFORE fetching response
@@ -307,13 +311,20 @@ async def handle_user_message(message):
                     assistant_reply = "⚠️ No response from the assistant."
 
                 # ✅ Send the AI response in a single message
-                await message.channel.send(assistant_reply[:2000])
+                await send_long_message(message.channel, assistant_reply)
 
 
             except Exception as e:
                 print(f"❌ Error: {e}")
 
+# ✅ Function to send long messages in chunks
+async def send_long_message(channel, text):
+    """ Splits long messages into chunks of 2,000 characters and sends them sequentially. """
+    max_length = 2000  # Discord's message limit
 
+    for i in range(0, len(text), max_length):
+        chunk = text[i:i + max_length]
+        await channel.send(chunk)
 
 # ✅ Close database connection when bot shuts down
 import atexit
