@@ -1604,3 +1604,62 @@ SyntaxError: invalid syntax
 ✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
 📝 Received text: make a 2,000 word poem
 ⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1342627199672385609/Discord_Discussion_-_Meeting_Agenda_and_Notes.docx?ex=67ba5285&is=67b90105&hm=f97761b216f2bd51536b19b10628b5359227cb8c3dfbfe874a749da4344c2bce&
+✅ File successfully saved at: discord-files/discord_discussion_-_meeting_agenda_and_notes.docx
+✅ Extracted 1145 characters from discord_discussion_-_meeting_agenda_and_notes.docx
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is the capital of Maine
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what's your name?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: summarize this
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-21 22:52:15] [INFO    ] discord.client: logging in using static token
+[2025-02-21 22:52:15] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: be3a965485f67a5e5f735c1237af2438).
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1342630075186548847/bot-example.rtf?ex=67ba5532&is=67b903b2&hm=4202fc24f28e0937ba4100c45fce1ba31ed3c3e3914ef238769b5f7117d6de92&
+✅ File successfully saved at: discord-files/bot-example.rtf
+✅ Extracted 6417 characters from bot-example.rtf
+⚠️ Error sending message to OpenAI: 'utf-8' codec can't encode characters in position 6379-6380: surrogates not allowed
+✅ Connected to MySQL database
+[2025-02-21 22:54:15] [INFO    ] discord.client: logging in using static token
+[2025-02-21 22:54:16] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: ef80097af0964e2075fe6d7cfb4d0b52).
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is this?
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1342630555396870225/bot-example_1.rtf?ex=67ba55a5&is=67b90425&hm=37c944257dda4e7065aa0eb17cf0c27fc2999ab4bca63b2db3c9d53e02485f79&
+✅ File successfully saved at: discord-files/bot-example_1.rtf
+✅ Extracted 6415 characters from bot-example_1.rtf
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1342630641686024343/Discord_Discussion_-_Meeting_Agenda_and_Notes.docx?ex=67ba55b9&is=67b90439&hm=8ee29882dd84ff867f2ee26ad44f24ab5fc3988a064b972a700cf6d3a0f5697c&
+✅ File successfully saved at: discord-files/discord_discussion_-_meeting_agenda_and_notes.docx
+✅ Extracted 1145 characters from discord_discussion_-_meeting_agenda_and_notes.docx
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1342630760598863942/Video_Stats.xlsx?ex=67ba55d6&is=67b90456&hm=8f072e797af793c73f086f8346da7685a9b53269099ffad204ada8f5f4c78f48&
+✅ File successfully saved at: discord-files/video_stats.xlsx
+✅ Extracted 1181 characters from video_stats.xlsx
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is this?
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1342630924931698699/Discord_Developer_Portal_Documentation_Teams.pdf?ex=67ba55fd&is=67b9047d&hm=282779bfcdd925376e421f19fab89750a25da712b208604176a68d3154f6039b&
+✅ File successfully saved at: discord-files/discord_developer_portal_documentation_teams.pdf
+✅ Extracted 2301 characters from discord_developer_portal_documentation_teams.pdf
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what hex color is used here?
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341092221046493275/1342631015981776937/Youtube_shorts_icon.svg.png?ex=67ba5613&is=67b90493&hm=2c298c9cc992fe2c11c171a8c0c7563901939132ebf9024daabce5bed05733a8&
+✅ Image successfully saved at: discord-images/youtube_shorts_icon.svg.png
+✅ Image uploaded to OpenAI. File ID: file-XK9Jda2y1tCAqUEdd2eTbt
+⏳ Processing OpenAI request...

@@ -206,8 +206,8 @@ async def handle_user_message(message):
                                     return
                             os.remove(image_path)
 
-                        # ✅ File Handling (.DOCX, .PDF, .XLSX, .TXT)
-                        elif filename.endswith((".pdf", ".docx", ".xlsx", ".txt")):
+                        # ✅ File Handling (.DOCX, .PDF, .XLSX, .TXT, .RTF)
+                        elif filename.endswith((".pdf", ".docx", ".xlsx", ".txt", ".rtf")):  # ✅ Added .RTF support
                             print(f"📄 Detected file: {file_url}")
                             file_path = os.path.join(FILE_DIR, filename)
 
@@ -237,9 +237,14 @@ async def handle_user_message(message):
                                 extracted_text = "\n".join(
                                     [str(cell.value) for sheet in workbook.worksheets for row in sheet.iter_rows() for cell in row if cell.value]
                                 )
-                            elif filename.endswith(".txt"):  # ✅ NEW TXT FILE SUPPORT
+                            elif filename.endswith(".txt"):
                                 with open(file_path, "r", encoding="utf-8") as txt_file:
                                     extracted_text = txt_file.read()
+                            elif filename.endswith(".rtf"):  # ✅ NEW RTF SUPPORT
+                                from striprtf.striprtf import rtf_to_text
+                                with open(file_path, "r", encoding="utf-8", errors="ignore") as rtf_file:
+                                    extracted_text = rtf_to_text(rtf_file.read())  # ✅ Convert RTF to plain text
+                                    extracted_text = extracted_text.encode("utf-8", "ignore").decode("utf-8")  # ✅ Fix encoding issues
 
                             # ✅ Add extracted text to OpenAI request
                             if extracted_text:
