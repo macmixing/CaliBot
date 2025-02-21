@@ -1025,3 +1025,102 @@ python3: can't open file '/home/ec2-user/ai-assistant/bot.pyRestart=always': [Er
 ✅ File successfully saved at: discord-files/podcast-export-2-script.txt
 ✅ Extracted 35237 characters from podcast-export-2-script.txt
 ⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What skills do they have,
+📄 Detected file: https://cdn.discordapp.com/attachments/1341170981867225140/1342260068887957627/Dom-Esposito-Resume-2025.pdf?ex=67b8fc9a&is=67b7ab1a&hm=9690759acc6a2aa301636e5a005a275e1764efec5104837bc77b03da8092c0e2&
+✅ File successfully saved at: discord-files/dom-esposito-resume-2025.pdf
+✅ Extracted 2115 characters from dom-esposito-resume-2025.pdf
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Thanks
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hi
+⚠️ Ignoring message in thread thread_MfghNnO43DVnJGmgn4QlPU6T - already processing.
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: thanks
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: tell me more about this
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341092221046493275/1342261308854374441/branded-bills.webp?ex=67b8fdc2&is=67b7ac42&hm=5408e13662e078a971cc71ec175a8b023c680e0edd6175d78dd7f7db6f365e04&
+✅ Image successfully saved at: discord-images/branded-bills.webp
+✅ Image uploaded to OpenAI. File ID: file-6Cg7CLKPZ9cBb99cvnh41z
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: do you know their website
+⏳ Processing OpenAI request...
+❌ Error: Error code: 400 - {'error': {'message': 'Invalid model: `gpt-4` does not support image message content types.', 'type': 'invalid_request_error', 'param': 'model', 'code': 'invalid_type'}}
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: do you know their website
+⚠️ Ignoring message in thread thread_p7tGyRMDGr4SsHAQoXf9jIGX - already processing.
+✅ Connected to MySQL database
+[2025-02-20 22:30:02] [INFO    ] discord.client: logging in using static token
+[2025-02-20 22:30:03] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 27b8f26741c1ed94ee3128f5efe19f34).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: do you know their website
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: okay how much do they charge?
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 22:39:56] [INFO    ] discord.client: logging in using static token
+[2025-02-20 22:39:56] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 8f3c0ba4f579b4beb1f61489e50dd44a).
+✅ Logged in as AI Assistant#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: describe this document
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1342264682077225051/PMS_-_003_-_Maha_Abouelenein.txt?ex=67b900e6&is=67b7af66&hm=284de39fa2c8355479868d6d99841cc3daebf8508364fc8625327cde3dea37eb&
+✅ File successfully saved at: discord-files/pms_-_003_-_maha_abouelenein.txt
+✅ Extracted 61482 characters from pms_-_003_-_maha_abouelenein.txt
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: summariza this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1342264790139277394/PMS_-_003_-_Maha_Abouelenein.txt?ex=67b90100&is=67b7af80&hm=d47c1b1109bb8aec5086b494d78846f8b64823e0575600d678464b7fb0509b76&
+✅ File successfully saved at: discord-files/pms_-_003_-_maha_abouelenein.txt
+✅ Extracted 61482 characters from pms_-_003_-_maha_abouelenein.txt
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What else does he share on it
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Any contact info?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: How old is he
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Thanks
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: i see.. is it long
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: does it talk about real estate?
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-20 23:42:55] [INFO    ] discord.client: logging in using static token
+[2025-02-20 23:42:55] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 5e8108bd8d66e9a983e8287913bbde8f).
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hi
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: thanks
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: cool
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Your name is now Cali
+⏳ Processing OpenAI request...
+[2025-02-21 00:25:58] [ERROR   ] discord.client: Attempting a reconnect in 0.94s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-21 00:25:59] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 5e8108bd8d66e9a983e8287913bbde8f.
