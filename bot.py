@@ -5,8 +5,7 @@ import time
 import json
 import asyncio
 import fitz  # ✅ PDF Processing (PyMuPDF)
-import mysql.connector  # ✅ MySQL Database
-from mysql.connector import Error
+import aiomysql  # ✅ Async MySQL Database
 import openpyxl  # ✅ Excel (.XLSX) Processing
 from docx import Document  # ✅ DOCX Processing
 from openai import OpenAI
@@ -26,25 +25,25 @@ DB_USER = os.getenv("DB_USER")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
 DB_NAME = os.getenv("DB_NAME")
 
-# ✅ Establish MySQL Connection
-def create_db_connection():
+# ✅ Establish Async MySQL Connection Pool
+async def create_db_connection():
     try:
-        connection = mysql.connector.connect(
+        pool = await aiomysql.create_pool(
             host=DB_HOST,
             user=DB_USER,
             password=DB_PASSWORD,
-            database=DB_NAME
+            db=DB_NAME,
+            minsize=1,  # Minimum number of connections in the pool
+            maxsize=5   # Maximum number of connections in the pool
         )
-        if connection.is_connected():
-            print("✅ Connected to MySQL database")
-        return connection
-    except Error as e:
-        print(f"❌ Database connection failed: {e}")
+        print("✅ Connected to MySQL database (async)")
+        return pool
+    except Exception as e:
+        print(f"❌ Async database connection failed: {e}")
         return None
 
-# ✅ Initialize connection
-db_connection = create_db_connection()
-db_cursor = db_connection.cursor()
+# ✅ Global variable for MySQL connection pool
+db_pool = None  
 
 # ✅ Thread cache dictionary (in-memory storage for thread IDs)
 thread_cache = {}
@@ -69,33 +68,38 @@ FILE_DIR = "discord-files"
 os.makedirs(IMAGE_DIR, exist_ok=True)
 os.makedirs(FILE_DIR, exist_ok=True)
 
-# ✅ Function to store user thread ID in MySQL
-def save_thread(user_id, thread_id):
+# ✅ Async function to store user thread ID in MySQL
+async def save_thread(user_id, thread_id):
+    global db_pool
     try:
         # ✅ Update cache
         thread_cache[user_id] = thread_id  
 
         # ✅ Store in MySQL
-        query = """
-        INSERT INTO user_threads (user_id, thread_id) 
-        VALUES (%s, %s) 
-        ON DUPLICATE KEY UPDATE thread_id = VALUES(thread_id)
-        """
-        db_cursor.execute(query, (user_id, thread_id))
-        db_connection.commit()
-        print(f"✅ Stored thread ID for user {user_id}. (Cached & MySQL)")
-    except Error as e:
+        async with db_pool.acquire() as conn:
+            async with conn.cursor() as cursor:
+                query = """
+                INSERT INTO user_threads (user_id, thread_id) 
+                VALUES (%s, %s) 
+                ON DUPLICATE KEY UPDATE thread_id = VALUES(thread_id)
+                """
+                await cursor.execute(query, (user_id, thread_id))
+                await conn.commit()
+        print(f"✅ Stored thread ID for user {user_id}. (Cached & Async MySQL)")
+    except Exception as e:
         print(f"❌ Failed to store thread ID: {e}")
 
-# ✅ Function to get a user's thread ID from MySQL
-def get_thread_id(user_id):
+# ✅ Async function to get a user's thread ID from MySQL
+async def get_thread_id(user_id):
     # ✅ Check if thread ID is in cache first
     if user_id in thread_cache:
         return thread_cache[user_id]
 
-    # ✅ Otherwise, query MySQL as a fallback
-    db_cursor.execute("SELECT thread_id FROM user_threads WHERE user_id = %s", (user_id,))
-    result = db_cursor.fetchone()
+    global db_pool
+    async with db_pool.acquire() as conn:
+        async with conn.cursor() as cursor:
+            await cursor.execute("SELECT thread_id FROM user_threads WHERE user_id = %s", (user_id,))
+            result = await cursor.fetchone()
 
     if result:
         thread_cache[user_id] = result[0]  # ✅ Store in cache
@@ -105,6 +109,12 @@ def get_thread_id(user_id):
 
 @bot.event
 async def on_ready():
+    global db_pool
+    db_pool = await create_db_connection()  # ✅ Create async DB connection
+    if db_pool:
+        print("✅ Async MySQL connection established.")
+    else:
+        print("❌ Failed to connect to async MySQL.")
     print(f'✅ Logged in as {bot.user}')
 
 @bot.event
@@ -144,12 +154,12 @@ async def handle_user_message(message):
             user_id = str(message.author.id)
 
             # ✅ Check if user has an existing thread, using cache first
-            thread_id = get_thread_id(user_id)
+            thread_id = await get_thread_id(user_id)
 
             if not thread_id:
                 thread = await asyncio.to_thread(lambda: client.beta.threads.create())
                 thread_id = thread.id
-                save_thread(user_id, thread_id)  # ✅ Store in cache & MySQL
+                await save_thread(user_id, thread_id)  # ✅ Store in cache & MySQL
                 print(f"✅ Created new thread for user {user_id}: {thread_id}")
             else:
                 print(f"✅ Retrieved existing thread from cache/MySQL for user {user_id}: {thread_id}")
@@ -344,16 +354,21 @@ async def send_long_message(channel, text):
         chunk = text[i:i + max_length]
         await channel.send(chunk)
 
-# ✅ Close database connection when bot shuts down
-import atexit
+# ✅ Async function to close the database connection pool on shutdown
+async def close_db_connection():
+    global db_pool
+    if db_pool:
+        db_pool.close()
+        await db_pool.wait_closed()
+        print("✅ Async database connection closed.")
 
-def close_db_connection():
-    if db_connection.is_connected():
-        db_cursor.close()
-        db_connection.close()
-        print("✅ Database connection closed.")
+import signal
 
-atexit.register(close_db_connection)
+def shutdown():
+    asyncio.run(close_db_connection())
+
+signal.signal(signal.SIGTERM, lambda signum, frame: shutdown())
+signal.signal(signal.SIGINT, lambda signum, frame: shutdown())
 
 
 # Run the bot
