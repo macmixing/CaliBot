@@ -192,10 +192,12 @@ async def handle_user_message(message):
             if not thread_id:
                 thread = await asyncio.to_thread(lambda: client.beta.threads.create())
                 thread_id = thread.id
-                await save_thread(user_id, thread_id)  # ✅ Store in cache & MySQL
                 print(f"✅ Created new thread for user {user_id}: {thread_id}")
             else:
                 print(f"✅ Retrieved existing thread from cache/MySQL for user {user_id}: {thread_id}")
+
+            # ✅ Always update the last_used timestamp in MySQL, even if thread exists
+            await save_thread(user_id, thread_id)  # ✅ Ensures last_used updates every message
 
 
             try:

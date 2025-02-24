@@ -1094,3 +1094,46 @@ AttributeError: 'NoneType' object has no attribute 'acquire'
 ✅ Connected to MySQL database (async)
 ✅ Async MySQL connection established.
 ✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: summarize this in two sentecnes
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1343726999075684363/subscription_and_onboarding_lifecycle.pdf?ex=67be52c9&is=67bd0149&hm=f22610b7056b40f490bcd19ff8f038b566330d332967a7d84bd18f341f8f97ed&
+✅ File successfully saved at: discord-files/subscription_and_onboarding_lifecycle.pdf
+✅ Extracted 1951 characters from subscription_and_onboarding_lifecycle.pdf
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hello
+⏳ Processing OpenAI request...
+[2025-02-24 23:36:30] [INFO    ] discord.client: logging in using static token
+[2025-02-24 23:36:31] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 15c399e3eefee972c4e89aa18104c80e).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+[2025-02-24 23:41:19] [INFO    ] discord.client: logging in using static token
+[2025-02-24 23:41:19] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: a245f3dcece1eb2cf8b93dd4dae89345).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hi
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hello
+⏳ Processing OpenAI request...
