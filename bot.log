@@ -104,3 +104,870 @@ sys:1: RuntimeWarning: coroutine 'close_db_connection' was never awaited
 ✅ Retrieved existing thread from cache/MySQL for user 973680778200358932: thread_kNvlI89ysD4z8BIZd3cGwuSN
 📝 Received text: hey
 ⏳ Processing OpenAI request...
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 375, in <module>
+    expired_users = [user_id for user_id, (thread_id, timestamp) in thread_cache.items() if current_time - timestamp > expiration_time]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 869, in run
+    asyncio.run(runner())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 634, in run_until_complete
+    self.run_forever()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 601, in run_forever
+    self._run_once()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 1869, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/usr/lib64/python3.9/selectors.py", line 469, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+  File "/home/ec2-user/ai-assistant/bot.py", line 370, in <lambda>
+    expiration_time = 86400  # 24 hours in seconds
+  File "/home/ec2-user/ai-assistant/bot.py", line 368, in shutdown
+    async def memory_cleanup():
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 33, in run
+    raise RuntimeError(
+RuntimeError: asyncio.run() cannot be called from a running event loop
+Exception ignored in: <function Connection.__del__ at 0x7fd640aa4550>
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 1131, in __del__
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 339, in close
+  File "/usr/lib64/python3.9/asyncio/selector_events.py", line 698, in close
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 751, in call_soon
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 515, in _check_closed
+RuntimeError: Event loop is closed
+sys:1: RuntimeWarning: coroutine 'close_db_connection' was never awaited
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 124, in <module>
+    asyncio.create_task(memory_cleanup())
+NameError: name 'memory_cleanup' is not defined
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 124, in <module>
+    asyncio.create_task(memory_cleanup())
+NameError: name 'memory_cleanup' is not defined
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 124, in <module>
+    asyncio.create_task(memory_cleanup())
+NameError: name 'memory_cleanup' is not defined
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 124, in <module>
+    asyncio.create_task(memory_cleanup())
+NameError: name 'memory_cleanup' is not defined
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 124, in <module>
+    asyncio.create_task(memory_cleanup())
+NameError: name 'memory_cleanup' is not defined
+[2025-02-24 19:55:30] [INFO    ] discord.client: logging in using static token
+[2025-02-24 19:55:30] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 249d2f47d5128bc51d4dec90053f75d8).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 375, in <module>
+    chunk = text[i:i + max_length]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 869, in run
+    asyncio.run(runner())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 634, in run_until_complete
+    self.run_forever()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 601, in run_forever
+    self._run_once()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 1869, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/usr/lib64/python3.9/selectors.py", line 469, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+  File "/home/ec2-user/ai-assistant/bot.py", line 370, in <lambda>
+    async def send_long_message(channel, text):
+  File "/home/ec2-user/ai-assistant/bot.py", line 368, in shutdown
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 33, in run
+    raise RuntimeError(
+RuntimeError: asyncio.run() cannot be called from a running event loop
+Exception ignored in: <function Connection.__del__ at 0x7f5597e24550>
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 1131, in __del__
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 339, in close
+  File "/usr/lib64/python3.9/asyncio/selector_events.py", line 698, in close
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 751, in call_soon
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 515, in _check_closed
+RuntimeError: Event loop is closed
+sys:1: RuntimeWarning: coroutine 'close_db_connection' was never awaited
+[2025-02-24 21:06:54] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:06:55] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 8ff54da75dda1d507a35cc27a097a9dd).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 416, in <module>
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 869, in run
+    asyncio.run(runner())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 634, in run_until_complete
+    self.run_forever()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 601, in run_forever
+    self._run_once()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 1869, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/usr/lib64/python3.9/selectors.py", line 469, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+  File "/home/ec2-user/ai-assistant/bot.py", line 411, in <lambda>
+  File "/home/ec2-user/ai-assistant/bot.py", line 409, in shutdown
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 33, in run
+    raise RuntimeError(
+RuntimeError: asyncio.run() cannot be called from a running event loop
+Exception ignored in: <function Connection.__del__ at 0x7fa0a7be6700>
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 1131, in __del__
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 339, in close
+  File "/usr/lib64/python3.9/asyncio/selector_events.py", line 698, in close
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 751, in call_soon
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 515, in _check_closed
+RuntimeError: Event loop is closed
+sys:1: RuntimeWarning: coroutine 'close_db_connection' was never awaited
+[2025-02-24 21:08:01] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:08:02] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 81821153e86fc649f68eb9b7d96a3d39).
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 375, in <module>
+    bot.run(DISCORD_TOKEN)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 869, in run
+    asyncio.run(runner())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 634, in run_until_complete
+    self.run_forever()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 601, in run_forever
+    self._run_once()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 1869, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/usr/lib64/python3.9/selectors.py", line 469, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+  File "/home/ec2-user/ai-assistant/bot.py", line 370, in <lambda>
+    signal.signal(signal.SIGTERM, lambda signum, frame: shutdown())
+  File "/home/ec2-user/ai-assistant/bot.py", line 368, in shutdown
+    asyncio.run(close_db_connection())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 33, in run
+    raise RuntimeError(
+RuntimeError: asyncio.run() cannot be called from a running event loop
+sys:1: RuntimeWarning: coroutine 'close_db_connection' was never awaited
+[2025-02-24 21:08:05] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:08:05] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 1d9fdc5dcb7eb88fc089f13c43ffb61a).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 375, in <module>
+    bot.run(DISCORD_TOKEN)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 869, in run
+    asyncio.run(runner())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 634, in run_until_complete
+    self.run_forever()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 601, in run_forever
+    self._run_once()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 1869, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/usr/lib64/python3.9/selectors.py", line 469, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+  File "/home/ec2-user/ai-assistant/bot.py", line 370, in <lambda>
+    signal.signal(signal.SIGTERM, lambda signum, frame: shutdown())
+  File "/home/ec2-user/ai-assistant/bot.py", line 368, in shutdown
+    asyncio.run(close_db_connection())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 33, in run
+    raise RuntimeError(
+RuntimeError: asyncio.run() cannot be called from a running event loop
+Exception ignored in: <function Connection.__del__ at 0x7ff96d9e3550>
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 1131, in __del__
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 339, in close
+  File "/usr/lib64/python3.9/asyncio/selector_events.py", line 698, in close
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 751, in call_soon
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 515, in _check_closed
+RuntimeError: Event loop is closed
+sys:1: RuntimeWarning: coroutine 'close_db_connection' was never awaited
+[2025-02-24 21:08:17] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:08:17] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: e5c76a31a9237cd78841b19848e7d98a).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 375, in <module>
+    bot.run(DISCORD_TOKEN)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 869, in run
+    asyncio.run(runner())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 634, in run_until_complete
+    self.run_forever()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 601, in run_forever
+    self._run_once()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 1869, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/usr/lib64/python3.9/selectors.py", line 469, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+  File "/home/ec2-user/ai-assistant/bot.py", line 370, in <lambda>
+    signal.signal(signal.SIGTERM, lambda signum, frame: shutdown())
+  File "/home/ec2-user/ai-assistant/bot.py", line 368, in shutdown
+    asyncio.run(close_db_connection())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 33, in run
+    raise RuntimeError(
+RuntimeError: asyncio.run() cannot be called from a running event loop
+Exception ignored in: <function Connection.__del__ at 0x7f06367a4550>
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 1131, in __del__
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 339, in close
+  File "/usr/lib64/python3.9/asyncio/selector_events.py", line 698, in close
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 751, in call_soon
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 515, in _check_closed
+RuntimeError: Event loop is closed
+sys:1: RuntimeWarning: coroutine 'close_db_connection' was never awaited
+[2025-02-24 21:08:55] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:08:56] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: d3cae8d653e99e5adc92db94aa395d50).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 375, in <module>
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 869, in run
+    asyncio.run(runner())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 634, in run_until_complete
+    self.run_forever()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 601, in run_forever
+    self._run_once()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 1869, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/usr/lib64/python3.9/selectors.py", line 469, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+  File "/home/ec2-user/ai-assistant/bot.py", line 370, in <lambda>
+  File "/home/ec2-user/ai-assistant/bot.py", line 368, in shutdown
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 33, in run
+    raise RuntimeError(
+RuntimeError: asyncio.run() cannot be called from a running event loop
+Exception ignored in: <function Connection.__del__ at 0x7fb927ee3550>
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 1131, in __del__
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 339, in close
+  File "/usr/lib64/python3.9/asyncio/selector_events.py", line 698, in close
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 751, in call_soon
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 515, in _check_closed
+RuntimeError: Event loop is closed
+sys:1: RuntimeWarning: coroutine 'close_db_connection' was never awaited
+✅ Connected to MySQL database
+[2025-02-24 21:09:51] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:09:52] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: e4cc6758785e1fe60f65498a6d2f3a55).
+✅ Logged in as Cali#5463
+✅ Connected to MySQL database
+[2025-02-24 21:10:06] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:10:07] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 1345f95d1db91ae8f7e5e5f2f791f2e5).
+✅ Logged in as Cali#5463
+✅ Connected to MySQL database
+[2025-02-24 21:10:14] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:10:15] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 451c8c72aaed470755187eb91df51abb).
+✅ Logged in as Cali#5463
+[2025-02-24 21:11:12] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:11:13] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 8be2d6a6e6af75c0cce46cca487d69ae).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: What is the captial of spain
+⏳ Processing OpenAI request...
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 375, in <module>
+    bot.run(DISCORD_TOKEN)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 869, in run
+    asyncio.run(runner())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 634, in run_until_complete
+    self.run_forever()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 601, in run_forever
+    self._run_once()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 1869, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/usr/lib64/python3.9/selectors.py", line 469, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+  File "/home/ec2-user/ai-assistant/bot.py", line 370, in <lambda>
+    signal.signal(signal.SIGTERM, lambda signum, frame: shutdown())
+  File "/home/ec2-user/ai-assistant/bot.py", line 368, in shutdown
+    asyncio.run(close_db_connection())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 33, in run
+    raise RuntimeError(
+RuntimeError: asyncio.run() cannot be called from a running event loop
+Exception ignored in: <function Connection.__del__ at 0x7f7687da2550>
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 1131, in __del__
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 339, in close
+  File "/usr/lib64/python3.9/asyncio/selector_events.py", line 698, in close
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 751, in call_soon
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 515, in _check_closed
+RuntimeError: Event loop is closed
+sys:1: RuntimeWarning: coroutine 'close_db_connection' was never awaited
+[2025-02-24 21:21:23] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:21:24] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 052d57410393d2b8c75cf5cb74c9fa9c).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 375, in <module>
+    bot.run(DISCORD_TOKEN)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 869, in run
+    asyncio.run(runner())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 634, in run_until_complete
+    self.run_forever()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 601, in run_forever
+    self._run_once()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 1869, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/usr/lib64/python3.9/selectors.py", line 469, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+  File "/home/ec2-user/ai-assistant/bot.py", line 370, in <lambda>
+    signal.signal(signal.SIGTERM, lambda signum, frame: shutdown())
+  File "/home/ec2-user/ai-assistant/bot.py", line 368, in shutdown
+    asyncio.run(close_db_connection())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 33, in run
+    raise RuntimeError(
+RuntimeError: asyncio.run() cannot be called from a running event loop
+Exception ignored in: <function Connection.__del__ at 0x7f2653023550>
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 1131, in __del__
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 339, in close
+  File "/usr/lib64/python3.9/asyncio/selector_events.py", line 698, in close
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 751, in call_soon
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 515, in _check_closed
+RuntimeError: Event loop is closed
+sys:1: RuntimeWarning: coroutine 'close_db_connection' was never awaited
+[2025-02-24 21:21:38] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:21:38] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: f30c0fb8c13f2d18bdb923a07b64fc79).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 375, in <module>
+    for sig in (signal.SIGTERM, signal.SIGINT):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 869, in run
+    asyncio.run(runner())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 634, in run_until_complete
+    self.run_forever()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 601, in run_forever
+    self._run_once()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 1869, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/usr/lib64/python3.9/selectors.py", line 469, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+  File "/home/ec2-user/ai-assistant/bot.py", line 370, in <lambda>
+    loop.create_task(close_db_connection())
+  File "/home/ec2-user/ai-assistant/bot.py", line 368, in shutdown
+    loop = asyncio.get_event_loop()
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 33, in run
+    raise RuntimeError(
+RuntimeError: asyncio.run() cannot be called from a running event loop
+Exception ignored in: <function Connection.__del__ at 0x7f2440ce3550>
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 1131, in __del__
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 339, in close
+  File "/usr/lib64/python3.9/asyncio/selector_events.py", line 698, in close
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 751, in call_soon
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 515, in _check_closed
+RuntimeError: Event loop is closed
+sys:1: RuntimeWarning: coroutine 'close_db_connection' was never awaited
+[2025-02-24 21:26:53] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:26:53] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: b52517585ff00cda7b1b4584c04b33af).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hi
+⏳ Processing OpenAI request...
+[2025-02-24 21:28:29] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:28:29] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 2952ba02e365e582dd4662f7d83ada1b).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-02-24 21:30:08] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:30:09] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 3db75cb546925ce3fb98cf36b1006bd7).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-02-24 21:33:02] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:33:03] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 1072f154f0ff48cb827022f76e05934d).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-02-24 21:34:39] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:34:39] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 690dd923bbbf2301faa955f5c9e3e913).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+⚡ Bot is running. Press Ctrl+C to stop.
+[2025-02-24 21:36:37] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:36:38] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 254618f2864129e1123811be11d2170b).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+⚡ Bot is running. Press Ctrl+C to stop.
+[2025-02-24 21:38:15] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:38:16] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: f613bd95148cb0b4f42a1073723fb20b).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: whats the capital of maine
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: tsting'
+⏳ Processing OpenAI request...
+⚡ Bot is running. Press Ctrl+C to stop.
+[2025-02-24 21:42:08] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:42:09] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 0677cd0951250fc595f196390d1be6da).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+⚡ Bot is running. Press Ctrl+C to stop.
+[2025-02-24 21:43:44] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:43:45] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: dd48f06fd868a4e8e8a4c1afd12fac4b).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+⚡ Bot is running. Press Ctrl+C to stop.
+[2025-02-24 21:45:53] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:45:54] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 93345ad82716a19b703b5bb44b078fd4).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-02-24 21:47:30] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:47:31] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: df6ea4484509dcb0cd445eb6888df3cb).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 375, in <module>
+    bot.run(DISCORD_TOKEN)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 869, in run
+    asyncio.run(runner())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 634, in run_until_complete
+    self.run_forever()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 601, in run_forever
+    self._run_once()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 1869, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/usr/lib64/python3.9/selectors.py", line 469, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+  File "/home/ec2-user/ai-assistant/bot.py", line 370, in <lambda>
+    signal.signal(signal.SIGTERM, lambda signum, frame: shutdown())
+  File "/home/ec2-user/ai-assistant/bot.py", line 368, in shutdown
+    asyncio.run(close_db_connection())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 33, in run
+    raise RuntimeError(
+RuntimeError: asyncio.run() cannot be called from a running event loop
+Exception ignored in: <function Connection.__del__ at 0x7f22411e3550>
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 1131, in __del__
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 339, in close
+  File "/usr/lib64/python3.9/asyncio/selector_events.py", line 698, in close
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 751, in call_soon
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 515, in _check_closed
+RuntimeError: Event loop is closed
+sys:1: RuntimeWarning: coroutine 'close_db_connection' was never awaited
+[2025-02-24 21:47:36] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:47:36] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 471b3dbb5264b0e2dc0d810872c2afb0).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 375, in <module>
+    bot.run(DISCORD_TOKEN)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 869, in run
+    asyncio.run(runner())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 634, in run_until_complete
+    self.run_forever()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 601, in run_forever
+    self._run_once()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 1869, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/usr/lib64/python3.9/selectors.py", line 469, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+  File "/home/ec2-user/ai-assistant/bot.py", line 370, in <lambda>
+    signal.signal(signal.SIGTERM, lambda signum, frame: shutdown())
+  File "/home/ec2-user/ai-assistant/bot.py", line 368, in shutdown
+    asyncio.run(close_db_connection())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 33, in run
+    raise RuntimeError(
+RuntimeError: asyncio.run() cannot be called from a running event loop
+Exception ignored in: <function Connection.__del__ at 0x7f9da83a3550>
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 1131, in __del__
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 339, in close
+  File "/usr/lib64/python3.9/asyncio/selector_events.py", line 698, in close
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 751, in call_soon
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 515, in _check_closed
+RuntimeError: Event loop is closed
+sys:1: RuntimeWarning: coroutine 'close_db_connection' was never awaited
+[2025-02-24 21:48:23] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:48:24] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 9247a3d52aa81718a9dd8658ac70eb87).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 375, in <module>
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 869, in run
+    asyncio.run(runner())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 634, in run_until_complete
+    self.run_forever()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 601, in run_forever
+    self._run_once()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 1869, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/usr/lib64/python3.9/selectors.py", line 469, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+  File "/home/ec2-user/ai-assistant/bot.py", line 370, in <lambda>
+    print("⚠️ MySQL pool did not close in time. Forcing shutdown.")
+  File "/home/ec2-user/ai-assistant/bot.py", line 368, in shutdown
+    print("✅ MySQL connection pool closed.")
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 33, in run
+    raise RuntimeError(
+RuntimeError: asyncio.run() cannot be called from a running event loop
+Exception ignored in: <function Connection.__del__ at 0x7f76f35a3550>
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 1131, in __del__
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/connection.py", line 339, in close
+  File "/usr/lib64/python3.9/asyncio/selector_events.py", line 698, in close
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 751, in call_soon
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 515, in _check_closed
+RuntimeError: Event loop is closed
+sys:1: RuntimeWarning: coroutine 'close_db_connection' was never awaited
+[2025-02-24 21:54:46] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:54:46] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 5f890a4434c82a4b794d7cf69786c8b8).
+✅ Connected to MySQL database (async)
+❌ Failed to connect to async MySQL.
+✅ Logged in as Cali#5463
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 8, in <module>
+    import aiomysql  # ✅ Async MySQL Database
+ModuleNotFoundError: No module named 'aiomysql'
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 8, in <module>
+    import aiomysql  # ✅ Async MySQL Database
+ModuleNotFoundError: No module named 'aiomysql'
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 8, in <module>
+    import aiomysql  # ✅ Async MySQL Database
+ModuleNotFoundError: No module named 'aiomysql'
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 8, in <module>
+    import aiomysql  # ✅ Async MySQL Database
+ModuleNotFoundError: No module named 'aiomysql'
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 8, in <module>
+    import aiomysql  # ✅ Async MySQL Database
+ModuleNotFoundError: No module named 'aiomysql'
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 8, in <module>
+    import aiomysql  # ✅ Async MySQL Database
+ModuleNotFoundError: No module named 'aiomysql'
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 8, in <module>
+    import aiomysql  # ✅ Async MySQL Database
+ModuleNotFoundError: No module named 'aiomysql'
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 8, in <module>
+    import aiomysql  # ✅ Async MySQL Database
+ModuleNotFoundError: No module named 'aiomysql'
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 8, in <module>
+    import aiomysql  # ✅ Async MySQL Database
+ModuleNotFoundError: No module named 'aiomysql'
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 8, in <module>
+    import aiomysql  # ✅ Async MySQL Database
+ModuleNotFoundError: No module named 'aiomysql'
+[2025-02-24 21:59:32] [INFO    ] discord.client: logging in using static token
+[2025-02-24 21:59:33] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 0692ea8bf51b7b8957f63f99be0eaf80).
+✅ Connected to MySQL database (async)
+❌ Failed to connect to async MySQL.
+✅ Logged in as Cali#5463
+Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<handle_user_message() done, defined at /home/ec2-user/ai-assistant/bot.py:148> exception=AttributeError("'NoneType' object has no attribute 'acquire'")>
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 160, in handle_user_message
+    thread_id = await get_thread_id(user_id)
+  File "/home/ec2-user/ai-assistant/bot.py", line 102, in get_thread_id
+    async with db_pool.acquire() as conn:
+AttributeError: 'NoneType' object has no attribute 'acquire'
+[2025-02-24 22:01:14] [INFO    ] discord.client: logging in using static token
+[2025-02-24 22:01:14] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 609bd7afb54a4afdc63f36e69abc15cb).
+✅ Connected to MySQL database (async)
+❌ Failed to connect to async MySQL.
+✅ Logged in as Cali#5463
+[2025-02-24 22:07:27] [INFO    ] discord.client: logging in using static token
+[2025-02-24 22:07:27] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 56035e531580cbdb7d4023d612959afc).
+🔄 Attempting to connect to MySQL...
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: summarize this for me please as short as possible.
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1343706038456553513/Discord_Discussion_-_Meeting_Agenda_and_Notes.docx?ex=67be3f44&is=67bcedc4&hm=c228bb5eebb3353473186ea1666dec701a099ff2d621542d981199834e74fcf5&
+✅ File successfully saved at: discord-files/discord_discussion_-_meeting_agenda_and_notes.docx
+✅ Extracted 1145 characters from discord_discussion_-_meeting_agenda_and_notes.docx
+⏳ Processing OpenAI request...
+[2025-02-24 22:08:25] [INFO    ] discord.client: logging in using static token
+[2025-02-24 22:08:26] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: cb7be38ac064151764b890bc1de504f4).
+🔄 Attempting to connect to MySQL...
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-02-24 22:08:51] [INFO    ] discord.client: logging in using static token
+[2025-02-24 22:08:52] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 01fff86415db13add73ffb31af7fd9f7).
+🔄 Attempting to connect to MySQL...
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: descirbe this image
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341092221046493275/1343706676557123684/Maha-Color.png?ex=67be3fdc&is=67bcee5c&hm=002d3ec6a269ea2d7dafb4cfaac9d173366e7e4546d07114ff0c8a4972eeb7a7&
+✅ Image successfully saved at: discord-images/maha-color.png
+✅ Image uploaded to OpenAI. File ID: file-B6LAzcN8eqzHVg28ZnRQzU
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1343707076718891029/ReadMe.rtf?ex=67be403b&is=67bceebb&hm=ac736c1f2afcc15e3ff3efd97deaa0525a5055ef841cdd66acb6127dd56f5ba0&
+✅ File successfully saved at: discord-files/readme.rtf
+❌ Error: No module named 'striprtf'
+[2025-02-24 22:14:45] [INFO    ] discord.client: logging in using static token
+[2025-02-24 22:14:45] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 2189d0acf7e42f199d5ba91e606e5453).
+🔄 Attempting to connect to MySQL...
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1343707788211257435/ReadMe.rtf?ex=67be40e5&is=67bcef65&hm=30682b070815cd9ca7d4b0ce831384161b8352927b8948304bf706e253a68ab4&
+✅ File successfully saved at: discord-files/readme.rtf
+❌ Error: No module named 'striprtf'
+✅ Connected to MySQL database
+[2025-02-24 22:22:30] [INFO    ] discord.client: logging in using static token
+[2025-02-24 22:22:30] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: cc46ba816c87be0d42bd5f5bd487b96f).
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1343709747534102558/ReadMe.rtf?ex=67be42b8&is=67bcf138&hm=8d2f7e0c3b97edf1415ce8014fcd7eaaa113b4d5137f233d210d6035fc31b6f7&
+✅ File successfully saved at: discord-files/readme.rtf
+✅ Extracted 3422 characters from readme.rtf
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-24 22:24:23] [INFO    ] discord.client: logging in using static token
+[2025-02-24 22:24:24] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 85f94cba4e623ec34e1ab530f590c2f2).
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1343710209540882432/ReadMe.rtf?ex=67be4326&is=67bcf1a6&hm=ed1f424f77d781d8a1009de9c24f4f1e3841c8f00a383d1fda1039a1a3f8a4db&
+✅ File successfully saved at: discord-files/readme.rtf
+✅ Extracted 3422 characters from readme.rtf
+⏳ Processing OpenAI request...
+[2025-02-24 22:26:18] [INFO    ] discord.client: logging in using static token
+[2025-02-24 22:26:19] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 0d9c89f47adcdcafea43d46ce00bdbdd).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: main points from this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1343710694830374952/ReadMe.rtf?ex=67be439a&is=67bcf21a&hm=c92b7e2047b3fd0bce67d05cbeffc1afbe7816773853787f5b4d1b3db6736813&
+✅ File successfully saved at: discord-files/readme.rtf
+✅ Extracted 3422 characters from readme.rtf
+⏳ Processing OpenAI request...
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 375, in <module>
+    bot.run(DISCORD_TOKEN)
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 869, in run
+    asyncio.run(runner())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 634, in run_until_complete
+    self.run_forever()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 601, in run_forever
+    self._run_once()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 1869, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/usr/lib64/python3.9/selectors.py", line 469, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+  File "/home/ec2-user/ai-assistant/bot.py", line 370, in <lambda>
+    signal.signal(signal.SIGTERM, lambda signum, frame: shutdown())
+  File "/home/ec2-user/ai-assistant/bot.py", line 368, in shutdown
+    asyncio.run(close_db_connection())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 33, in run
+    raise RuntimeError(
+RuntimeError: asyncio.run() cannot be called from a running event loop
+Exception ignored in: <function Connection.__del__ at 0x7f181da1dc10>
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/connection.py", line 1131, in __del__
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/connection.py", line 339, in close
+  File "/usr/lib64/python3.9/asyncio/selector_events.py", line 698, in close
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 751, in call_soon
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 515, in _check_closed
+RuntimeError: Event loop is closed
+sys:1: RuntimeWarning: coroutine 'close_db_connection' was never awaited
+[2025-02-24 22:26:51] [INFO    ] discord.client: logging in using static token
+[2025-02-24 22:26:52] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 9704be551f27bf7894ad547d03bda13a).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 375, in <module>
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 869, in run
+    asyncio.run(runner())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 634, in run_until_complete
+    self.run_forever()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 601, in run_forever
+    self._run_once()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 1869, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/usr/lib64/python3.9/selectors.py", line 469, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+  File "/home/ec2-user/ai-assistant/bot.py", line 370, in <lambda>
+    asyncio.run(close_db_connection())
+  File "/home/ec2-user/ai-assistant/bot.py", line 368, in shutdown
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 33, in run
+    raise RuntimeError(
+RuntimeError: asyncio.run() cannot be called from a running event loop
+Exception ignored in: <function Connection.__del__ at 0x7f0ca145dc10>
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/connection.py", line 1131, in __del__
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/connection.py", line 339, in close
+  File "/usr/lib64/python3.9/asyncio/selector_events.py", line 698, in close
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 751, in call_soon
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 515, in _check_closed
+RuntimeError: Event loop is closed
+sys:1: RuntimeWarning: coroutine 'close_db_connection' was never awaited
+Python Executable: /home/ec2-user/ai-assistant/venv/bin/python
+[2025-02-24 22:34:18] [INFO    ] discord.client: logging in using static token
+[2025-02-24 22:34:18] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: d379786c3edc59ff3c08ed117a4e3d97).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 377, in <module>
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 869, in run
+    asyncio.run(runner())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 634, in run_until_complete
+    self.run_forever()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 601, in run_forever
+    self._run_once()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 1869, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/usr/lib64/python3.9/selectors.py", line 469, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+  File "/home/ec2-user/ai-assistant/bot.py", line 372, in <lambda>
+  File "/home/ec2-user/ai-assistant/bot.py", line 370, in shutdown
+    signal.signal(signal.SIGTERM, lambda signum, frame: shutdown())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 33, in run
+    raise RuntimeError(
+RuntimeError: asyncio.run() cannot be called from a running event loop
+Exception ignored in: <function Connection.__del__ at 0x7fe2d5d1dc10>
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/connection.py", line 1131, in __del__
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/connection.py", line 339, in close
+  File "/usr/lib64/python3.9/asyncio/selector_events.py", line 698, in close
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 751, in call_soon
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 515, in _check_closed
+RuntimeError: Event loop is closed
+sys:1: RuntimeWarning: coroutine 'close_db_connection' was never awaited
+[2025-02-24 22:35:32] [INFO    ] discord.client: logging in using static token
+[2025-02-24 22:35:33] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 61ddc45670b5538330510fe88c968575).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1343713091568926771/bot-example.rtf?ex=67be45d6&is=67bcf456&hm=f3cf5ae29e7bb9cbb3ae0a659bfb9f4455fea2f959a001890d8e0b84ba9f58ff&
+✅ File successfully saved at: discord-files/bot-example.rtf
+✅ Extracted 6415 characters from bot-example.rtf
+⏳ Processing OpenAI request...
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 375, in <module>
+    asyncio.create_task(shutdown())
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 869, in run
+    asyncio.run(runner())
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 634, in run_until_complete
+    self.run_forever()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 601, in run_forever
+    self._run_once()
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 1869, in _run_once
+    event_list = self._selector.select(timeout)
+  File "/usr/lib64/python3.9/selectors.py", line 469, in select
+    fd_event_list = self._selector.poll(timeout, max_ev)
+  File "/home/ec2-user/ai-assistant/bot.py", line 370, in <lambda>
+    await close_db_connection()
+  File "/home/ec2-user/ai-assistant/bot.py", line 368, in shutdown
+    print("⏳ Initiating shutdown...")
+  File "/usr/lib64/python3.9/asyncio/runners.py", line 33, in run
+    raise RuntimeError(
+RuntimeError: asyncio.run() cannot be called from a running event loop
+Exception ignored in: <function Connection.__del__ at 0x7f51e9c1dc10>
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/connection.py", line 1131, in __del__
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/connection.py", line 339, in close
+  File "/usr/lib64/python3.9/asyncio/selector_events.py", line 698, in close
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 751, in call_soon
+  File "/usr/lib64/python3.9/asyncio/base_events.py", line 515, in _check_closed
+RuntimeError: Event loop is closed
+sys:1: RuntimeWarning: coroutine 'close_db_connection' was never awaited
+[2025-02-24 22:40:00] [INFO    ] discord.client: logging in using static token
+[2025-02-24 22:40:01] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: b9a1b0959f0d2a181f1b4fb62fafaa76).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-02-24 22:40:11] [INFO    ] discord.client: logging in using static token
+[2025-02-24 22:40:11] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: c3edea6c5ba47a64fe5fbad1b868a825).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1343714200291250288/paywall-test.rtf?ex=67be46de&is=67bcf55e&hm=38bbf862ced5b740128347164e678ab105c7573b2d029f7abb9eb12d0182cdbc&
+✅ File successfully saved at: discord-files/paywall-test.rtf
+✅ Extracted 6415 characters from paywall-test.rtf
+⏳ Processing OpenAI request...
+⏳ Initiating shutdown...
+✅ Async database connection closed.
+✅ Shutdown complete. Exiting process now...
+[2025-02-24 22:40:54] [INFO    ] discord.client: logging in using static token
+[2025-02-24 22:40:54] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 7f10bf62be26f9e0b9dcbe3a3e5c7c82).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 973680778200358932: thread_kNvlI89ysD4z8BIZd3cGwuSN
+📝 Received text: summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341444120513876009/1343714457725177937/Discord_Developer_Portal_Documentation_Teams.pdf?ex=67be471b&is=67bcf59b&hm=a600147ec1824d9dcb83977dd42e9c7b5bbc3ba9f1999519586258d37bf2aecf&
+✅ File successfully saved at: discord-files/discord_developer_portal_documentation_teams.pdf
+✅ Extracted 2301 characters from discord_developer_portal_documentation_teams.pdf
+⏳ Processing OpenAI request...

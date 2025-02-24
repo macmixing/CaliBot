@@ -364,11 +364,18 @@ async def close_db_connection():
 
 import signal
 
-def shutdown():
-    asyncio.run(close_db_connection())
+async def shutdown():
+    print("⏳ Initiating shutdown...")
+    if db_pool:
+        await close_db_connection()
+    print("✅ Shutdown complete. Exiting process now...")
+    os._exit(0)  # Force exit
 
-signal.signal(signal.SIGTERM, lambda signum, frame: shutdown())
-signal.signal(signal.SIGINT, lambda signum, frame: shutdown())
+def handle_shutdown():
+    asyncio.create_task(shutdown())
+
+signal.signal(signal.SIGTERM, lambda signum, frame: handle_shutdown())
+signal.signal(signal.SIGINT, lambda signum, frame: handle_shutdown())
 
 
 # Run the bot
