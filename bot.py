@@ -48,6 +48,36 @@ db_pool = None
 # ✅ Thread cache dictionary (in-memory storage for thread IDs)
 thread_cache = {}
 
+# ✅ Function to clear only stale cache entries (inactive for 24+ hours)
+async def reset_thread_cache():
+    global thread_cache, db_pool
+    while True:
+        await asyncio.sleep(3600)  # ✅ Check every 1 hour instead of every 24 hours
+
+        try:
+            async with db_pool.acquire() as conn:
+                async with conn.cursor() as cursor:
+                    # ✅ Get user threads that haven't been used in the last 24 hours
+                    query = """
+                    SELECT user_id FROM user_threads 
+                    WHERE last_used < NOW() - INTERVAL 24 HOUR
+                    """
+                    await cursor.execute(query)
+                    results = await cursor.fetchall()
+
+                    if results:
+                        for user_id in results:
+                            user_id = user_id[0]
+                            if user_id in thread_cache:
+                                del thread_cache[user_id]  # ✅ Remove only stale cache entries
+                                print(f"🧹 ✅ Removed cached thread for inactive user {user_id}.")
+
+                    else:
+                        print("🔍 No stale cache entries found.")
+
+        except Exception as e:
+            print(f"⚠️ Error during thread cache cleanup: {e}")
+
 # ✅ Track active threads to prevent duplicate processing
 active_threads = set()
 
@@ -68,24 +98,24 @@ FILE_DIR = "discord-files"
 os.makedirs(IMAGE_DIR, exist_ok=True)
 os.makedirs(FILE_DIR, exist_ok=True)
 
-# ✅ Async function to store user thread ID in MySQL
+# ✅ Async function to store user thread ID in MySQL and update last_used timestamp
 async def save_thread(user_id, thread_id):
     global db_pool
     try:
         # ✅ Update cache
         thread_cache[user_id] = thread_id  
 
-        # ✅ Store in MySQL
+        # ✅ Store in MySQL and update timestamp
         async with db_pool.acquire() as conn:
             async with conn.cursor() as cursor:
                 query = """
-                INSERT INTO user_threads (user_id, thread_id) 
-                VALUES (%s, %s) 
-                ON DUPLICATE KEY UPDATE thread_id = VALUES(thread_id)
+                INSERT INTO user_threads (user_id, thread_id, last_used) 
+                VALUES (%s, %s, CURRENT_TIMESTAMP) 
+                ON DUPLICATE KEY UPDATE thread_id = VALUES(thread_id), last_used = CURRENT_TIMESTAMP
                 """
                 await cursor.execute(query, (user_id, thread_id))
                 await conn.commit()
-        print(f"✅ Stored thread ID for user {user_id}. (Cached & Async MySQL)")
+        print(f"✅ Stored thread ID for user {user_id}. (Cached & Async MySQL, Timestamp Updated)")
     except Exception as e:
         print(f"❌ Failed to store thread ID: {e}")
 
@@ -111,10 +141,13 @@ async def get_thread_id(user_id):
 async def on_ready():
     global db_pool
     db_pool = await create_db_connection()  # ✅ Create async DB connection
+
     if db_pool:
         print("✅ Async MySQL connection established.")
+        asyncio.create_task(reset_thread_cache())  # ✅ Start hourly cache cleanup for inactive users
     else:
         print("❌ Failed to connect to async MySQL.")
+
     print(f'✅ Logged in as {bot.user}')
 
 @bot.event

@@ -971,3 +971,126 @@ sys:1: RuntimeWarning: coroutine 'close_db_connection' was never awaited
 ✅ File successfully saved at: discord-files/discord_developer_portal_documentation_teams.pdf
 ✅ Extracted 2301 characters from discord_developer_portal_documentation_teams.pdf
 ⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: key points please
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1343714914459455590/Channels_for_Discord.docx?ex=67be4788&is=67bcf608&hm=42c6d01dd533be0c3f872d39eaf442c70a9b1263b30798df59c711a2836bd8ec&
+✅ File successfully saved at: discord-files/channels_for_discord.docx
+✅ Extracted 2135 characters from channels_for_discord.docx
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1343715823243759656/Invoice-F9717370-0012.pdf?ex=67be4861&is=67bcf6e1&hm=11e519873e6b095745cb8b459cf184a4a0768823ecbc574cb82e807cdac69515&
+✅ File successfully saved at: discord-files/invoice-f9717370-0012.pdf
+✅ Extracted 1541 characters from invoice-f9717370-0012.pdf
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Describe this
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1343715828901744650/IMG_1643.jpg?ex=67be4862&is=67bcf6e2&hm=f694d69cac8b362b75b3d0a382014039bcaf818f15ad3392a96552af46508b93&
+✅ Image successfully saved at: discord-images/img_1643.jpg
+✅ Image uploaded to OpenAI. File ID: file-EgG67xT2J6jRZpoH4swkfF
+⏳ Processing OpenAI request...
+[2025-02-24 22:53:23] [INFO    ] discord.client: logging in using static token
+[2025-02-24 22:53:23] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: f06a632d8bb765572a2ff782bfacf001).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hello
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1343717540295086090/ReadMe.rtf?ex=67be49fa&is=67bcf87a&hm=bdc808943ccc91f841b62ac2cda95909fdeac96a7024b43bc2f2d85344a8fee4&
+✅ File successfully saved at: discord-files/readme.rtf
+✅ Extracted 3422 characters from readme.rtf
+⏳ Processing OpenAI request...
+[2025-02-24 22:56:30] [INFO    ] discord.client: logging in using static token
+[2025-02-24 22:56:31] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: cfcc471e185555514b42c93de8359e8f).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hello
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is this
+⚠️ Unsupported file type: img_1570_2.heic
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Key points from this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341170981867225140/1343718922947526788/iphone-16-pro-later.txt?ex=67be4b44&is=67bcf9c4&hm=e8e1a2c3c9285dd23fa2af41a95171b11fdfb674cbd2cf7144c89425d477d0a7&
+✅ File successfully saved at: discord-files/iphone-16-pro-later.txt
+✅ Extracted 4924 characters from iphone-16-pro-later.txt
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Where is this?
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1343719582300639253/IMG_1646.png?ex=67be4be1&is=67bcfa61&hm=324ed5809847d65ff031a57418abfd1a2d49b778bfd2f47ed0104986006da04f&
+✅ Image successfully saved at: discord-images/img_1646.png
+✅ Image uploaded to OpenAI. File ID: file-7SgH1ZNbbsEYajzn2S7PtK
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Which city is it in
+⏳ Processing OpenAI request...
+[2025-02-24 23:20:01] [INFO    ] discord.client: logging in using static token
+[2025-02-24 23:20:01] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: eca986a4311802f9a0ee41ce1b4bbb2e).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: thanks
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1343724430551158785/Video_Stats.xlsx?ex=67be5065&is=67bcfee5&hm=8cd0bf42162665a9f975762f6432cc5ea758a2a388d50f0865a37f271d0e37bc&
+✅ File successfully saved at: discord-files/video_stats.xlsx
+✅ Extracted 1181 characters from video_stats.xlsx
+⏳ Processing OpenAI request...
+[2025-02-24 23:23:41] [INFO    ] discord.client: logging in using static token
+[2025-02-24 23:23:42] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 274ade01f3b88fb5ccce1b958462911e).
+Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<handle_user_message() done, defined at /home/ec2-user/ai-assistant/bot.py:178> exception=AttributeError("'NoneType' object has no attribute 'acquire'")>
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 190, in handle_user_message
+    thread_id = await get_thread_id(user_id)
+  File "/home/ec2-user/ai-assistant/bot.py", line 129, in get_thread_id
+    async with db_pool.acquire() as conn:
+AttributeError: 'NoneType' object has no attribute 'acquire'
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-02-24 23:23:55] [INFO    ] discord.client: logging in using static token
+[2025-02-24 23:23:56] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 8e81bfd94718147c1872b1dedfc64f91).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+[2025-02-24 23:26:32] [INFO    ] discord.client: logging in using static token
+[2025-02-24 23:26:33] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 3b07d93c6f7bf5f3b2963dc3218a3091).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: describe this
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341092221046493275/1343725810779160639/IMG_1632.PNG?ex=67be51ae&is=67bd002e&hm=d31db0c3ea0a758df76430457b89a875b2158ea3862491c20255504bf3f6571d&
+✅ Image successfully saved at: discord-images/img_1632.png
+✅ Image uploaded to OpenAI. File ID: file-QmBA5yLZWVtaU9pPNpN32q
+⏳ Processing OpenAI request...
+🧹 ✅ Removed cached thread for inactive user 1304209255741784141.
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: key points
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1343726257220620379/paywall-test.rtf?ex=67be5218&is=67bd0098&hm=c32de9ff6d7cd941a9ad0c1389a33d40eadea1a7e9f9a9ec6c661328b3abc8ff&
+✅ File successfully saved at: discord-files/paywall-test.rtf
+✅ Extracted 6415 characters from paywall-test.rtf
+⏳ Processing OpenAI request...
+🧹 ✅ Removed cached thread for inactive user 1304209255741784141.
+✅ Retrieved existing thread from cache/MySQL for user 973680778200358932: thread_kNvlI89ysD4z8BIZd3cGwuSN
+📝 Received text: hey
+⏳ Processing OpenAI request...
+🧹 ✅ Removed cached thread for inactive user 973680778200358932.
+[2025-02-24 23:30:07] [INFO    ] discord.client: logging in using static token
+[2025-02-24 23:30:08] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 00c9cb67f5f8e394f84d99a86743850b).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
