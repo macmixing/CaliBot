@@ -1663,3 +1663,204 @@ SyntaxError: invalid syntax
 ✅ Image successfully saved at: discord-images/youtube_shorts_icon.svg.png
 ✅ Image uploaded to OpenAI. File ID: file-XK9Jda2y1tCAqUEdd2eTbt
 ⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is the logo for?
+⏳ Processing OpenAI request...
+[2025-02-21 23:19:20] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-21 23:28:48] [ERROR   ] discord.client: Attempting a reconnect in 1.07s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-21 23:28:49] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1342639280069279867/podcast-export-2-script.txt?ex=67ba5dc5&is=67b90c45&hm=33ec898360db40657da5853254eb028caa501e5ae195e68dae7dcb5dd76ec8f0&
+✅ File successfully saved at: discord-files/podcast-export-2-script.txt
+✅ Extracted 35237 characters from podcast-export-2-script.txt
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: You cannot
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What is this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341170981867225140/1342652250417397810/Dom_Esposito_x_RayNeo_Agreement_Addendum.pdf?ex=67ba69d9&is=67b91859&hm=135f035a352a1077417f8be8648cea79066e7856ad61de2b8ac5d25611738903&
+✅ File successfully saved at: discord-files/dom_esposito_x_rayneo_agreement_addendum.pdf
+✅ Extracted 3071 characters from dom_esposito_x_rayneo_agreement_addendum.pdf
+📄 Detected file: https://cdn.discordapp.com/attachments/1341170981867225140/1342652251012857896/Ai_Battle.txt?ex=67ba69d9&is=67b91859&hm=c6c16eedef2906871e8109de472bbe188144fa6e14fe86ff00b4bfe4b63abfd3&
+✅ File successfully saved at: discord-files/ai_battle.txt
+✅ Extracted 7466 characters from ai_battle.txt
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What is this
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1342653965187416164/IMG_1638.jpg?ex=67ba6b72&is=67b919f2&hm=783880c6bac4257afaa91b969c2966ecec07227e37afe6e744de076b2c15a5bc&
+✅ Image successfully saved at: discord-images/img_1638.jpg
+✅ Image uploaded to OpenAI. File ID: file-WNmDwLwiuuCmpaxwg7W3sn
+📄 Detected file: https://cdn.discordapp.com/attachments/1341170981867225140/1342653965648658502/Ai_Battle.txt?ex=67ba6b72&is=67b919f2&hm=fca230f1542720a145d0ffe2b3690ffecff29c50628f8317e3f1b64df37e9411&
+✅ File successfully saved at: discord-files/ai_battle.txt
+✅ Extracted 7466 characters from ai_battle.txt
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What is my favorite color
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: It’s purple
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What is it again
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Describe these to me
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1342656773797970000/20250130_162212.jpg?ex=67ba6e10&is=67b91c90&hm=7aaf5324032c6e94675938f783d75c3f9a405b7c89a01fe02bf0f7e9548faf1f&
+✅ Image successfully saved at: discord-images/20250130_162212.jpg
+✅ Image uploaded to OpenAI. File ID: file-DSKjSsnUG5qa5JkbVeYEmw
+📄 Detected file: https://cdn.discordapp.com/attachments/1341170981867225140/1342656774058020974/Domtech_1.pdf?ex=67ba6e10&is=67b91c90&hm=0d902fa902bf69cba79aa9c071211faf3f3ea53fe63778f0d9c703c72bf528fd&
+✅ File successfully saved at: discord-files/domtech_1.pdf
+✅ Extracted 293 characters from domtech_1.pdf
+⏳ Processing OpenAI request...
+[2025-02-22 01:21:15] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-22 04:08:22] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-22 07:20:18] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-22 09:27:28] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-22 11:48:00] [ERROR   ] discord.client: Attempting a reconnect in 0.28s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-22 11:48:00] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-22 12:28:47] [ERROR   ] discord.client: Attempting a reconnect in 0.52s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-22 12:28:48] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-22 13:35:52] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-22 13:40:05] [ERROR   ] discord.client: Attempting a reconnect in 0.75s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-22 13:40:06] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-22 14:57:19] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-22 17:45:45] [ERROR   ] discord.client: Attempting a reconnect in 1.77s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-22 17:45:47] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+[2025-02-22 19:41:52] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What does this show?
+📄 Detected file: https://cdn.discordapp.com/attachments/1341170981867225140/1342986608051359795/Nutrition-Quick-Sheet-2018-1.pdf?ex=67bba13e&is=67ba4fbe&hm=f3a0a7565c8b7403fd214ba4310bf2e0ec11eaec05ccc36e32e0e996e95361a6&
+✅ File successfully saved at: discord-files/nutrition-quick-sheet-2018-1.pdf
+✅ Extracted 246 characters from nutrition-quick-sheet-2018-1.pdf
+⏳ Processing OpenAI request...
+[2025-02-22 23:27:48] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-23 01:07:23] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-23 03:27:18] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341170981867225140/1343066617793351721/57979-113_FEE_0125_NUTBRO_JANUARY_FA_cp_WCAG.pdf?ex=67bbebc2&is=67ba9a42&hm=ae0c9a36384f94953c0ada220311940772e831a04bbc6593baa3d4470c00fa53&
+✅ File successfully saved at: discord-files/57979-113_fee_0125_nutbro_january_fa_cp_wcag.pdf
+✅ Extracted 33929 characters from 57979-113_fee_0125_nutbro_january_fa_cp_wcag.pdf
+⏳ Processing OpenAI request...
+[2025-02-23 04:37:01] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-23 07:32:12] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-23 08:28:47] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-23 10:22:19] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-23 11:58:36] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-23 15:00:43] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-23 17:08:58] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Describe this
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1343278239975473224/IMG_1306.jpg?ex=67bcb0d9&is=67bb5f59&hm=9fd08735571db0bfafcf2f685fc874db3e51dbad084de73d4e61f0f97028be61&
+✅ Image successfully saved at: discord-images/img_1306.jpg
+✅ Image uploaded to OpenAI. File ID: file-H9WVGqzUoCRRzeRr8YMwH3
+⏳ Processing OpenAI request...
+[2025-02-23 18:11:42] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-23 21:34:47] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-23 22:08:48] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-24 01:19:02] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-24 02:23:52] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-24 05:14:13] [ERROR   ] discord.client: Attempting a reconnect in 1.34s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-24 05:14:15] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-24 08:15:00] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-24 09:39:20] [ERROR   ] discord.client: Attempting a reconnect in 0.84s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-24 09:39:21] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: Tell me a story in 2 paragraphs about a gator
+⏳ Processing OpenAI request...
+[2025-02-24 09:57:50] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-24 10:49:23] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-24 11:47:25] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-24 14:37:01] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+[2025-02-24 16:23:22] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ef80097af0964e2075fe6d7cfb4d0b52.
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is this
+⏳ Processing OpenAI request...
+✅ Connected to MySQL database
+[2025-02-24 17:36:51] [INFO    ] discord.client: logging in using static token
+[2025-02-24 17:36:51] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 27ebd6c018f5e2859a0c3b43defc2e37).
+✅ Logged in as Cali#5463
+✅ Connected to MySQL database
+[2025-02-24 17:37:00] [INFO    ] discord.client: logging in using static token
+[2025-02-24 17:37:00] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 68695a2b04e22a21a7770959d2d8cedf).
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1343637940919865384/Invoice-F9717370-0012.pdf?ex=67bdffd8&is=67bcae58&hm=67da29cf43eee00abef3f6799c1482828675735bc9e5ab67c2b9a1b0b6bdd891&
+✅ File successfully saved at: discord-files/invoice-f9717370-0012.pdf
+✅ Extracted 1541 characters from invoice-f9717370-0012.pdf
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is this
+⚠️ Unsupported file type: podcast-lower-thirds-2024-04-09-11-01-56-utc.zip
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: describe this
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341092221046493275/1343638110680125520/Welcome-Thumbnail-2.png?ex=67be0001&is=67bcae81&hm=fdd862fc85c08d5d9fcff0a9ae918dcc96f0e02ce0b52cf23cd407e68ddfc106&
+✅ Image successfully saved at: discord-images/welcome-thumbnail-2.png
+✅ Image uploaded to OpenAI. File ID: file-GgHPBUJS7JiruWQycgdkzb
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: key points from this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1343638240791363645/Discord_Discussion_-_Meeting_Agenda_and_Notes.docx?ex=67be0020&is=67bcaea0&hm=e4720e2cce0d9560227eca92f8545cd2118bdefad44abe6f3843664f8be2f380&
+✅ File successfully saved at: discord-files/discord_discussion_-_meeting_agenda_and_notes.docx
+✅ Extracted 1145 characters from discord_discussion_-_meeting_agenda_and_notes.docx
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+📝 Received text: what is this
+⚠️ Unsupported file type: img_1570_2.heic
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+📝 Received text: What is this
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1343638717973139507/IMG_1570.jpg?ex=67be0091&is=67bcaf11&hm=3e7775ff953858a38ee2cc92c452e19d927ce166c6f22e12afe8d10d19545df8&
+✅ Image successfully saved at: discord-images/img_1570.jpg
+✅ Image uploaded to OpenAI. File ID: file-38evRLr5BZZnVz4RjwRcoz
+⏳ Processing OpenAI request...

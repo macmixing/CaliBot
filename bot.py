@@ -166,11 +166,24 @@ async def handle_user_message(message):
                     content_data.append({"type": "text", "text": message.content})
 
                 # ✅ Handle images and files
+# ✅ Handle images and files
                 if message.attachments:
                     for attachment in message.attachments:
                         file_url = attachment.url
                         filename = attachment.filename.lower()
                         parsed_url = urlparse(file_url)
+
+                        # ✅ Check if the file type is supported
+                        ALLOWED_EXTENSIONS = {".pdf", ".docx", ".xlsx", ".txt", ".rtf", ".png", ".jpg", ".jpeg", ".gif", ".webp"}
+                        file_extension = os.path.splitext(filename)[1]  # Extract the file extension
+                        if file_extension not in ALLOWED_EXTENSIONS:
+                            print(f"⚠️ Unsupported file type: {filename}")
+                            await message.channel.send(
+                                "⚠️ Unsupported file type detected. Please upload one of the supported formats:\n"
+                                "📄 Documents: .pdf, .docx, .xlsx, .txt, .rtf\n"
+                                "🖼️ Images: .png, .jpg, .jpeg, .gif, .webp"
+                            )
+                            return  # Stop processing this file
 
                         # ✅ Image Handling
                         if filename.endswith((".png", ".jpg", ".jpeg", ".gif", ".webp")):
