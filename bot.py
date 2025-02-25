@@ -334,7 +334,7 @@ async def handle_user_message(message):
                     await asyncio.to_thread(client.beta.threads.messages.create, thread_id=thread_id, role="user", content=content_data)
                 except Exception as e:
                     print(f"⚠️ Error sending message to OpenAI: {e}")
-                    await message.channel.send("⚠️ Message could not be sent to AI. Please try again later.")
+                    await message.channel.send("⚠️ Message could not be sent to Cali. Please try again later.")
                     active_threads.discard(thread_id)  # ✅ Remove from active threads if failed
                     return  # Stop further processing
 

@@ -1137,3 +1137,74 @@ AttributeError: 'NoneType' object has no attribute 'acquire'
 ✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
 📝 Received text: hello
 ⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1343730186226503732/dc2b2209-9845-4bd9-b9cc-185dc1254bfe.pdf?ex=67be55c1&is=67bd0441&hm=c2af9ac6e87fe27ff575278166c5878d47d846a14ea4fc0fccf6e30b89607afc&
+✅ File successfully saved at: discord-files/dc2b2209-9845-4bd9-b9cc-185dc1254bfe.pdf
+✅ Extracted 1757 characters from dc2b2209-9845-4bd9-b9cc-185dc1254bfe.pdf
+⏳ Processing OpenAI request...
+[2025-02-24 23:46:02] [INFO    ] discord.client: logging in using static token
+[2025-02-24 23:46:02] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 31daf6734ec4e74290887ecd3162374d).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Summarize this book
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1343732089069113457/IMG_1647.jpg?ex=67be5787&is=67bd0607&hm=aa5fbef974deae4c10ab4a6297e307abe9eb9db554c774651677f355c3b308ee&
+✅ Image successfully saved at: discord-images/img_1647.jpg
+✅ Image uploaded to OpenAI. File ID: file-DxA84qCdhfGT3kPu16mBYW
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: What’s this sign for
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1343734911697289308/IMG_1648.jpg?ex=67be5a28&is=67bd08a8&hm=51d51a3103aa64aa459fb3d18ab179a96f7873ef629117e5ed0273cc9fdc4eed&
+✅ Image successfully saved at: discord-images/img_1648.jpg
+✅ Image uploaded to OpenAI. File ID: file-MPL2gN74scm9qoZLqVwNgJ
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Summarize the key points from this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341170981867225140/1343736825591890062/02147F12640D434AA9EF3832997486B6.pdf?ex=67be5bf0&is=67bd0a70&hm=636aa155b12b7c53aaa3afb7044b0d113055f63e69e4bb10d1128f1376a3bfb0&
+✅ File successfully saved at: discord-files/02147f12640d434aa9ef3832997486b6.pdf
+✅ Extracted 136804 characters from 02147f12640d434aa9ef3832997486b6.pdf
+⏳ Processing OpenAI request...
+🔍 No stale cache entries found.
+[2025-02-25 00:57:23] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 31daf6734ec4e74290887ecd3162374d.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+[2025-02-25 04:22:51] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 31daf6734ec4e74290887ecd3162374d.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+[2025-02-25 06:33:54] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 31daf6734ec4e74290887ecd3162374d.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+[2025-02-25 08:58:22] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 31daf6734ec4e74290887ecd3162374d.
+🔍 No stale cache entries found.
+[2025-02-25 10:22:00] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 31daf6734ec4e74290887ecd3162374d.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+[2025-02-25 13:24:42] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 31daf6734ec4e74290887ecd3162374d.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hey
+⚠️ Ignoring message in thread thread_p7tGyRMDGr4SsHAQoXf9jIGX - already processing.
