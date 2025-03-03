@@ -1208,3 +1208,2484 @@ AttributeError: 'NoneType' object has no attribute 'acquire'
 ✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
 📝 Received text: hey
 ⚠️ Ignoring message in thread thread_p7tGyRMDGr4SsHAQoXf9jIGX - already processing.
+[2025-02-25 16:40:20] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 31daf6734ec4e74290887ecd3162374d.
+🔍 No stale cache entries found.
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: describe this
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341092221046493275/1343988805597790238/Creative_Campus_Server_Logo_512x512.jpg?ex=67bf469d&is=67bdf51d&hm=9896d857994b009ae0e747f50864360c201feed8643c52ed8eb77b7a739394c2&
+✅ Image successfully saved at: discord-images/creative_campus_server_logo_512x512.jpg
+✅ Image uploaded to OpenAI. File ID: file-BCeR8g5fb7GYDT87RjiACo
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Describe this
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1343988812971507802/IMG_1650.png?ex=67bf469f&is=67bdf51f&hm=f60d2fbd57461c8eeed14d4f1c0db359ac66dc1114699ce6c63de0f7d28ae266&
+✅ Image successfully saved at: discord-images/img_1650.png
+✅ Image uploaded to OpenAI. File ID: file-MGXtg2mbLUbYd7ZidTHF3v
+⏳ Processing OpenAI request...
+⏳ Processing OpenAI request...
+[2025-02-25 17:07:05] [ERROR   ] discord.client: Attempting a reconnect in 1.72s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-25 17:07:07] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 31daf6734ec4e74290887ecd3162374d.
+  File "/home/ec2-user/ai-assistant/bot.py", line 254
+    image_saved = await download_file(file_url, image_path)
+IndentationError: unexpected unindent
+  File "/home/ec2-user/ai-assistant/bot.py", line 254
+    image_saved = await download_file(file_url, image_path)
+IndentationError: unexpected unindent
+  File "/home/ec2-user/ai-assistant/bot.py", line 254
+    image_saved = await download_file(file_url, image_path)
+IndentationError: unexpected unindent
+  File "/home/ec2-user/ai-assistant/bot.py", line 254
+    image_saved = await download_file(file_url, image_path)
+IndentationError: unexpected unindent
+  File "/home/ec2-user/ai-assistant/bot.py", line 254
+    image_saved = await download_file(file_url, image_path)
+IndentationError: unexpected unindent
+[2025-02-25 17:13:50] [INFO    ] discord.client: logging in using static token
+[2025-02-25 17:13:51] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: ac7039147487a668e96381f10a1e8b3b).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1343996732656189450/Discord_Discussion_-_Meeting_Agenda_and_Notes.docx?ex=67bf4dff&is=67bdfc7f&hm=3e0e2452f6dbf989ad96c7488a84aadc2c467c4d2200fa6f80b690d5348355ad&
+✅ File successfully saved at: discord-files/discord_discussion_-_meeting_agenda_and_notes.docx
+✅ Extracted 1145 characters from discord_discussion_-_meeting_agenda_and_notes.docx
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Describe this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341170981867225140/1343996737156808714/iphone-16-pro-later.txt?ex=67bf4e00&is=67bdfc80&hm=d237bd4aa73baf8dcab0fad77638e694ab30704fad5c36215d84d375a36aa0cd&
+✅ File successfully saved at: discord-files/iphone-16-pro-later.txt
+✅ Extracted 4924 characters from iphone-16-pro-later.txt
+⏳ Processing OpenAI request...
+⏳ Processing OpenAI request...
+[2025-02-25 17:58:11] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+🔍 No stale cache entries found.
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hi
+⏳ Processing OpenAI request...
+🔍 No stale cache entries found.
+[2025-02-25 20:38:50] [ERROR   ] discord.client: Attempting a reconnect in 1.93s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-25 20:38:52] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1344056097887096902/Vecteezy-License-Information.pdf?ex=67bf8549&is=67be33c9&hm=06f85d8756887c43d35d84c3a890ae8a158ac47af91b64046ba4898108677915&
+✅ File successfully saved at: discord-files/vecteezy-license-information.pdf
+✅ Extracted 8814 characters from vecteezy-license-information.pdf
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Testing
+⏳ Processing OpenAI request...
+[2025-02-25 23:36:40] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-26 02:00:03] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-26 02:56:19] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-26 06:42:09] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-26 06:54:50] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-26 09:07:45] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-26 10:34:03] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-26 11:51:33] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-26 12:34:02] [ERROR   ] discord.client: Attempting a reconnect in 0.01s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-26 12:34:03] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-26 13:11:28] [ERROR   ] discord.client: Attempting a reconnect in 1.63s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-26 13:11:29] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-26 15:47:39] [ERROR   ] discord.client: Attempting a reconnect in 1.17s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-26 15:47:40] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-26 17:24:27] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-26 20:26:35] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-26 21:37:31] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+🧹 ✅ Removed cached thread for inactive user 1304209255741784141.
+🧹 ✅ Removed cached thread for inactive user 548752969395470337.
+[2025-02-27 01:01:28] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-27 02:13:47] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-27 02:37:02] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-27 06:34:45] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-27 08:31:49] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-27 10:12:27] [ERROR   ] discord.client: Attempting a reconnect in 1.80s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-27 10:12:29] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-27 10:52:58] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-27 11:18:18] [ERROR   ] discord.client: Attempting a reconnect in 1.62s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-27 11:18:19] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-27 12:47:56] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-27 13:07:26] [ERROR   ] discord.client: Attempting a reconnect in 0.95s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-27 13:07:27] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-27 14:11:23] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-27 16:13:58] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-27 16:34:51] [ERROR   ] discord.client: Attempting a reconnect in 1.81s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-27 16:34:53] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-27 17:06:37] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-27 17:36:17] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-27 20:14:59] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-27 23:50:59] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Hi
+⏳ Processing OpenAI request...
+[2025-02-28 02:09:18] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-28 04:45:51] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-28 08:35:31] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-28 09:18:10] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-28 09:38:14] [ERROR   ] discord.client: Attempting a reconnect in 0.93s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-28 09:38:15] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-28 11:33:35] [ERROR   ] discord.client: Attempting a reconnect in 1.02s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-28 11:33:36] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-28 11:41:24] [ERROR   ] discord.client: Attempting a reconnect in 1.05s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-28 11:41:25] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-28 12:11:18] [ERROR   ] discord.client: Attempting a reconnect in 7.77s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-28 12:11:26] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-28 12:18:21] [ERROR   ] discord.client: Attempting a reconnect in 0.69s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-28 12:18:22] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-28 13:15:24] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-28 13:41:31] [ERROR   ] discord.client: Attempting a reconnect in 0.03s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-28 13:41:31] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-28 15:02:16] [ERROR   ] discord.client: Attempting a reconnect in 0.50s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-28 15:02:17] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-28 15:21:13] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-28 15:58:48] [ERROR   ] discord.client: Attempting a reconnect in 1.77s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-28 15:58:50] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-28 16:43:19] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-28 18:17:21] [ERROR   ] discord.client: Attempting a reconnect in 1.47s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-28 18:17:22] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-28 19:01:59] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-28 20:19:02] [ERROR   ] discord.client: Attempting a reconnect in 1.60s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-28 20:19:04] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-28 21:27:01] [ERROR   ] discord.client: Attempting a reconnect in 0.60s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-28 21:27:02] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-28 22:05:05] [ERROR   ] discord.client: Attempting a reconnect in 1.86s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-28 22:05:07] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-28 22:20:56] [ERROR   ] discord.client: Attempting a reconnect in 2.20s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-28 22:20:58] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-28 22:26:13] [ERROR   ] discord.client: Attempting a reconnect in 5.20s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-02-28 22:26:18] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-02-28 23:05:10] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+🧹 ✅ Removed cached thread for inactive user 548752969395470337.
+[2025-03-01 01:31:50] [ERROR   ] discord.client: Attempting a reconnect in 0.45s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-01 01:31:50] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-01 02:38:51] [ERROR   ] discord.client: Attempting a reconnect in 0.01s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-01 02:38:51] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-01 04:41:25] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-01 05:29:43] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-01 08:53:42] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-01 09:41:41] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-01 11:45:07] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-01 14:20:11] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-01 15:59:12] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-01 17:42:15] [ERROR   ] discord.client: Attempting a reconnect in 1.26s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-01 17:42:17] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-01 18:36:19] [ERROR   ] discord.client: Attempting a reconnect in 1.66s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-01 18:36:21] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-01 21:07:06] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-01 22:17:41] [ERROR   ] discord.client: Attempting a reconnect in 1.61s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-01 22:17:42] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-01 23:22:52] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: What is this?
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1345550841486245928/IMG_1648.jpg?ex=67c4f55f&is=67c3a3df&hm=ab2298f5f5cc89c58f3091dccec7869b950cd6e98df2116dad009a7bf5b56153&
+✅ Image successfully saved at: discord-images/img_1648.jpg
+✅ Image uploaded to OpenAI. File ID: file-Y6YXbvuAGWG5DhwwVundsg
+⏳ Processing OpenAI request...
+[2025-03-02 00:25:27] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-02 03:24:04] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-02 03:54:49] [ERROR   ] discord.client: Attempting a reconnect in 0.57s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-02 03:54:50] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-02 06:23:56] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-02 08:29:58] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-02 08:38:38] [ERROR   ] discord.client: Attempting a reconnect in 0.38s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-02 08:38:38] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-02 10:27:19] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-02 12:56:41] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-02 14:06:20] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-02 17:31:07] [ERROR   ] discord.client: Attempting a reconnect in 0.41s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-02 17:31:07] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-02 20:33:30] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-02 22:39:31] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: How much calories is a large fry?
+📄 Detected file: https://cdn.discordapp.com/attachments/1341170981867225140/1345907696934584381/57979-113_FEE_0125_NUTBRO_JANUARY_FA_cp_WCAG.pdf?ex=67c641b8&is=67c4f038&hm=f840112587b24fc1742409c875ae964ea098e50209fca8ee0788c1450bab90b4&
+✅ File successfully saved at: discord-files/57979-113_fee_0125_nutbro_january_fa_cp_wcag.pdf
+✅ Extracted 33929 characters from 57979-113_fee_0125_nutbro_january_fa_cp_wcag.pdf
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Tell me a story about cake
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: What’s this?
+⚠️ Unsupported file type: img_1658.mov
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: What’s this
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1345919623840927752/IMG_1659.jpg?ex=67c64cd4&is=67c4fb54&hm=16837fda715ba46d72fdc2171ef3a2b8e99c94abb5962a1e82f0728ae8148529&
+✅ Image successfully saved at: discord-images/img_1659.jpg
+✅ Image uploaded to OpenAI. File ID: file-LsBBD6jjpgkfBAxu6mZms6
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Describe this to me
+📄 Detected file: https://cdn.discordapp.com/attachments/1341170981867225140/1345920050783326259/eufy_Smart_Lock_E30T85F1_KOL_Scene_Display.pdf?ex=67c64d3a&is=67c4fbba&hm=0477f433b0a3bde15c6efc27a0e1141ed3b3a610bb5b3a2fa4427e5618e1bdbc&
+✅ File successfully saved at: discord-files/eufy_smart_lock_e30t85f1_kol_scene_display.pdf
+✅ Extracted 4501 characters from eufy_smart_lock_e30t85f1_kol_scene_display.pdf
+⏳ Processing OpenAI request...
+[2025-03-03 00:48:16] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-03 01:15:14] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-03 03:28:56] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-03 05:05:29] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-03 07:46:58] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-03 09:38:10] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-03 12:11:21] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-03 12:39:36] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-03 13:08:16] [ERROR   ] discord.client: Attempting a reconnect in 0.42s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-03 13:08:17] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-03 13:18:28] [ERROR   ] discord.client: Attempting a reconnect in 2.94s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-03 13:18:31] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-03 13:49:47] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1346161959011090584/Discord_Developer_Portal_Documentation_Teams.pdf?ex=67c72e85&is=67c5dd05&hm=da067d93d10cd7282db787b6f6f74a8286bb7def1692591ba33b74af5f413ec1&
+✅ File successfully saved at: discord-files/discord_developer_portal_documentation_teams.pdf
+✅ Extracted 2301 characters from discord_developer_portal_documentation_teams.pdf
+⏳ Processing OpenAI request...
+[2025-03-03 16:53:24] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ac7039147487a668e96381f10a1e8b3b.
+[2025-03-03 16:57:04] [INFO    ] discord.client: logging in using static token
+[2025-03-03 16:57:05] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 188f05e577252020a60fa91b600bc183).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hey
+❌ Error: local variable 'messages' referenced before assignment
+[2025-03-03 16:58:25] [INFO    ] discord.client: logging in using static token
+[2025-03-03 16:58:25] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 8111c8e5371b283cdadd46809351c6d0).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-03-03 17:02:25] [INFO    ] discord.client: logging in using static token
+[2025-03-03 17:02:26] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 8485cb4cbdbb72db445fe7e3fd4d4f86).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hi
+⏳ Processing OpenAI request...
+[2025-03-03 17:03:23] [INFO    ] discord.client: logging in using static token
+[2025-03-03 17:03:23] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: ee15535a1fce5df37a28e072418e5a87).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hi
+⏳ Processing OpenAI request...
+⏳ Initiating shutdown...
+✅ Async database connection closed.
+✅ Shutdown complete. Exiting process now...
+[2025-03-03 17:03:59] [INFO    ] discord.client: logging in using static token
+[2025-03-03 17:03:59] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 9a973b7404e68f4716e93e8203918d4b).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-03-03 17:14:43] [INFO    ] discord.client: logging in using static token
+[2025-03-03 17:14:44] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 85f983a2f14a029d1201593e3ae1c2ad).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hey
+❌ Error: local variable 'messages' referenced before assignment
+[2025-03-03 17:15:25] [INFO    ] discord.client: logging in using static token
+[2025-03-03 17:15:26] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 14e4b4e7098f7f476fd41ce033bd8721).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+⏳ Initiating shutdown...
+✅ Async database connection closed.
+✅ Shutdown complete. Exiting process now...
+[2025-03-03 17:19:34] [INFO    ] discord.client: logging in using static token
+[2025-03-03 17:19:34] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: d4627386a989d0645a826d72436b7806).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hey
+⏳ Processing OpenAI request...
+⏳ Initiating shutdown...
+✅ Async database connection closed.
+✅ Shutdown complete. Exiting process now...
+[2025-03-03 17:20:58] [INFO    ] discord.client: logging in using static token
+[2025-03-03 17:20:58] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 15babe9cbb030b3322440bb19cd12878).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: summarize this please
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1346170531950497823/bot-example_1.rtf?ex=67c73681&is=67c5e501&hm=8fb18bf7f841d4c7ae133df3c84ade60edc0fc5addea81dd280e7e848c521310&
+✅ File successfully saved at: discord-files/bot-example_1.rtf
+✅ Extracted 6415 characters from bot-example_1.rtf
+⏳ Processing OpenAI request...
+⏳ Initiating shutdown...
+✅ Async database connection closed.
+✅ Shutdown complete. Exiting process now...
+[2025-03-03 17:21:21] [INFO    ] discord.client: logging in using static token
+[2025-03-03 17:21:22] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 655b3dcd699c0effdacf33092634ac0a).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: what is the captial of new york?
+⚠️ Error sending message to OpenAI: Error code: 400 - {'error': {'message': "Can't add messages to thread_p7tGyRMDGr4SsHAQoXf9jIGX while a run run_vASTKmvrJsDlFpGHIOJutEqD is active.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: what is the captial of new york
+⚠️ Error sending message to OpenAI: Error code: 400 - {'error': {'message': "Can't add messages to thread_p7tGyRMDGr4SsHAQoXf9jIGX while a run run_vASTKmvrJsDlFpGHIOJutEqD is active.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hui
+⏳ Processing OpenAI request...
+⏳ Initiating shutdown...
+✅ Async database connection closed.
+✅ Shutdown complete. Exiting process now...
+[2025-03-03 17:22:54] [INFO    ] discord.client: logging in using static token
+[2025-03-03 17:22:55] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 29d2954aa47f102913d132f3d7745f83).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1346171036668006463/bot-example_1.rtf?ex=67c736f9&is=67c5e579&hm=10e3304ae205f1f51f511ec4392cae38935bacdb8e715f4def909c78abd58354&
+✅ File successfully saved at: discord-files/bot-example_1.rtf
+✅ Extracted 6415 characters from bot-example_1.rtf
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: okay
+⏳ Processing OpenAI request...
+[2025-03-03 17:39:18] [INFO    ] discord.client: logging in using static token
+[2025-03-03 17:39:19] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 832a15438f0b010495397fd957c7703a).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-03-03 17:40:07] [INFO    ] discord.client: logging in using static token
+[2025-03-03 17:40:08] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 74562740a00c575f3216c41c5d00a048).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-03-03 17:42:33] [INFO    ] discord.client: logging in using static token
+[2025-03-03 17:42:34] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 5eb7af5208f3cddd10d33b9345e2c552).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: what is the capital of china
+⏳ Processing OpenAI request...
+[2025-03-03 17:43:31] [INFO    ] discord.client: logging in using static token
+[2025-03-03 17:43:31] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 680d6211a9e1a69aab3e8b40b3bc7462).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+⏳ Initiating shutdown...
+✅ Async database connection closed.
+✅ Shutdown complete. Exiting process now...
+[2025-03-03 17:47:40] [INFO    ] discord.client: logging in using static token
+[2025-03-03 17:47:40] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: b94d181ec6a83023a56ef68fc5038498).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+Task exception was never retrieved
+future: <Task finished name='Task-11' coro=<handle_user_message() done, defined at /home/ec2-user/ai-assistant/bot.py:178> exception=NameError("name 'process_ai_response' is not defined")>
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 183, in handle_user_message
+    ai_processing_task = asyncio.create_task(process_ai_response(message))
+NameError: name 'process_ai_response' is not defined
+Task exception was never retrieved
+future: <Task finished name='Task-12' coro=<handle_user_message() done, defined at /home/ec2-user/ai-assistant/bot.py:178> exception=NameError("name 'process_ai_response' is not defined")>
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 183, in handle_user_message
+    ai_processing_task = asyncio.create_task(process_ai_response(message))
+NameError: name 'process_ai_response' is not defined
+[2025-03-03 17:48:39] [INFO    ] discord.client: logging in using static token
+[2025-03-03 17:48:39] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: eaa7eec56760d9bec2d3b55a91e9d797).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-03-03 17:54:03] [INFO    ] discord.client: logging in using static token
+[2025-03-03 17:54:04] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: d76654f24563715d59c53614600434d7).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: what is the capital of china
+⏳ Processing OpenAI request...
+[2025-03-03 17:55:05] [INFO    ] discord.client: logging in using static token
+[2025-03-03 17:55:06] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 0692f9244973333581695f3d83443a26).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-03-03 17:57:48] [INFO    ] discord.client: logging in using static token
+[2025-03-03 17:57:49] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 8e3ae8c362efd6df16d5efce78399071).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-03-03 17:58:26] [INFO    ] discord.client: logging in using static token
+[2025-03-03 17:58:27] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: b05288cf6f8311178dbaea4664a1a29d).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-03-03 18:30:37] [INFO    ] discord.client: logging in using static token
+[2025-03-03 18:30:38] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 5d50ccba8744e4e9c3334d8713704d08).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-03-03 18:31:15] [INFO    ] discord.client: logging in using static token
+[2025-03-03 18:31:16] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: a737ad31cfda418bb539d0d0c3518238).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+⚠️ Unsupported file type: tf_nemesis.mp3
+[2025-03-03 21:03:07] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a737ad31cfda418bb539d0d0c3518238.
+  File "/home/ec2-user/ai-assistant/bot.py", line 372
+    if messages.data and messages.data[0].role == "assistant":
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/ai-assistant/bot.py", line 372
+    if messages.data and messages.data[0].role == "assistant":
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/ai-assistant/bot.py", line 372
+    if messages.data and messages.data[0].role == "assistant":
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/ai-assistant/bot.py", line 372
+    if messages.data and messages.data[0].role == "assistant":
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/ai-assistant/bot.py", line 372
+    if messages.data and messages.data[0].role == "assistant":
+    ^
+IndentationError: expected an indented block
+[2025-03-03 21:42:47] [INFO    ] discord.client: logging in using static token
+[2025-03-03 21:42:48] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 8bc782df18692716063d501b6c801fe7).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-03-03 21:45:11] [INFO    ] discord.client: logging in using static token
+[2025-03-03 21:45:12] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: be64d4edaec41c5d7ff03e24be3edc3f).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+Task exception was never retrieved
+future: <Task finished name='Task-11' coro=<handle_user_message() done, defined at /home/ec2-user/ai-assistant/bot.py:178> exception=NameError("name 'process_ai_response' is not defined")>
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 183, in handle_user_message
+    ai_processing_task = asyncio.create_task(process_ai_response(message))
+NameError: name 'process_ai_response' is not defined
+[2025-03-03 21:47:04] [INFO    ] discord.client: logging in using static token
+[2025-03-03 21:47:05] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: fcb07a4d7c6b102e145dff668ae27b64).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-03-03 21:58:29] [INFO    ] discord.client: logging in using static token
+[2025-03-03 21:58:29] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 9dc804b3c1d6dd0cd03695477f9c1504).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-03-03 21:59:47] [INFO    ] discord.client: logging in using static token
+[2025-03-03 21:59:47] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 495bc03b26b84e77bc462578ad8358e8).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+⏳ Initiating shutdown...
+✅ Async database connection closed.
+✅ Shutdown complete. Exiting process now...
+[2025-03-03 22:02:33] [INFO    ] discord.client: logging in using static token
+[2025-03-03 22:02:34] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: a09dc8abf65d696dc41eb1df923d91ef).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+⏳ Initiating shutdown...
+✅ Async database connection closed.
+✅ Shutdown complete. Exiting process now...
+[2025-03-03 22:03:16] [INFO    ] discord.client: logging in using static token
+[2025-03-03 22:03:16] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 84f941700d9705952ce7dbcd00d436a0).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-03-03 22:15:04] [INFO    ] discord.client: logging in using static token
+[2025-03-03 22:15:05] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: a711eb23b5b3872a9940ed58c2df340c).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: what is the capital of china?
+⏳ Processing OpenAI request...
+⏳ Initiating shutdown...
+✅ Async database connection closed.
+✅ Shutdown complete. Exiting process now...
+[2025-03-03 22:16:09] [INFO    ] discord.client: logging in using static token
+[2025-03-03 22:16:09] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 7e2cd540fe01c5bc366d3e700fec36b2).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-03-03 22:18:29] [INFO    ] discord.client: logging in using static token
+[2025-03-03 22:18:30] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 7b830dac1c99e8583688ae9c13fbf02a).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-03-03 22:19:59] [INFO    ] discord.client: logging in using static token
+[2025-03-03 22:19:59] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 72d53338d7d6564075f1974e670d2bb6).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+[2025-03-03 22:20:12] [INFO    ] discord.client: logging in using static token
+[2025-03-03 22:20:12] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: f371024480a78e1cb2ee60c3a47b223f).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: what is the capital of china?
+❌ Error: local variable 'messages' referenced before assignment
+⏳ Initiating shutdown...
+✅ Async database connection closed.
+✅ Shutdown complete. Exiting process now...
+[2025-03-03 22:20:45] [INFO    ] discord.client: logging in using static token
+[2025-03-03 22:20:45] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: faef99524fec4c87b661840b4c5f15f2).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: give me 5 key points from this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1346246250701521047/New_Reach_Handbook_2023.pdf?ex=67c77d06&is=67c62b86&hm=047abbf7fc2f5e66ce9916e40292b2b1b210569ce088ff384b33b60b068d2e24&
+✅ File successfully saved at: discord-files/new_reach_handbook_2023.pdf
+✅ Extracted 136804 characters from new_reach_handbook_2023.pdf
+⏳ Processing OpenAI request...
+[2025-03-03 22:40:00] [INFO    ] discord.client: logging in using static token
+[2025-03-03 22:40:01] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: bc92b643d76bf26e89cdf0d5ee58145e).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: testing
+⚠️ Error sending message to OpenAI: Error code: 404 - {'error': {'message': "No thread found with id 'thread_p7tGyRMDGr4SsHAQoXf9jIGX'.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: testing
+⚠️ Error sending message to OpenAI: Error code: 404 - {'error': {'message': "No thread found with id 'thread_p7tGyRMDGr4SsHAQoXf9jIGX'.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+  File "/home/ec2-user/ai-assistant/bot.py", line 336
+    await asyncio.to_thread(client.beta.threads.messages.create, thread_id=thread_id, role="user", content=content_data)
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/ai-assistant/bot.py", line 336
+    await asyncio.to_thread(client.beta.threads.messages.create, thread_id=thread_id, role="user", content=content_data)
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/ai-assistant/bot.py", line 336
+    await asyncio.to_thread(client.beta.threads.messages.create, thread_id=thread_id, role="user", content=content_data)
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/ai-assistant/bot.py", line 336
+    await asyncio.to_thread(client.beta.threads.messages.create, thread_id=thread_id, role="user", content=content_data)
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/ai-assistant/bot.py", line 336
+    await asyncio.to_thread(client.beta.threads.messages.create, thread_id=thread_id, role="user", content=content_data)
+    ^
+IndentationError: expected an indented block
+  File "/home/ec2-user/ai-assistant/bot.py", line 334
+    try:
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 334
+    try:
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 334
+    try:
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 334
+    try:
+    ^
+SyntaxError: invalid syntax
+  File "/home/ec2-user/ai-assistant/bot.py", line 334
+    try:
+    ^
+SyntaxError: invalid syntax
+[2025-03-03 22:49:55] [INFO    ] discord.client: logging in using static token
+[2025-03-03 22:49:56] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 8b0a28d6832cced925d510cb538f05fd).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hi
+⚠️ Error sending message to OpenAI: Error code: 404 - {'error': {'message': "No thread found with id 'thread_p7tGyRMDGr4SsHAQoXf9jIGX'.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[2025-03-03 22:52:27] [INFO    ] discord.client: logging in using static token
+[2025-03-03 22:52:28] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: f517660ed356649007412300f92f7103).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hey
+⚠️ Error sending message to OpenAI: Error code: 404 - {'error': {'message': "No thread found with id 'thread_p7tGyRMDGr4SsHAQoXf9jIGX'.", 'type': 'invalid_request_error', 'param': None, 'code': None}}
+[2025-03-03 22:53:38] [INFO    ] discord.client: logging in using static token
+[2025-03-03 22:53:38] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: c1be8a736f56b467a792838935140d5d).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_p7tGyRMDGr4SsHAQoXf9jIGX
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hey
+⚠️ Thread thread_p7tGyRMDGr4SsHAQoXf9jIGX not found. Creating a new one...
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_WMnq8VzBayis3lYCxlqBLgyJ
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_WMnq8VzBayis3lYCxlqBLgyJ
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hi
+⏳ Processing OpenAI request...
+[2025-03-03 22:57:58] [INFO    ] discord.client: logging in using static token
+[2025-03-03 22:57:58] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 9927a7b9404459b33a8ac8d1ac63b032).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_WMnq8VzBayis3lYCxlqBLgyJ
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: testing
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_MfghNnO43DVnJGmgn4QlPU6T
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Testing
+⚠️ Thread thread_MfghNnO43DVnJGmgn4QlPU6T not found. Creating a new one...
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_h1Fi1A0cl8HuPVCe5dOZ4Tiu
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341170981867225140/1346256123988152392/iphone-16-pro-later.txt?ex=67c78638&is=67c634b8&hm=3c4dc3571f13db18193dd0f1b3f8949f8aadea59aaff9c136b1004073b59072e&
+✅ File successfully saved at: discord-files/iphone-16-pro-later.txt
+✅ Extracted 4924 characters from iphone-16-pro-later.txt
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1346256124827009115/IMG_1660.jpg?ex=67c78638&is=67c634b8&hm=dd45d8e36a086463a678572f5514ae30055f8c0e44881a627b6f2b812c3c4715&
+✅ Image successfully saved at: discord-images/img_1660.jpg
+✅ Image uploaded to OpenAI. File ID: file-7qqyirgWYrqzZXEJA7HPwk
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_h1Fi1A0cl8HuPVCe5dOZ4Tiu
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: What are key points from it?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_h1Fi1A0cl8HuPVCe5dOZ4Tiu
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: What would you title this document?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_h1Fi1A0cl8HuPVCe5dOZ4Tiu
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: How many words was it?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_h1Fi1A0cl8HuPVCe5dOZ4Tiu
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: How about the original document
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_h1Fi1A0cl8HuPVCe5dOZ4Tiu
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Summarize this
+📄 Detected file: https://cdn.discordapp.com/attachments/1341170981867225140/1346258206653026355/NXTGR81879-03-CP-policy-0000.pdf.pdf?ex=67c78828&is=67c636a8&hm=89548dfed2e3e42db14e64b48e66a60c826e9cbaa9945354d2ac983f1f454c4b&
+✅ File successfully saved at: discord-files/nxtgr81879-03-cp-policy-0000.pdf.pdf
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+MuPDF error: unsupported error: cannot create appearance stream for  annotations
+
+✅ Extracted 171941 characters from nxtgr81879-03-cp-policy-0000.pdf.pdf
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_h1Fi1A0cl8HuPVCe5dOZ4Tiu
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: What is the deductible
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_h1Fi1A0cl8HuPVCe5dOZ4Tiu
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: It didn’t mention in the document?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_h1Fi1A0cl8HuPVCe5dOZ4Tiu
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Does it mention what the property deductible covers?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_h1Fi1A0cl8HuPVCe5dOZ4Tiu
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: What is this?
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1346259151986360320/IMG_1661.jpg?ex=67c7890a&is=67c6378a&hm=837771e18d411c321e013bec27654f537039b5375f5f0ff5bfb413c40f377130&
+✅ Image successfully saved at: discord-images/img_1661.jpg
+✅ Image uploaded to OpenAI. File ID: file-Fuv42LZ5P4NK3299p4v5eY
+⏳ Processing OpenAI request...
+⏳ Initiating shutdown...
+✅ Async database connection closed.
+✅ Shutdown complete. Exiting process now...
+[2025-03-03 23:17:56] [INFO    ] discord.client: logging in using static token
+[2025-03-03 23:17:56] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 59a2b6f5113a7d93265c39eea8c7b36b).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_h1Fi1A0cl8HuPVCe5dOZ4Tiu
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Testing
+⏳ Processing OpenAI request...

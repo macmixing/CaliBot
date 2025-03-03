@@ -110,8 +110,8 @@ async def save_thread(user_id, thread_id):
             async with conn.cursor() as cursor:
                 query = """
                 INSERT INTO user_threads (user_id, thread_id, last_used) 
-                VALUES (%s, %s, CURRENT_TIMESTAMP) 
-                ON DUPLICATE KEY UPDATE thread_id = VALUES(thread_id), last_used = CURRENT_TIMESTAMP
+                VALUES (%s, %s, CURRENT_TIMESTAMP) AS new 
+                ON DUPLICATE KEY UPDATE thread_id = new.thread_id, last_used = new.last_used
                 """
                 await cursor.execute(query, (user_id, thread_id))
                 await conn.commit()
@@ -331,7 +331,31 @@ async def handle_user_message(message):
                 active_threads.add(thread_id)
 
                 try:
-                    await asyncio.to_thread(client.beta.threads.messages.create, thread_id=thread_id, role="user", content=content_data)
+                    try:
+                        # ✅ Attempt to send message to OpenAI using the existing thread ID
+                        await asyncio.to_thread(client.beta.threads.messages.create, thread_id=thread_id, role="user", content=content_data)
+
+                    except Exception as e:
+                        error_message = str(e)
+
+                        # ✅ If OpenAI returns a 404 (thread not found), create a new thread and retry
+                        if "No thread found with id" in error_message:
+                            print(f"⚠️ Thread {thread_id} not found. Creating a new one...")
+
+                            # ✅ Create a new thread
+                            thread = await asyncio.to_thread(lambda: client.beta.threads.create())
+                            thread_id = thread.id
+
+                            # ✅ Save the new thread ID in MySQL and cache
+                            await save_thread(user_id, thread_id)
+
+                            # ✅ Retry sending the message with the new thread
+                            await asyncio.to_thread(client.beta.threads.messages.create, thread_id=thread_id, role="user", content=content_data)
+
+                        else:
+                            # ❌ Handle other errors
+                            print(f"⚠️ Error sending message to OpenAI: {e}")
+                            await message.channel.send("⚠️ Message could not be sent to AI. Please try again later.")
                 except Exception as e:
                     print(f"⚠️ Error sending message to OpenAI: {e}")
                     await message.channel.send("⚠️ Message could not be sent to Cali. Please try again later.")
