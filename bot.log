@@ -3689,3 +3689,90 @@ MuPDF error: unsupported error: cannot create appearance stream for  annotations
 ✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
 📝 Received text: Testing
 ⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_h1Fi1A0cl8HuPVCe5dOZ4Tiu
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: What contracts are needed for a subto deal?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_h1Fi1A0cl8HuPVCe5dOZ4Tiu
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: What contracts are needed for a subto deal?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_h1Fi1A0cl8HuPVCe5dOZ4Tiu
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Testing
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_h1Fi1A0cl8HuPVCe5dOZ4Tiu
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Hello
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_WMnq8VzBayis3lYCxlqBLgyJ
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: testing
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_h1Fi1A0cl8HuPVCe5dOZ4Tiu
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Testing
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_h1Fi1A0cl8HuPVCe5dOZ4Tiu
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_h1Fi1A0cl8HuPVCe5dOZ4Tiu
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Testing
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_h1Fi1A0cl8HuPVCe5dOZ4Tiu
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: What contracts are needed for a subto deal?
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_h1Fi1A0cl8HuPVCe5dOZ4Tiu
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Based on the start here with subto contract document, what contracts are needed?
+⏳ Processing OpenAI request...
+[2025-03-04 01:53:43] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 59a2b6f5113a7d93265c39eea8c7b36b.
+[2025-03-04 02:40:40] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 59a2b6f5113a7d93265c39eea8c7b36b.
+[2025-03-04 05:43:56] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 59a2b6f5113a7d93265c39eea8c7b36b.
+[2025-03-04 08:11:03] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 59a2b6f5113a7d93265c39eea8c7b36b.
+[2025-03-04 09:24:28] [ERROR   ] discord.client: Attempting a reconnect in 1.18s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-04 09:24:30] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 59a2b6f5113a7d93265c39eea8c7b36b.
+[2025-03-04 11:01:23] [ERROR   ] discord.client: Attempting a reconnect in 0.01s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-04 11:01:24] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 59a2b6f5113a7d93265c39eea8c7b36b.
+[2025-03-04 11:52:10] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 59a2b6f5113a7d93265c39eea8c7b36b.
+[2025-03-04 12:45:05] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 59a2b6f5113a7d93265c39eea8c7b36b.
+[2025-03-04 14:58:40] [ERROR   ] discord.client: Attempting a reconnect in 1.36s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-04 14:58:42] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 59a2b6f5113a7d93265c39eea8c7b36b.
+[2025-03-04 15:28:22] [ERROR   ] discord.client: Attempting a reconnect in 0.75s
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-04 15:28:23] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 59a2b6f5113a7d93265c39eea8c7b36b.
+[2025-03-04 16:27:23] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 59a2b6f5113a7d93265c39eea8c7b36b.
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_WMnq8VzBayis3lYCxlqBLgyJ
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hello
+⏳ Processing OpenAI request...
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_h1Fi1A0cl8HuPVCe5dOZ4Tiu
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: What else does that involve
+⏳ Processing OpenAI request...
