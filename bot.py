@@ -13,7 +13,7 @@ from urllib.parse import urlparse
 from dotenv import load_dotenv
 
 # Define the roles that are allowed to use the bot
-ALLOWED_ROLES = {"Admin", "Assistant", "Moderator", "Owners Club", "SubTo", "Top Tier TC", "Gator"}
+ALLOWED_ROLES = {"Admin", "Assistant", "Owners Club", "OC Mod"}
 
 # Load environment variables
 load_dotenv()
@@ -245,7 +245,7 @@ async def handle_user_message(message):
                                 image_saved = True
                             else:
                                 print(f"❌ Image request failed, status code: {response.status_code}")
-                                await message.channel.send("⚠️ Image download failed. Please try again.")
+                                await message.channel.send("⚠️ Oops the download failed. Please try again.")
                                 return
 
                             # ✅ Upload image to OpenAI
@@ -279,7 +279,7 @@ async def handle_user_message(message):
                                 file_saved = True
                             else:
                                 print(f"❌ File request failed, status code: {response.status_code}")
-                                await message.channel.send("⚠️ File download failed. Please try again.")
+                                await message.channel.send("⚠️ Oops the file download failed. Please try again.")
                                 return
 
                             # ✅ Extract text from supported files
@@ -395,7 +395,7 @@ async def handle_user_message(message):
                 if messages.data and messages.data[0].role == "assistant":
                     assistant_reply = messages.data[0].content[0].text.value
                 else:
-                    assistant_reply = "⚠️ No response from the assistant."
+                    assistant_reply = "⚠️ No response from Cali. Please try again."
 
                 # ✅ Send the AI response in a single message
                 await send_long_message(message.channel, assistant_reply)
