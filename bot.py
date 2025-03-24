@@ -13,7 +13,7 @@ from urllib.parse import urlparse
 from dotenv import load_dotenv
 
 # Define the roles that are allowed to use the bot
-ALLOWED_ROLES = {"Admin", "Assistant", "Owners Club", "OC Mod"}
+ALLOWED_ROLES = {"Admin", "Assistant", "Moderator", "Owners Club", "SubTo", "Top Tier TC", "Gator"}
 
 # Load environment variables
 load_dotenv()
@@ -41,6 +41,55 @@ async def create_db_connection():
     except Exception as e:
         print(f"❌ Async database connection failed: {e}")
         return None
+
+# ✅ Ensure token_tracking table exists
+async def ensure_token_tracking_table():
+    global db_pool
+    try:
+        async with db_pool.acquire() as conn:
+            async with conn.cursor() as cursor:
+                # First check if the table already exists
+                await cursor.execute("SHOW TABLES LIKE 'token_tracking'")
+                table_exists = await cursor.fetchone()
+                
+                if not table_exists:
+                    # Only create the table if it doesn't exist
+                    create_table_query = """
+                    CREATE TABLE token_tracking (
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        user_id VARCHAR(255) NOT NULL,
+                        thread_id VARCHAR(255) NOT NULL,
+                        model VARCHAR(255) DEFAULT NULL,
+                        prompt_tokens INT NOT NULL,
+                        completion_tokens INT NOT NULL,
+                        total_tokens INT NOT NULL,
+                        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+                    )
+                    """
+                    await cursor.execute(create_table_query)
+                    await conn.commit()
+                    print("✅ Token tracking table created")
+                else:
+                    print("✅ Token tracking table already exists")
+    except Exception as e:
+        print(f"❌ Failed to check/create token tracking table: {e}")
+
+# ✅ Function to log token usage
+async def log_token_usage(user_id, thread_id, model, prompt_tokens, completion_tokens, total_tokens):
+    global db_pool
+    try:
+        async with db_pool.acquire() as conn:
+            async with conn.cursor() as cursor:
+                query = """
+                INSERT INTO token_tracking 
+                (user_id, thread_id, model, prompt_tokens, completion_tokens, total_tokens) 
+                VALUES (%s, %s, %s, %s, %s, %s)
+                """
+                await cursor.execute(query, (user_id, thread_id, model, prompt_tokens, completion_tokens, total_tokens))
+                await conn.commit()
+                print(f"✅ Logged token usage for user {user_id}: {total_tokens} tokens")
+    except Exception as e:
+        print(f"❌ Failed to log token usage: {e}")
 
 # ✅ Global variable for MySQL connection pool
 db_pool = None  
@@ -144,6 +193,8 @@ async def on_ready():
 
     if db_pool:
         print("✅ Async MySQL connection established.")
+        # ✅ Ensure token tracking table exists
+        await ensure_token_tracking_table()
         asyncio.create_task(reset_thread_cache())  # ✅ Start hourly cache cleanup for inactive users
     else:
         print("❌ Failed to connect to async MySQL.")
@@ -211,7 +262,6 @@ async def handle_user_message(message):
                     content_data.append({"type": "text", "text": message.content})
 
                 # ✅ Handle images and files
-# ✅ Handle images and files
                 if message.attachments:
                     for attachment in message.attachments:
                         file_url = attachment.url
@@ -245,7 +295,7 @@ async def handle_user_message(message):
                                 image_saved = True
                             else:
                                 print(f"❌ Image request failed, status code: {response.status_code}")
-                                await message.channel.send("⚠️ Oops the download failed. Please try again.")
+                                await message.channel.send("⚠️ Image download failed. Please try again.")
                                 return
 
                             # ✅ Upload image to OpenAI
@@ -279,7 +329,7 @@ async def handle_user_message(message):
                                 file_saved = True
                             else:
                                 print(f"❌ File request failed, status code: {response.status_code}")
-                                await message.channel.send("⚠️ Oops the file download failed. Please try again.")
+                                await message.channel.send("⚠️ File download failed. Please try again.")
                                 return
 
                             # ✅ Extract text from supported files
@@ -367,7 +417,7 @@ async def handle_user_message(message):
                     print("⏳ Processing OpenAI request...")
 
                     # ✅ Run OpenAI processing first
-                    run_task = asyncio.create_task(asyncio.to_thread(
+                    run = await asyncio.to_thread(
                         client.beta.threads.runs.create_and_poll, 
                         thread_id=thread_id, 
                         assistant_id=ASSISTANT_ID,
@@ -375,10 +425,33 @@ async def handle_user_message(message):
                                             "type": "last_messages",
                                             "last_messages": 15
                                             }
-                    ))
+                    )
 
-                    # ✅ Wait for OpenAI processing to finish BEFORE fetching response
-                    await run_task  # Ensures the response exists before fetching
+                    # ✅ NEW: Get token usage after the run is complete
+                    try:
+                        # Get token usage directly from the run object
+                        run_usage = None
+                        model = "unknown"    # Default model
+                        
+                        # Get the model from the run if available
+                        if hasattr(run, 'model'):
+                            model = run.model
+                        
+                        # Get usage data directly from the run object
+                        if hasattr(run, 'usage') and run.usage:
+                            run_usage = run.usage
+                            prompt_tokens = getattr(run_usage, 'prompt_tokens', 0)
+                            completion_tokens = getattr(run_usage, 'completion_tokens', 0)
+                            total_tokens = getattr(run_usage, 'total_tokens', 0)
+                            
+                            # Log token usage with model
+                            await log_token_usage(user_id, thread_id, model, prompt_tokens, completion_tokens, total_tokens)
+                            print(f"✅ Token usage recorded - Model: {model}, Prompt: {prompt_tokens}, Completion: {completion_tokens}, Total: {total_tokens}")
+                        else:
+                            print("⚠️ No token usage data available from the run")
+                    
+                    except Exception as e:
+                        print(f"⚠️ Error recording token usage: {e}")
 
                     # ✅ Mark the thread as completed
                     active_threads.discard(thread_id)
@@ -395,7 +468,7 @@ async def handle_user_message(message):
                 if messages.data and messages.data[0].role == "assistant":
                     assistant_reply = messages.data[0].content[0].text.value
                 else:
-                    assistant_reply = "⚠️ No response from Cali. Please try again."
+                    assistant_reply = "⚠️ No response from the assistant."
 
                 # ✅ Send the AI response in a single message
                 await send_long_message(message.channel, assistant_reply)
