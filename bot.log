@@ -544,3 +544,360 @@ AttributeError: 'NoneType' object has no attribute 'acquire'
 ⏳ Processing OpenAI request...
 ✅ Logged token usage for user 548752969395470337: 807 tokens
 ✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 795, Completion: 12, Total: 807
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_5nTTB7tWKycc9frBkfvicbyC
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: What does this show
+🔹 Detected image: https://cdn.discordapp.com/attachments/1341170981867225140/1353776602282201301/IMG_1727.jpg?ex=67e2e235&is=67e190b5&hm=db43134d240c096aeb789b0627f83485cc0265311aa710a38fdf66ede2bff635&
+✅ Image successfully saved at: discord-images/img_1727.jpg
+✅ Image uploaded to OpenAI. File ID: file-89mNvMm9uvC3i3QUnG58eL
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 548752969395470337: 6480 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 6447, Completion: 33, Total: 6480
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_rlRL3VoPKAcTF8fiYNLxLqre
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: three key points from this document
+📄 Detected file: https://cdn.discordapp.com/attachments/1341092221046493275/1353777039576006676/Phoenix_Real_Estate_2025.pdf?ex=67e2e29e&is=67e1911e&hm=09d1b725853fd90372d637da919b12d515ffa291c07f2fad195b4ac48661a6e0&
+✅ File successfully saved at: discord-files/phoenix_real_estate_2025.pdf
+✅ Extracted 4291 characters from phoenix_real_estate_2025.pdf
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 1304209255741784141: 1769 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 1552, Completion: 217, Total: 1769
+[2025-03-24 17:26:11] [INFO    ] discord.client: logging in using static token
+[2025-03-24 17:26:11] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 3062234af49058ff6e903a43bcfb6cf8).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Token tracking table already exists
+✅ User lookup table created
+✅ Logged in as Cali#5463
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Updated username mapping for dje85 (548752969395470337)
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_5nTTB7tWKycc9frBkfvicbyC
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 548752969395470337: 6467 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 6456, Completion: 11, Total: 6467
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Updated username mapping for creativecampus (1304209255741784141)
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_rlRL3VoPKAcTF8fiYNLxLqre
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 1304209255741784141: 1788 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 1776, Completion: 12, Total: 1788
+[2025-03-24 17:29:38] [INFO    ] discord.client: logging in using static token
+[2025-03-24 17:29:41] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 909ddce411c188fa4def083a63d14868).
+❌ Failed to update username lookup: 'NoneType' object has no attribute 'acquire'
+Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<handle_user_message() done, defined at /home/ec2-user/ai-assistant/bot.py:270> exception=AttributeError("'NoneType' object has no attribute 'acquire'")>
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 285, in handle_user_message
+    thread_id = await get_thread_id(user_id)
+  File "/home/ec2-user/ai-assistant/bot.py", line 198, in get_thread_id
+    async with db_pool.acquire() as conn:
+AttributeError: 'NoneType' object has no attribute 'acquire'
+❌ Async database connection failed: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+❌ Failed to connect to async MySQL.
+✅ Logged in as Cali#5463
+❌ Failed to update username lookup: 'NoneType' object has no attribute 'acquire'
+Task exception was never retrieved
+future: <Task finished name='Task-11' coro=<handle_user_message() done, defined at /home/ec2-user/ai-assistant/bot.py:270> exception=AttributeError("'NoneType' object has no attribute 'acquire'")>
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 285, in handle_user_message
+    thread_id = await get_thread_id(user_id)
+  File "/home/ec2-user/ai-assistant/bot.py", line 198, in get_thread_id
+    async with db_pool.acquire() as conn:
+AttributeError: 'NoneType' object has no attribute 'acquire'
+❌ Failed to update username lookup: 'NoneType' object has no attribute 'acquire'
+Task exception was never retrieved
+future: <Task finished name='Task-16' coro=<handle_user_message() done, defined at /home/ec2-user/ai-assistant/bot.py:270> exception=AttributeError("'NoneType' object has no attribute 'acquire'")>
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 285, in handle_user_message
+    thread_id = await get_thread_id(user_id)
+  File "/home/ec2-user/ai-assistant/bot.py", line 198, in get_thread_id
+    async with db_pool.acquire() as conn:
+AttributeError: 'NoneType' object has no attribute 'acquire'
+[2025-03-24 17:31:00] [INFO    ] discord.client: logging in using static token
+[2025-03-24 17:31:01] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 04579b58772e1a50b928ce41a8dc9972).
+❌ Async database connection failed: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+❌ Failed to connect to async MySQL.
+✅ Logged in as Cali#5463
+❌ Failed to update username lookup: 'NoneType' object has no attribute 'acquire'
+Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<handle_user_message() done, defined at /home/ec2-user/ai-assistant/bot.py:270> exception=AttributeError("'NoneType' object has no attribute 'acquire'")>
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 285, in handle_user_message
+    thread_id = await get_thread_id(user_id)
+  File "/home/ec2-user/ai-assistant/bot.py", line 198, in get_thread_id
+    async with db_pool.acquire() as conn:
+AttributeError: 'NoneType' object has no attribute 'acquire'
+⏳ Initiating shutdown...
+✅ Shutdown complete. Exiting process now...
+[2025-03-24 17:33:01] [INFO    ] discord.client: logging in using static token
+[2025-03-24 17:33:01] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: ee0baef10992f74b9a4f73e320052013).
+❌ Async database connection failed: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+❌ Failed to connect to async MySQL.
+✅ Logged in as Cali#5463
+⏳ Initiating shutdown...
+✅ Shutdown complete. Exiting process now...
+[2025-03-24 17:41:10] [INFO    ] discord.client: logging in using static token
+[2025-03-24 17:41:10] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: dae353920ecd5a4d22888f5652762702).
+❌ Async database connection failed: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+❌ Failed to connect to async MySQL.
+✅ Logged in as Cali#5463
+❌ Failed to update username lookup: 'NoneType' object has no attribute 'acquire'
+Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<handle_user_message() done, defined at /home/ec2-user/ai-assistant/bot.py:270> exception=AttributeError("'NoneType' object has no attribute 'acquire'")>
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 285, in handle_user_message
+    thread_id = await get_thread_id(user_id)
+  File "/home/ec2-user/ai-assistant/bot.py", line 198, in get_thread_id
+    async with db_pool.acquire() as conn:
+AttributeError: 'NoneType' object has no attribute 'acquire'
+[2025-03-24 17:44:19] [INFO    ] discord.client: logging in using static token
+[2025-03-24 17:44:20] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 7c908b1e710ef3eb0acaf766401154c7).
+✅ Bot logged in as Cali#5463
+⏳ Database connection attempt 1/5...
+❌ Database connection attempt 1 failed: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+⏳ Waiting 10 seconds before retrying...
+⏳ Database connection attempt 2/5...
+❌ Database connection attempt 2 failed: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+⏳ Waiting 10 seconds before retrying...
+⏳ Initiating shutdown...
+✅ Shutdown complete. Exiting process now...
+[2025-03-24 17:45:32] [INFO    ] discord.client: logging in using static token
+[2025-03-24 17:45:32] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 7e19129866740d85c0117581c3411609).
+✅ Bot logged in as Cali#5463
+⏳ Database connection attempt 1/5...
+❌ Database connection attempt 1 failed: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+⏳ Waiting 10 seconds before retrying...
+⏳ Database connection attempt 2/5...
+❌ Database connection attempt 2 failed: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+⏳ Waiting 10 seconds before retrying...
+⏳ Database connection attempt 3/5...
+❌ Database connection attempt 3 failed: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+⏳ Waiting 10 seconds before retrying...
+⏳ Database connection attempt 4/5...
+❌ Database connection attempt 4 failed: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+⏳ Waiting 10 seconds before retrying...
+⏳ Database connection attempt 5/5...
+❌ Database connection attempt 5 failed: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+❌ All 5 connection attempts failed
+❌ Failed to connect to database - some functionality will be limited
+[2025-03-24 17:52:03] [INFO    ] discord.client: logging in using static token
+[2025-03-24 17:52:04] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 0992aad06724b2283faed6749debdfd3).
+✅ Bot logged in as Cali#5463
+⏳ Database connection attempt 1/5...
+✅ Connected to MySQL database (async)
+✅ Database connection established and ready
+⏳ Waiting for database to be ready...
+❌ Failed to check/create tables: Task <Task pending name='Task-10' coro=<Event.wait() running at /usr/lib64/python3.9/asyncio/locks.py:226> cb=[_release_waiter(<Future pendi...e8ab8d610>()]>)() at /usr/lib64/python3.9/asyncio/tasks.py:416]> got Future <Future pending> attached to a different loop
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Updated username mapping for dje85 (548752969395470337)
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_5nTTB7tWKycc9frBkfvicbyC
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 548752969395470337: 6454 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 6445, Completion: 9, Total: 6454
+⏳ Initiating shutdown...
+✅ Async database connection closed.
+✅ Shutdown complete. Exiting process now...
+✅ Starting AI Assistant Bot
+✅ Python version: 3.9.20 (main, Jan 25 2025, 00:00:00) 
+[GCC 11.4.1 20230605 (Red Hat 11.4.1-2)]
+✅ Running from: /home/ec2-user/ai-assistant
+✅ Directory setup complete
+[2025-03-24 17:53:27] [INFO    ] discord.client: logging in using static token
+[2025-03-24 17:53:28] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: cf019a59ce340cb33ef273c530532328).
+✅ Bot logged in as Cali#5463
+❌ CRITICAL: cryptography package not found - Required for MySQL authentication
+
+❌ CRITICAL PACKAGES MISSING:
+The following essential packages are not installed: cryptography
+
+Please install missing packages with:
+pip install cryptography
+
+If using a virtual environment, activate it first with:
+source /path/to/venv/bin/activate
+⚠️ Bot will continue but some functionality will be limited
+❌ CRITICAL: 'cryptography' package is required for MySQL authentication
+Please install it with: pip install cryptography
+If using a virtual environment, ensure it's activated
+❌ Failed to connect to database - functionality will be limited
+Users will still be able to interact with the bot, but some features won't work
+
+⏳ Initiating shutdown...
+⚠️ Error during cleanup: This event loop is already running
+/home/ec2-user/ai-assistant/bot.py:309: RuntimeWarning: coroutine 'cleanup' was never awaited
+  print(f"⚠️ Error during cleanup: {e}")
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+✅ Shutdown complete. Exiting process now...
+✅ Starting AI Assistant Bot
+✅ Python version: 3.9.20 (main, Jan 25 2025, 00:00:00) 
+[GCC 11.4.1 20230605 (Red Hat 11.4.1-2)]
+✅ Running from: /home/ec2-user/ai-assistant
+✅ Directory setup complete
+[2025-03-24 17:55:19] [INFO    ] discord.client: logging in using static token
+[2025-03-24 17:55:19] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 7fe30df1ca8da5b57048e545c2ba700b).
+✅ Bot logged in as Cali#5463
+❌ CRITICAL: cryptography package not found - Required for MySQL authentication
+
+❌ CRITICAL PACKAGES MISSING:
+The following essential packages are not installed: cryptography
+
+Please install missing packages with:
+pip install cryptography
+
+If using a virtual environment, activate it first with:
+source /path/to/venv/bin/activate
+⚠️ Bot will continue but some functionality will be limited
+❌ CRITICAL: 'cryptography' package is required for MySQL authentication
+Please install it with: pip install cryptography
+If using a virtual environment, ensure it's activated
+❌ Failed to connect to database - functionality will be limited
+Users will still be able to interact with the bot, but some features won't work
+
+⏳ Initiating shutdown...
+⚠️ Error during cleanup: This event loop is already running
+/home/ec2-user/ai-assistant/bot.py:309: RuntimeWarning: coroutine 'cleanup' was never awaited
+  print(f"⚠️ Error during cleanup: {e}")
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+✅ Shutdown complete. Exiting process now...
+✅ Starting AI Assistant Bot
+✅ Python version: 3.9.20 (main, Jan 25 2025, 00:00:00) 
+[GCC 11.4.1 20230605 (Red Hat 11.4.1-2)]
+✅ Running from: /home/ec2-user/ai-assistant
+✅ Directory setup complete
+[2025-03-24 17:55:39] [INFO    ] discord.client: logging in using static token
+[2025-03-24 17:55:40] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 3e4a19330c6e0c4ebe9b8ad2a33ee7ca).
+✅ Bot logged in as Cali#5463
+❌ CRITICAL: cryptography package not found - Required for MySQL authentication
+
+❌ CRITICAL PACKAGES MISSING:
+The following essential packages are not installed: cryptography
+
+Please install missing packages with:
+pip install cryptography
+
+If using a virtual environment, activate it first with:
+source /path/to/venv/bin/activate
+⚠️ Bot will continue but some functionality will be limited
+❌ CRITICAL: 'cryptography' package is required for MySQL authentication
+Please install it with: pip install cryptography
+If using a virtual environment, ensure it's activated
+❌ Failed to connect to database - functionality will be limited
+Users will still be able to interact with the bot, but some features won't work
+
+⏳ Initiating shutdown...
+⚠️ Error during cleanup: This event loop is already running
+/home/ec2-user/ai-assistant/bot.py:309: RuntimeWarning: coroutine 'cleanup' was never awaited
+  # ✅ Add image to content_data
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+✅ Shutdown complete. Exiting process now...
+[2025-03-24 17:59:18] [INFO    ] discord.client: logging in using static token
+[2025-03-24 17:59:19] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 48dc69ece56cd38ac7be3f858bd4ee18).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Token tracking table already exists
+✅ Logged in as Cali#5463
+✅ Starting AI Assistant Bot
+✅ Python version: 3.9.20 (main, Jan 25 2025, 00:00:00) 
+[GCC 11.4.1 20230605 (Red Hat 11.4.1-2)]
+✅ Running from: /home/ec2-user/ai-assistant
+✅ Directory setup complete
+[2025-03-24 17:59:53] [INFO    ] discord.client: logging in using static token
+[2025-03-24 17:59:54] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 3a664ed8cd480c9a37062d30f444d42b).
+✅ Bot logged in as Cali#5463
+❌ CRITICAL: cryptography package not found - Required for MySQL authentication
+
+❌ CRITICAL PACKAGES MISSING:
+The following essential packages are not installed: cryptography
+
+Please install missing packages with:
+pip install cryptography
+
+If using a virtual environment, activate it first with:
+source /path/to/venv/bin/activate
+⚠️ Bot will continue but some functionality will be limited
+❌ CRITICAL: 'cryptography' package is required for MySQL authentication
+Please install it with: pip install cryptography
+If using a virtual environment, ensure it's activated
+❌ Failed to connect to database - functionality will be limited
+Users will still be able to interact with the bot, but some features won't work
+
+⏳ Initiating shutdown...
+⚠️ Error during cleanup: This event loop is already running
+/home/ec2-user/ai-assistant/bot.py:309: RuntimeWarning: coroutine 'cleanup' was never awaited
+  print(f"⚠️ Error during cleanup: {e}")
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+✅ Shutdown complete. Exiting process now...
+✅ Starting AI Assistant Bot
+✅ Python version: 3.9.20 (main, Jan 25 2025, 00:00:00) 
+[GCC 11.4.1 20230605 (Red Hat 11.4.1-2)]
+✅ Running from: /home/ec2-user/ai-assistant
+✅ Directory setup complete
+[2025-03-24 18:00:23] [INFO    ] discord.client: logging in using static token
+[2025-03-24 18:00:24] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: be7a346857d80d45e1b109bf0166e707).
+✅ Bot logged in as Cali#5463
+❌ CRITICAL: cryptography package not found - Required for MySQL authentication
+
+❌ CRITICAL PACKAGES MISSING:
+The following essential packages are not installed: cryptography
+
+Please install missing packages with:
+pip install cryptography
+
+If using a virtual environment, activate it first with:
+source /path/to/venv/bin/activate
+⚠️ Bot will continue but some functionality will be limited
+❌ CRITICAL: 'cryptography' package is required for MySQL authentication
+Please install it with: pip install cryptography
+If using a virtual environment, ensure it's activated
+❌ Failed to connect to database - functionality will be limited
+Users will still be able to interact with the bot, but some features won't work
+
+⏳ Initiating shutdown...
+⚠️ Error during cleanup: This event loop is already running
+/home/ec2-user/ai-assistant/bot.py:309: RuntimeWarning: coroutine 'cleanup' was never awaited
+  # ✅ Add image to content_data
+RuntimeWarning: Enable tracemalloc to get the object allocation traceback
+✅ Shutdown complete. Exiting process now...
+[2025-03-24 18:00:30] [INFO    ] discord.client: logging in using static token
+[2025-03-24 18:00:32] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: fbe013e04fbaa474d61dc09f91e31871).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Token tracking table already exists
+✅ Logged in as Cali#5463
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_5nTTB7tWKycc9frBkfvicbyC
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 548752969395470337: 6453 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 6443, Completion: 10, Total: 6453
+✅ Created new thread for user 973680778200358932: thread_92bWGTgZvf137JuVgm6m4zYM
+✅ Stored thread ID for user 973680778200358932. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: HEY
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 973680778200358932: 641 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 630, Completion: 11, Total: 641
+[2025-03-24 18:03:09] [INFO    ] discord.client: logging in using static token
+[2025-03-24 18:03:10] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 149ad5a3569bd0fd3deb538573a22a4d).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Token tracking table already exists
+✅ User lookup table already exists
+✅ Logged in as Cali#5463
+/home/ec2-user/ai-assistant/venv/lib/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Updated username mapping for victoriamirocke (973680778200358932)
+✅ Retrieved existing thread from cache/MySQL for user 973680778200358932: thread_92bWGTgZvf137JuVgm6m4zYM
+✅ Stored thread ID for user 973680778200358932. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 973680778200358932: 659 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 648, Completion: 11, Total: 659

@@ -71,8 +71,28 @@ async def ensure_token_tracking_table():
                     print("✅ Token tracking table created")
                 else:
                     print("✅ Token tracking table already exists")
+                
+                # Check if user_lookup table exists
+                await cursor.execute("SHOW TABLES LIKE 'user_lookup'")
+                user_lookup_exists = await cursor.fetchone()
+                
+                if not user_lookup_exists:
+                    # Create user_lookup table for mapping user_id to usernames
+                    create_lookup_query = """
+                    CREATE TABLE user_lookup (
+                        user_id VARCHAR(255) PRIMARY KEY,
+                        username VARCHAR(255) NOT NULL,
+                        display_name VARCHAR(255),
+                        last_updated DATETIME DEFAULT CURRENT_TIMESTAMP
+                    )
+                    """
+                    await cursor.execute(create_lookup_query)
+                    await conn.commit()
+                    print("✅ User lookup table created")
+                else:
+                    print("✅ User lookup table already exists")
     except Exception as e:
-        print(f"❌ Failed to check/create token tracking table: {e}")
+        print(f"❌ Failed to check/create tables: {e}")
 
 # ✅ Function to log token usage
 async def log_token_usage(user_id, thread_id, model, prompt_tokens, completion_tokens, total_tokens):
@@ -186,6 +206,26 @@ async def get_thread_id(user_id):
 
     return None  # No thread found
 
+# ✅ Function to update username in lookup table
+async def update_username_lookup(user_id, username, display_name=None):
+    global db_pool
+    try:
+        async with db_pool.acquire() as conn:
+            async with conn.cursor() as cursor:
+                query = """
+                INSERT INTO user_lookup (user_id, username, display_name, last_updated) 
+                VALUES (%s, %s, %s, NOW())
+                ON DUPLICATE KEY UPDATE 
+                    username = VALUES(username), 
+                    display_name = VALUES(display_name),
+                    last_updated = NOW()
+                """
+                await cursor.execute(query, (user_id, username, display_name))
+                await conn.commit()
+                print(f"✅ Updated username mapping for {username} ({user_id})")
+    except Exception as e:
+        print(f"❌ Failed to update username lookup: {e}")
+
 @bot.event
 async def on_ready():
     global db_pool
@@ -226,6 +266,7 @@ async def on_message(message):
 
     # ✅ User has permission, proceed with message processing
     asyncio.create_task(handle_user_message(message))  # ✅ Run in background
+
 async def handle_user_message(message):
     if message.author == bot.user:
         return  # Ignore bot's own messages
@@ -235,7 +276,10 @@ async def handle_user_message(message):
         if isinstance(message.channel, discord.DMChannel):  # Only respond to DMs
             user_id = str(message.author.id)
 
-            user_id = str(message.author.id)
+            # ✅ Update username lookup table
+            username = message.author.name
+            display_name = getattr(message.author, 'display_name', username)
+            await update_username_lookup(user_id, username, display_name)
 
             # ✅ Check if user has an existing thread, using cache first
             thread_id = await get_thread_id(user_id)
@@ -249,7 +293,6 @@ async def handle_user_message(message):
 
             # ✅ Always update the last_used timestamp in MySQL, even if thread exists
             await save_thread(user_id, thread_id)  # ✅ Ensures last_used updates every message
-
 
             try:
                 content_data = []
