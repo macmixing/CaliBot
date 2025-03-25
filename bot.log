@@ -901,3 +901,604 @@ RuntimeWarning: Enable tracemalloc to get the object allocation traceback
 ⏳ Processing OpenAI request...
 ✅ Logged token usage for user 973680778200358932: 659 tokens
 ✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 648, Completion: 11, Total: 659
+[2025-03-24 18:05:50] [INFO    ] discord.client: logging in using static token
+[2025-03-24 18:05:51] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: c976a7b3058dd85f57f9681fc50d28f0).
+❌ Async database connection failed: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+❌ Failed to connect to async MySQL.
+✅ Logged in as Cali#5463
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: cryptography in /usr/lib64/python3.9/site-packages (36.0.1)
+Collecting cryptography
+  Downloading cryptography-44.0.2-cp39-abi3-manylinux_2_34_x86_64.whl.metadata (5.7 kB)
+Requirement already satisfied: pymysql in /home/ec2-user/.local/lib/python3.9/site-packages (1.1.1)
+Requirement already satisfied: aiomysql in /home/ec2-user/.local/lib/python3.9/site-packages (0.2.0)
+Requirement already satisfied: cffi>=1.12 in /usr/lib64/python3.9/site-packages (from cryptography) (1.14.5)
+Requirement already satisfied: pycparser in /usr/lib/python3.9/site-packages (from cffi>=1.12->cryptography) (2.20)
+Requirement already satisfied: ply==3.11 in /usr/lib/python3.9/site-packages (from pycparser->cffi>=1.12->cryptography) (3.11)
+Downloading cryptography-44.0.2-cp39-abi3-manylinux_2_34_x86_64.whl (4.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 82.8 MB/s eta 0:00:00
+Installing collected packages: cryptography
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+awscli 2.17.18 requires cryptography<40.0.2,>=3.3.2, but you have cryptography 44.0.2 which is incompatible.
+awscli 2.17.18 requires distro<1.9.0,>=1.5.0, but you have distro 1.9.0 which is incompatible.
+Successfully installed cryptography-44.0.2
+/home/ec2-user/ai-assistant/start_bot.sh: line 12: python: command not found
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: cryptography in /home/ec2-user/.local/lib/python3.9/site-packages (44.0.2)
+Requirement already satisfied: pymysql in /home/ec2-user/.local/lib/python3.9/site-packages (1.1.1)
+Requirement already satisfied: aiomysql in /home/ec2-user/.local/lib/python3.9/site-packages (0.2.0)
+Requirement already satisfied: cffi>=1.12 in /usr/lib64/python3.9/site-packages (from cryptography) (1.14.5)
+Requirement already satisfied: pycparser in /usr/lib/python3.9/site-packages (from cffi>=1.12->cryptography) (2.20)
+Requirement already satisfied: ply==3.11 in /usr/lib/python3.9/site-packages (from pycparser->cffi>=1.12->cryptography) (3.11)
+/home/ec2-user/ai-assistant/start_bot.sh: line 12: python: command not found
+Defaulting to user installation because normal site-packages is not writeable
+Requirement already satisfied: cryptography in /home/ec2-user/.local/lib/python3.9/site-packages (44.0.2)
+Requirement already satisfied: pymysql in /home/ec2-user/.local/lib/python3.9/site-packages (1.1.1)
+Requirement already satisfied: aiomysql in /home/ec2-user/.local/lib/python3.9/site-packages (0.2.0)
+Requirement already satisfied: cffi>=1.12 in /usr/lib64/python3.9/site-packages (from cryptography) (1.14.5)
+Requirement already satisfied: pycparser in /usr/lib/python3.9/site-packages (from cffi>=1.12->cryptography) (2.20)
+Requirement already satisfied: ply==3.11 in /usr/lib/python3.9/site-packages (from pycparser->cffi>=1.12->cryptography) (3.11)
+/home/ec2-user/ai-assistant/start_bot.sh: line 12: python: command not found
+[2025-03-24 18:12:36] Changed to working directory: /home/ec2-user/ai-assistant
+[2025-03-24 18:12:36] Activating virtual environment...
+[2025-03-24 18:12:36] Using Python 3.9.20
+[2025-03-24 18:12:36] Verifying packages...
+[2025-03-24 18:12:37] Starting bot...
+[2025-03-24 18:12:39] [INFO    ] discord.client: logging in using static token
+[2025-03-24 18:12:40] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 26c71b52208aa642c73d928df1d995ec).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Token tracking table already exists
+✅ User lookup table already exists
+✅ Logged in as Cali#5463
+/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Updated username mapping for dje85 (548752969395470337)
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_5nTTB7tWKycc9frBkfvicbyC
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 548752969395470337: 782 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 772, Completion: 10, Total: 782
+/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Updated username mapping for dje85 (548752969395470337)
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_5nTTB7tWKycc9frBkfvicbyC
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 548752969395470337: 760 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 749, Completion: 11, Total: 760
+❌ Failed to update username lookup: (2003, "Can't connect to MySQL server on 'localhost'")
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_5nTTB7tWKycc9frBkfvicbyC
+❌ Failed to store thread ID: (2003, "Can't connect to MySQL server on 'localhost'")
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+⏳ Initiating shutdown...
+✅ Async database connection closed.
+✅ Shutdown complete. Exiting process now...
+[2025-03-24 18:14:32] Changed to working directory: /home/ec2-user/ai-assistant
+[2025-03-24 18:14:32] Activating virtual environment...
+[2025-03-24 18:14:32] Using Python 3.9.20
+[2025-03-24 18:14:32] Verifying packages...
+[2025-03-24 18:14:34] Starting bot...
+[2025-03-24 18:14:37] [INFO    ] discord.client: logging in using static token
+[2025-03-24 18:14:38] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 4e6ed1f4c052b88554a8a47a735024b6).
+❌ Async database connection failed: Packet sequence number wrong - got 3 expected 4
+❌ Failed to connect to async MySQL.
+✅ Logged in as Cali#5463
+❌ Failed to update username lookup: 'NoneType' object has no attribute 'acquire'
+Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<handle_user_message() done, defined at /home/ec2-user/ai-assistant/bot.py:270> exception=AttributeError("'NoneType' object has no attribute 'acquire'")>
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 285, in handle_user_message
+    thread_id = await get_thread_id(user_id)
+  File "/home/ec2-user/ai-assistant/bot.py", line 198, in get_thread_id
+    async with db_pool.acquire() as conn:
+AttributeError: 'NoneType' object has no attribute 'acquire'
+❌ Failed to update username lookup: 'NoneType' object has no attribute 'acquire'
+Task exception was never retrieved
+future: <Task finished name='Task-15' coro=<handle_user_message() done, defined at /home/ec2-user/ai-assistant/bot.py:270> exception=AttributeError("'NoneType' object has no attribute 'acquire'")>
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 285, in handle_user_message
+    thread_id = await get_thread_id(user_id)
+  File "/home/ec2-user/ai-assistant/bot.py", line 198, in get_thread_id
+    async with db_pool.acquire() as conn:
+AttributeError: 'NoneType' object has no attribute 'acquire'
+❌ Failed to update username lookup: 'NoneType' object has no attribute 'acquire'
+Task exception was never retrieved
+future: <Task finished name='Task-28' coro=<handle_user_message() done, defined at /home/ec2-user/ai-assistant/bot.py:270> exception=AttributeError("'NoneType' object has no attribute 'acquire'")>
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 285, in handle_user_message
+    thread_id = await get_thread_id(user_id)
+  File "/home/ec2-user/ai-assistant/bot.py", line 198, in get_thread_id
+    async with db_pool.acquire() as conn:
+AttributeError: 'NoneType' object has no attribute 'acquire'
+❌ Failed to update username lookup: 'NoneType' object has no attribute 'acquire'
+Task exception was never retrieved
+future: <Task finished name='Task-33' coro=<handle_user_message() done, defined at /home/ec2-user/ai-assistant/bot.py:270> exception=AttributeError("'NoneType' object has no attribute 'acquire'")>
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 285, in handle_user_message
+    thread_id = await get_thread_id(user_id)
+  File "/home/ec2-user/ai-assistant/bot.py", line 198, in get_thread_id
+    async with db_pool.acquire() as conn:
+AttributeError: 'NoneType' object has no attribute 'acquire'
+❌ Failed to update username lookup: 'NoneType' object has no attribute 'acquire'
+Task exception was never retrieved
+future: <Task finished name='Task-37' coro=<handle_user_message() done, defined at /home/ec2-user/ai-assistant/bot.py:270> exception=AttributeError("'NoneType' object has no attribute 'acquire'")>
+Traceback (most recent call last):
+  File "/home/ec2-user/ai-assistant/bot.py", line 285, in handle_user_message
+    thread_id = await get_thread_id(user_id)
+  File "/home/ec2-user/ai-assistant/bot.py", line 198, in get_thread_id
+    async with db_pool.acquire() as conn:
+AttributeError: 'NoneType' object has no attribute 'acquire'
+[2025-03-24 18:42:54] === Bot startup initiated ===
+[2025-03-24 18:42:54] Waiting for MySQL to be fully ready...
+[2025-03-24 18:42:54] MySQL is ready after 1 attempts
+[2025-03-24 18:42:54] Changed to working directory: /home/ec2-user/ai-assistant
+[2025-03-24 18:42:54] Activating virtual environment...
+[2025-03-24 18:42:54] Using Python 3.9.20
+[2025-03-24 18:42:54] Verifying packages...
+[2025-03-24 18:42:55] Starting bot...
+[2025-03-24 18:42:58] [INFO    ] discord.client: logging in using static token
+[2025-03-24 18:42:59] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 6c0d74442a30818e8141af2f81c6558d).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Token tracking table already exists
+✅ User lookup table already exists
+✅ Logged in as Cali#5463
+/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Updated username mapping for dje85 (548752969395470337)
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_5nTTB7tWKycc9frBkfvicbyC
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+❌ Error: Error code: 400 - {'error': {'message': 'Thread thread_5nTTB7tWKycc9frBkfvicbyC already has an active run run_LqX1y1zVFFfyNShaORSVxsfi.', 'type': 'invalid_request_error', 'param': None, 'code': None}}
+/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Updated username mapping for dje85 (548752969395470337)
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_5nTTB7tWKycc9frBkfvicbyC
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Hey
+⚠️ Ignoring message in thread thread_5nTTB7tWKycc9frBkfvicbyC - already processing.
+✅ Updated username mapping for dje85 (548752969395470337)
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_5nTTB7tWKycc9frBkfvicbyC
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: What’s up?
+⚠️ Ignoring message in thread thread_5nTTB7tWKycc9frBkfvicbyC - already processing.
+✅ Updated username mapping for dje85 (548752969395470337)
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_5nTTB7tWKycc9frBkfvicbyC
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Howdy partner
+⚠️ Ignoring message in thread thread_5nTTB7tWKycc9frBkfvicbyC - already processing.
+[2025-03-24 18:45:07] === Bot startup initiated ===
+[2025-03-24 18:45:07] Waiting for MySQL to be fully ready...
+[2025-03-24 18:45:07] MySQL is ready after 1 attempts
+[2025-03-24 18:45:07] Changed to working directory: /home/ec2-user/ai-assistant
+[2025-03-24 18:45:07] Activating virtual environment...
+[2025-03-24 18:45:07] Using Python 3.9.20
+[2025-03-24 18:45:07] Verifying packages...
+mysqld is alive
+[2025-03-24 18:56:42] [INFO    ] discord.client: logging in using static token
+[2025-03-24 18:56:43] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 69c1af13694d1eaa1499b91b0f66019c).
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+/home/ec2-user/ai-assistant/venv/lib64/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+[2025-03-24 19:00:30] [INFO    ] discord.client: logging in using static token
+[2025-03-24 19:00:31] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: d89e1accb72aee315df22cd28db9fca2).
+/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+Waiting for MySQL to be fully ready...
+MySQL is ready!
+[2025-03-24 19:06:55] [INFO    ] discord.client: logging in using static token
+[2025-03-24 19:06:56] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 50fb30c388b512575a9a1b1a77e12892).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Token tracking table already exists
+✅ User lookup table already exists
+✅ Logged in as Cali#5463
+/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Updated username mapping for dje85 (548752969395470337)
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_5nTTB7tWKycc9frBkfvicbyC
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 548752969395470337: 771 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 761, Completion: 10, Total: 771
+⏳ Initiating shutdown...
+✅ Async database connection closed.
+✅ Shutdown complete. Exiting process now...
+Waiting for MySQL to be fully ready...
+MySQL is ready!
+[2025-03-24 19:07:33] [INFO    ] discord.client: logging in using static token
+[2025-03-24 19:07:34] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: bd98753fdce2e27cbdd898a56487b6d3).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Token tracking table already exists
+✅ User lookup table already exists
+✅ Logged in as Cali#5463
+⏳ Initiating shutdown...
+✅ Async database connection closed.
+✅ Shutdown complete. Exiting process now...
+Waiting for MySQL to be fully ready...
+MySQL is ready!
+[2025-03-24 19:09:39] [INFO    ] discord.client: logging in using static token
+[2025-03-24 19:09:39] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 53b54bccbba10375c063214ae89e305b).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Token tracking table already exists
+✅ User lookup table already exists
+✅ Logged in as Cali#5463
+/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Updated username mapping for dje85 (548752969395470337)
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_5nTTB7tWKycc9frBkfvicbyC
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Howdy
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 548752969395470337: 772 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 760, Completion: 12, Total: 772
+/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Updated username mapping for dje85 (548752969395470337)
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_5nTTB7tWKycc9frBkfvicbyC
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Hey
+⏳ Processing OpenAI request...
+✅ Updated username mapping for victoriamirocke (973680778200358932)
+✅ Created new thread for user 973680778200358932: thread_B9cVh0HSSgp06zl4GsjjoE2D
+✅ Stored thread ID for user 973680778200358932. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hi
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 548752969395470337: 773 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 762, Completion: 11, Total: 773
+✅ Logged token usage for user 973680778200358932: 646 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 630, Completion: 16, Total: 646
+✅ Updated username mapping for creativecampus (1304209255741784141)
+✅ Created new thread for user 1304209255741784141: thread_3XlE2NefcBEkIbhcsVxT1I1V
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: What is the capital of utah
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 1304209255741784141: 642 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 636, Completion: 6, Total: 642
+✅ Updated username mapping for creativecampus (1304209255741784141)
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_3XlE2NefcBEkIbhcsVxT1I1V
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: thanks
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 1304209255741784141: 654 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 649, Completion: 5, Total: 654
+✅ Updated username mapping for creativecampus (1304209255741784141)
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_3XlE2NefcBEkIbhcsVxT1I1V
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: thanks
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 1304209255741784141: 677 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 661, Completion: 16, Total: 677
+✅ Updated username mapping for creativecampus (1304209255741784141)
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_3XlE2NefcBEkIbhcsVxT1I1V
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 1304209255741784141: 695 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 684, Completion: 11, Total: 695
+✅ Updated username mapping for creativecampus (1304209255741784141)
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_3XlE2NefcBEkIbhcsVxT1I1V
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: What do you do?
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 1304209255741784141: 736 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 706, Completion: 30, Total: 736
+✅ Updated username mapping for creativecampus (1304209255741784141)
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_3XlE2NefcBEkIbhcsVxT1I1V
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hwey
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 1304209255741784141: 755 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 744, Completion: 11, Total: 755
+⏳ Initiating shutdown...
+✅ Async database connection closed.
+✅ Shutdown complete. Exiting process now...
+Waiting for MySQL to be fully ready...
+MySQL is ready!
+[2025-03-24 19:56:27] [INFO    ] discord.client: logging in using static token
+[2025-03-24 19:56:27] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 54022c91225923abcf5e713952462889).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Token tracking table already exists
+✅ User lookup table already exists
+✅ Logged in as Cali#5463
+⏳ Initiating shutdown...
+✅ Async database connection closed.
+✅ Shutdown complete. Exiting process now...
+Waiting for MySQL to be fully ready...
+MySQL is ready!
+[2025-03-24 20:19:49] [INFO    ] discord.client: logging in using static token
+[2025-03-24 20:19:50] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: b8f3a9f3550b95bebe6195d548ac044c).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Token tracking table already exists
+✅ User lookup table already exists
+✅ Logged in as Cali#5463
+/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Updated username mapping for creativecampus (1304209255741784141)
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_3XlE2NefcBEkIbhcsVxT1I1V
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 1304209255741784141: 773 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 762, Completion: 11, Total: 773
+/home/ec2-user/.local/lib/python3.9/site-packages/aiomysql/cursors.py:239: Warning: 'VALUES function' is deprecated and will be removed in a future release. Please use an alias (INSERT INTO ... VALUES (...) AS alias) and replace VALUES(col) in the ON DUPLICATE KEY UPDATE clause with alias.col instead
+  await self._query(query)
+✅ Updated username mapping for creativecampus (1304209255741784141)
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_3XlE2NefcBEkIbhcsVxT1I1V
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: What's up
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 1304209255741784141: 796 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 770, Completion: 26, Total: 796
+✅ Updated username mapping for creativecampus (1304209255741784141)
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_3XlE2NefcBEkIbhcsVxT1I1V
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Updated username mapping for creativecampus (1304209255741784141)
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_3XlE2NefcBEkIbhcsVxT1I1V
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hi
+⚠️ Ignoring message in thread thread_3XlE2NefcBEkIbhcsVxT1I1V - already processing.
+✅ Logged token usage for user 1304209255741784141: 800 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 790, Completion: 10, Total: 800
+⏳ Initiating shutdown...
+✅ Async database connection closed.
+✅ Shutdown complete. Exiting process now...
+Waiting for MySQL to be fully ready...
+MySQL is ready!
+[2025-03-24 20:27:26] [INFO    ] discord.client: logging in using static token
+[2025-03-24 20:27:27] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: a543b6d4e92dbc142d460d9bd20993b4).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Token tracking table already exists
+✅ User lookup table already exists
+✅ Logged in as Cali#5463
+✅ Updated username mapping for creativecampus (1304209255741784141)
+✅ Retrieved existing thread from cache/MySQL for user 1304209255741784141: thread_3XlE2NefcBEkIbhcsVxT1I1V
+✅ Stored thread ID for user 1304209255741784141. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 1304209255741784141: 807 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 795, Completion: 12, Total: 807
+✅ Updated username mapping for dje85 (548752969395470337)
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_5nTTB7tWKycc9frBkfvicbyC
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Howdy
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 548752969395470337: 766 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 755, Completion: 11, Total: 766
+✅ Updated username mapping for pace_70020 (1351287252441108600)
+✅ Created new thread for user 1351287252441108600: thread_X3NvrDwomMA7Zw7MOfWKDfhk
+✅ Stored thread ID for user 1351287252441108600. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 1351287252441108600: 641 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 630, Completion: 11, Total: 641
+✅ Updated username mapping for pace_70020 (1351287252441108600)
+✅ Retrieved existing thread from cache/MySQL for user 1351287252441108600: thread_X3NvrDwomMA7Zw7MOfWKDfhk
+✅ Stored thread ID for user 1351287252441108600. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: dont need anything
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 1351287252441108600: 667 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 650, Completion: 17, Total: 667
+✅ Updated username mapping for pace_70021 (1351287252441108600)
+✅ Retrieved existing thread from cache/MySQL for user 1351287252441108600: thread_X3NvrDwomMA7Zw7MOfWKDfhk
+✅ Stored thread ID for user 1351287252441108600. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 1351287252441108600: 685 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 674, Completion: 11, Total: 685
+✅ Updated username mapping for pace_70021 (1351287252441108600)
+✅ Retrieved existing thread from cache/MySQL for user 1351287252441108600: thread_X3NvrDwomMA7Zw7MOfWKDfhk
+✅ Stored thread ID for user 1351287252441108600. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: thanks
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 1351287252441108600: 707 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 692, Completion: 15, Total: 707
+[2025-03-24 20:48:38] [ERROR   ] discord.client: Attempting a reconnect in 1.99s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-24 20:48:41] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a543b6d4e92dbc142d460d9bd20993b4.
+✅ Updated username mapping for pace_70021 (1351287252441108600)
+✅ Retrieved existing thread from cache/MySQL for user 1351287252441108600: thread_X3NvrDwomMA7Zw7MOfWKDfhk
+✅ Stored thread ID for user 1351287252441108600. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 1351287252441108600: 725 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 714, Completion: 11, Total: 725
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+[2025-03-24 23:35:03] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a543b6d4e92dbc142d460d9bd20993b4.
+✅ Updated username mapping for dje85 (548752969395470337)
+✅ Retrieved existing thread from cache/MySQL for user 548752969395470337: thread_5nTTB7tWKycc9frBkfvicbyC
+✅ Stored thread ID for user 548752969395470337. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: Howdy
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 548752969395470337: 758 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 750, Completion: 8, Total: 758
+[2025-03-25 00:27:05] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a543b6d4e92dbc142d460d9bd20993b4.
+🔍 No stale cache entries found.
+[2025-03-25 00:59:42] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a543b6d4e92dbc142d460d9bd20993b4.
+🔍 No stale cache entries found.
+[2025-03-25 01:52:19] [ERROR   ] discord.client: Attempting a reconnect in 0.94s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-25 01:52:20] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a543b6d4e92dbc142d460d9bd20993b4.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+[2025-03-25 05:25:30] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a543b6d4e92dbc142d460d9bd20993b4.
+🔍 No stale cache entries found.
+[2025-03-25 05:59:18] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a543b6d4e92dbc142d460d9bd20993b4.
+🔍 No stale cache entries found.
+[2025-03-25 07:01:11] [ERROR   ] discord.client: Attempting a reconnect in 1.88s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-25 07:01:13] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a543b6d4e92dbc142d460d9bd20993b4.
+[2025-03-25 07:10:10] [ERROR   ] discord.client: Attempting a reconnect in 3.48s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-25 07:10:13] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a543b6d4e92dbc142d460d9bd20993b4.
+[2025-03-25 07:21:13] [ERROR   ] discord.client: Attempting a reconnect in 2.40s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-25 07:21:16] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a543b6d4e92dbc142d460d9bd20993b4.
+🔍 No stale cache entries found.
+[2025-03-25 07:35:42] [ERROR   ] discord.client: Attempting a reconnect in 9.43s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-25 07:35:51] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a543b6d4e92dbc142d460d9bd20993b4.
+[2025-03-25 07:41:21] [ERROR   ] discord.client: Attempting a reconnect in 12.75s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-25 07:41:34] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a543b6d4e92dbc142d460d9bd20993b4.
+[2025-03-25 07:55:19] [ERROR   ] discord.client: Attempting a reconnect in 60.16s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-25 07:56:20] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a543b6d4e92dbc142d460d9bd20993b4.
+[2025-03-25 08:01:08] [ERROR   ] discord.client: Attempting a reconnect in 28.81s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-25 08:01:37] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session a543b6d4e92dbc142d460d9bd20993b4.
+[2025-03-25 08:10:33] [ERROR   ] discord.client: Attempting a reconnect in 214.05s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-25 08:14:08] [INFO    ] discord.gateway: Shard ID None session has been invalidated.
+[2025-03-25 08:14:13] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 0444efa8cf7d5f8050642e9f09c83013).
+✅ Connected to MySQL database (async)
+✅ Async MySQL connection established.
+✅ Token tracking table already exists
+✅ User lookup table already exists
+✅ Logged in as Cali#5463
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+[2025-03-25 09:16:00] [ERROR   ] discord.client: Attempting a reconnect in 1.43s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-25 09:16:02] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 0444efa8cf7d5f8050642e9f09c83013.
+[2025-03-25 09:21:32] [ERROR   ] discord.client: Attempting a reconnect in 0.94s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-25 09:21:33] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 0444efa8cf7d5f8050642e9f09c83013.
+[2025-03-25 09:24:59] [ERROR   ] discord.client: Attempting a reconnect in 5.07s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-25 09:25:04] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 0444efa8cf7d5f8050642e9f09c83013.
+🔍 No stale cache entries found.
+[2025-03-25 09:31:16] [ERROR   ] discord.client: Attempting a reconnect in 0.33s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-25 09:31:16] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 0444efa8cf7d5f8050642e9f09c83013.
+[2025-03-25 10:00:01] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 0444efa8cf7d5f8050642e9f09c83013.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+[2025-03-25 13:17:58] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 0444efa8cf7d5f8050642e9f09c83013.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+[2025-03-25 14:30:20] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 0444efa8cf7d5f8050642e9f09c83013.
+🔍 No stale cache entries found.
+[2025-03-25 15:22:59] [ERROR   ] discord.client: Attempting a reconnect in 1.30s
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/client.py", line 667, in connect
+    await self.ws.poll_event()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/discord/gateway.py", line 648, in poll_event
+    raise ConnectionClosed(self.socket, shard_id=self.shard_id, code=code) from None
+discord.errors.ConnectionClosed: Shard ID None WebSocket closed with 1000
+[2025-03-25 15:23:01] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 0444efa8cf7d5f8050642e9f09c83013.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+[2025-03-25 17:01:09] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session 0444efa8cf7d5f8050642e9f09c83013.
+🔍 No stale cache entries found.
+🔍 No stale cache entries found.
+✅ Updated username mapping for victoriamirocke (973680778200358932)
+✅ Retrieved existing thread from cache/MySQL for user 973680778200358932: thread_B9cVh0HSSgp06zl4GsjjoE2D
+✅ Stored thread ID for user 973680778200358932. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: hey
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 973680778200358932: 665 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 653, Completion: 12, Total: 665
+✅ Updated username mapping for pace_70021 (1351287252441108600)
+✅ Retrieved existing thread from cache/MySQL for user 1351287252441108600: thread_X3NvrDwomMA7Zw7MOfWKDfhk
+✅ Stored thread ID for user 1351287252441108600. (Cached & Async MySQL, Timestamp Updated)
+📝 Received text: howdy partner
+⏳ Processing OpenAI request...
+✅ Logged token usage for user 1351287252441108600: 746 tokens
+✅ Token usage recorded - Model: gpt-4o-mini, Prompt: 734, Completion: 12, Total: 746

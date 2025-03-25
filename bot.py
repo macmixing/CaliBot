@@ -214,10 +214,10 @@ async def update_username_lookup(user_id, username, display_name=None):
             async with conn.cursor() as cursor:
                 query = """
                 INSERT INTO user_lookup (user_id, username, display_name, last_updated) 
-                VALUES (%s, %s, %s, NOW())
+                VALUES (%s, %s, %s, NOW()) AS new_user
                 ON DUPLICATE KEY UPDATE 
-                    username = VALUES(username), 
-                    display_name = VALUES(display_name),
+                    username = new_user.username, 
+                    display_name = new_user.display_name,
                     last_updated = NOW()
                 """
                 await cursor.execute(query, (user_id, username, display_name))
