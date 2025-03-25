@@ -13,7 +13,9 @@ from urllib.parse import urlparse
 from dotenv import load_dotenv
 
 # Define the roles that are allowed to use the bot
-ALLOWED_ROLES = {"Admin", "Assistant", "Moderator", "Owners Club", "SubTo", "Top Tier TC", "Gator"}
+# Start with Admin role and we'll add the bot's roles dynamically
+ALLOWED_ROLES = {"Admin"}  # Admin is always allowed
+BOT_ROLES = set()  # Will be populated with the bot's roles and refreshed periodically
 
 # Load environment variables
 load_dotenv()
@@ -226,11 +228,32 @@ async def update_username_lookup(user_id, username, display_name=None):
     except Exception as e:
         print(f"❌ Failed to update username lookup: {e}")
 
+# ✅ Function to update bot roles from all servers
+async def update_bot_roles():
+    global BOT_ROLES
+    # Clear existing roles to get a fresh list
+    BOT_ROLES.clear()
+    
+    # Collect all roles the bot has across all servers
+    for guild in bot.guilds:
+        bot_member = guild.get_member(bot.user.id)
+        if bot_member:
+            # Add all the bot's roles (except @everyone which everyone has)
+            for role in bot_member.roles:
+                if role.name != "@everyone":
+                    BOT_ROLES.add(role.name)
+    
+    print(f"✅ Bot roles refreshed: {', '.join(BOT_ROLES) if BOT_ROLES else 'No special roles'}")
+    return BOT_ROLES
+
 @bot.event
 async def on_ready():
-    global db_pool
+    global db_pool, BOT_ROLES
     db_pool = await create_db_connection()  # ✅ Create async DB connection
-
+    
+    # Initial role collection
+    await update_bot_roles()
+    
     if db_pool:
         print("✅ Async MySQL connection established.")
         # ✅ Ensure token tracking table exists
@@ -246,6 +269,9 @@ async def on_message(message):
     if message.author == bot.user:
         return  # Ignore bot's own messages
 
+    # Check for updated bot roles with each message
+    await update_bot_roles()
+
     # Only process DMs
     if not isinstance(message.channel, discord.DMChannel):
         return  # Ignore messages outside of DMs
@@ -259,9 +285,9 @@ async def on_message(message):
             user_roles.update({role.name for role in member.roles})  # Add their roles
             break  # Stop after finding the first mutual server
 
-    # ✅ If no roles were found, deny access
-    if not user_roles.intersection(ALLOWED_ROLES):
-        await message.channel.send("Thanks for reaching out! Please contact an admin for further assistance!")
+    # ✅ Check if user has Admin role or any of the bot's roles
+    if not (user_roles.intersection(ALLOWED_ROLES) or user_roles.intersection(BOT_ROLES)):
+        await message.channel.send("🚫✨ **Access Denied**… for now! I'm still in *beta mode* 🧪 and only certain roles can chat with me right now. \n**Hang tight** — more access is coming soon! 💫🤖")
         return  # Stop further processing
 
     # ✅ User has permission, proceed with message processing
@@ -552,6 +578,25 @@ def handle_shutdown():
 signal.signal(signal.SIGTERM, lambda signum, frame: handle_shutdown())
 signal.signal(signal.SIGINT, lambda signum, frame: handle_shutdown())
 
+# Add these event handlers to update roles when joining/leaving servers
+@bot.event
+async def on_guild_join(guild):
+    print(f"✅ Joined new server: {guild.name}")
+    await update_bot_roles()  # Update roles when joining a new server
+
+@bot.event
+async def on_guild_remove(guild):
+    print(f"⚠️ Left server: {guild.name}")
+    await update_bot_roles()  # Update roles when leaving a server
+
+@bot.event
+async def on_member_update(before, after):
+    # Check if it's the bot that was updated
+    if before.id == bot.user.id:
+        # Check if roles were changed
+        if set(before.roles) != set(after.roles):
+            print("✅ Bot roles changed, refreshing role list")
+            await update_bot_roles()
 
 # Run the bot
 bot.run(DISCORD_TOKEN)
