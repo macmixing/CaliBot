@@ -50,7 +50,7 @@ The bot automatically creates the required tables on first run:
 
 ## Configuration
 
-Edit these variables at the top of `main.py`:
+Edit these variables at the top of `bot.py`:
 
 ```python
 # Model selection
