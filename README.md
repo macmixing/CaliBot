@@ -1,119 +1,98 @@
-# Discord Open AI Assistant API Chatbot
+# Cali Discord AI Assistant
 
-## Overview
-This is a Discord chatbot that integrates OpenAI's assistant API with MySQL for tracking user interactions. The bot allows specific roles to interact with it via Direct Messages (DMs) and supports text, image, and file processing. Files are stored temporarily locally and deleted after a response is sent. It's lightweight and easy to set up!
+A powerful Discord bot featuring GPT-4o vision capabilities, persistent conversation memory, and document processing.
 
 ## Features
-- ✅ AI-powered responses using OpenAI's Assistant API
-- ✅ Supports text, image, and document uploads
-- ✅ Role-based access control
-- ✅ MySQL integration for tracking user threads
-- ✅ Runs automatically on startup
-- ✅ Logs all activity for debugging
 
-## Requirements
+- **AI Conversations**: Uses OpenAI's GPT-4o-mini model to provide helpful responses
+- **Vision Capabilities**: Processes and understands images shared in chat
+- **Memory System**: Maintains conversation context between sessions using a MySQL database
+- **Document Processing**: Extracts text from multiple file types:
+  - PDF, DOCX, XLSX, TXT, RTF
+- **Image Support**: Handles PNG, JPG, JPEG, GIF, WebP
+- **Role-based Access Control**: Restricts usage to authorized Discord roles
+- **Token Usage Tracking**: Monitors API consumption for usage metrics
+- **Automatic Summarization**: Creates summaries of older messages to maintain context
+- **Invisible Image Descriptions**: Generates and stores image descriptions for follow-up questions
 
-Before setting up the bot, ensure you have the following installed:
+## Setup
 
-- Python 3.9+
-- `pip` (Python package manager)
-- `git` (for version control)
-- `MySQL Server 8.0+`
-- A Discord Developer Account
+### Prerequisites
+
+- Python 3.8+
+- MySQL database
 - Discord bot token
-- An OpenAI API key
+- OpenAI API key
 
-## Setup Instructions
+### Installation
 
-### 1️⃣ Clone the Repository
-```bash
-git clone git@github.com:macmixing/discordgpt.git
-cd discordgpt
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   pip install discord.py requests python-dotenv openai aiomysql pymupdf python-docx openpyxl llama-index striprtf
+   ```
+3. Create a `.env` file with the following:
+   ```
+   DISCORD_TOKEN=your_discord_token
+   OPENAI_API_KEY=your_openai_api_key
+   DB_HOST=localhost
+   DB_USER=db_username
+   DB_PASSWORD=db_password
+   DB_NAME=db_name
+   ```
+
+### Database Setup
+
+The bot automatically creates the required tables on first run:
+- `user_threads`: Stores conversation memory
+- `token_tracking`: Monitors token usage
+- `user_lookup`: Maps Discord user IDs to usernames
+
+## Configuration
+
+Edit these variables at the top of `main.py`:
+
+```python
+# Model selection
+MODEL = "gpt-4o-mini"  # Default model
+
+# Memory settings
+MAX_TOKEN_LIMIT = 4000  # Maximum tokens to store in memory
+MAX_MESSAGES = 15       # Maximum messages to keep per user
+ENABLE_SUMMARIES = True # Enable conversation summarization
+MAX_HISTORY_DAYS = 7    # Days to keep conversation history
+
+# Access control
+ALLOWED_ROLES = {"Admin"}  # Roles allowed to use the bot
 ```
 
-### 2️⃣ Create a Virtual Environment
-```bash
-python3 -m venv venv
-source venv/bin/activate  # Mac/Linux
-venv\Scripts\activate    # Windows
-```
+## Usage
 
-### 3️⃣ Install Dependencies
-```bash
-pip install -r requirements.txt
-```
+1. Start the bot:
+   ```bash
+   python main.py
+   ```
 
-### 4️⃣ Set Up the `.env` File
-Create a `.env` file in the root directory and add the following:
-```ini
-DISCORD_TOKEN=your_discord_bot_token
-OPENAI_API_KEY=your_openai_api_key
-ASSISTANT_ID=your_assistant_id
-DB_HOST=localhost
-DB_USER=your_mysql_user
-DB_PASSWORD=your_mysql_password
-DB_NAME=your_database_name
-```
+2. The bot will accept direct messages from users with authorized roles
+3. Users can:
+   - Send text messages
+   - Share images for vision analysis
+   - Upload documents for text extraction
+   - Ask follow-up questions with context preserved
 
-> **Note:** Never commit `.env` files to GitHub to protect sensitive credentials.
+## How It Works
 
-### 5️⃣ Set Up MySQL Database
-Log into MySQL and create the database and necessary table:
-```sql
-CREATE DATABASE chatbot_db;
-USE chatbot_db;
-CREATE TABLE user_threads (
-    user_id VARCHAR(50) PRIMARY KEY,
-    thread_id VARCHAR(255) NOT NULL
-);
-```
+- **Vision Processing**: Images are temporarily processed with base64 encoding for the current request only
+- **Memory Management**: Conversation history enforces strict message limits and removes base64 data
+- **Image Descriptions**: Generated invisibly after processing to provide context for follow-ups
+- **Database Storage**: JSON-formatted conversation history with summaries
 
-### 6️⃣ Run the Bot
-```bash
-nohup bash -c 'source venv/bin/activate && python -u bot.py' > bot.log 2>&1 &
-```
-This runs the bot in the background and logs output in `bot.log`.
+## Limitations
 
-### 7️⃣ Check Logs in Real Time
-```bash
-tail -f bot.log
-```
+- Maximum 15 messages stored per user conversation
+- Maximum memory size of 250KB per user
+- Messages over token limits are summarized and older ones removed
 
-### 8️⃣ Stop the Bot
-Find the process ID (PID):
-```bash
-ps aux | grep bot.py
-```
-Then kill the process:
-```bash
-kill -9 PID
-```
+## License
 
-### 9️⃣ Ensure MySQL and the Bot Start on Reboot
-Enable MySQL on startup:
-```bash
-sudo systemctl enable mysqld
-```
-Enable the bot on startup:
-```bash
-sudo systemctl enable discord-bot
-```
-
-### 🔄 Updating the Bot from GitHub
-If changes are made to GitHub, update the server with:
-```bash
-git pull origin main
-```
-Then restart the bot:
-```bash
-sudo systemctl restart discord-bot
-```
-
-## Notes
-- If the bot crashes, it will automatically restart.
-- Ensure that `.gitignore` includes `.env` and `venv/`.
-- To modify role permissions, edit `ALLOWED_ROLES` in `bot.py`.
-
-## Contributing
-Feel free to submit pull requests to improve the bot!
-
+[Your license information] 
