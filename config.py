@@ -17,10 +17,11 @@ ALLOWED_ROLES = {"Admin"}  # Admin is always allowed
 # Model and memory settings
 MODEL = "gpt-4o-mini"  # Default model
 MAX_TOKEN_LIMIT = 4000     # Maximum tokens to store in memory
-MAX_MESSAGES = 15          # Strict maximum messages to keep per user - never exceeded
+MAX_MESSAGES = 20          # Strict maximum messages to keep per user - never exceeded
 ENABLE_SUMMARIES = True    # Set to True to enable conversation summarization
 SUMMARY_PROMPT = "Summarize the previous conversation in less than 150 words, focusing on key points the AI should remember:"
 MAX_HISTORY_DAYS = 7       # Number of days to keep conversation history
+BATCH_SIZE = 5  # Number of messages to summarize at once when over the cap
 
 # System Instructions for the AI
 SYSTEM_INSTRUCTIONS = """

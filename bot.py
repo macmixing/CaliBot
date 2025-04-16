@@ -14,7 +14,7 @@ import aiohttp
 import aiofiles
 from config import (
     DISCORD_TOKEN, OPENAI_API_KEY, DB_HOST, DB_USER, DB_PASSWORD, DB_NAME,
-    ALLOWED_ROLES, MODEL, MAX_TOKEN_LIMIT, MAX_MESSAGES, ENABLE_SUMMARIES, SUMMARY_PROMPT, MAX_HISTORY_DAYS, SYSTEM_INSTRUCTIONS
+    ALLOWED_ROLES, MODEL, MAX_TOKEN_LIMIT, MAX_MESSAGES, ENABLE_SUMMARIES, SUMMARY_PROMPT, MAX_HISTORY_DAYS, SYSTEM_INSTRUCTIONS, BATCH_SIZE
 )
 
 # --- Globals and State ---
@@ -73,32 +73,38 @@ async def get_memory(user_id):
 async def manage_conversation_history(user_id, new_message):
     global message_history_cache, conversation_summaries
     message_history_cache[user_id].append(new_message)
-    if len(message_history_cache[user_id]) > MAX_MESSAGES:
-        if ENABLE_SUMMARIES and message_history_cache[user_id]:
-            oldest_message = message_history_cache[user_id][0]
+    # Batch summarization: summarize and remove BATCH_SIZE oldest messages at once
+    while len(message_history_cache[user_id]) > MAX_MESSAGES:
+        if ENABLE_SUMMARIES and len(message_history_cache[user_id]) > BATCH_SIZE:
+            # Get the batch of oldest messages
+            batch = message_history_cache[user_id][:BATCH_SIZE]
+            # Prepare summary text
             if conversation_summaries[user_id]:
-                summary_text = f"Previous summary: {conversation_summaries[user_id]}\n\nOldest message:\n{oldest_message['role']}: {oldest_message['content']}"
+                summary_text = f"Previous summary: {conversation_summaries[user_id]}\n\nBatch of oldest messages:\n"
             else:
-                summary_text = f"Oldest message:\n{oldest_message['role']}: {oldest_message['content']}"
+                summary_text = "Batch of oldest messages:\n"
+            for msg in batch:
+                summary_text += f"{msg['role']}: {msg['content']}\n"
             try:
-                if oldest_message['role'] != 'system':
-                    response = await asyncio.to_thread(
-                        client.chat.completions.create,
-                        model=MODEL,
-                        messages=[
-                            {"role": "system", "content": "You are a helpful assistant that summarizes conversations concisely."},
-                            {"role": "user", "content": f"{SUMMARY_PROMPT}\n\n{summary_text}"}
-                        ],
-                        temperature=0.7,
-                        max_tokens=200
-                    )
-                    new_summary = response.choices[0].message.content
-                    conversation_summaries[user_id] = new_summary
-                    print(f"Updated conversation summary when removing oldest message")
+                response = await asyncio.to_thread(
+                    client.chat.completions.create,
+                    model=MODEL,
+                    messages=[
+                        {"role": "system", "content": "You are a helpful assistant that summarizes conversations concisely."},
+                        {"role": "user", "content": f"{SUMMARY_PROMPT}\n\n{summary_text}"}
+                    ],
+                    temperature=0.7,
+                    max_tokens=200
+                )
+                new_summary = response.choices[0].message.content
+                conversation_summaries[user_id] = new_summary
+                print(f"[BATCH SUMMARY] Summarized and removed {BATCH_SIZE} messages for user {user_id}.")
+                print(f"[BATCH SUMMARY] New summary: {new_summary[:80]}...")
             except Exception as e:
-                print(f"❌ Error updating summary: {e}")
-        message_history_cache[user_id].pop(0)
-        print(f"Removed oldest message to maintain cap of {MAX_MESSAGES} messages")
+                print(f"❌ Error updating batch summary: {e}")
+        # Remove the batch from history
+        del message_history_cache[user_id][:BATCH_SIZE]
+        print(f"Removed {BATCH_SIZE} oldest messages to maintain cap of {MAX_MESSAGES} messages (batch mode)")
 
 async def save_memory(user_id, memory):
     global memory_cache, message_history_cache, conversation_summaries, db_pool
