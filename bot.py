@@ -101,6 +101,9 @@ async def manage_conversation_history(user_id, new_message):
                 conversation_summaries[user_id] = new_summary
                 print(f"[BATCH SUMMARY] Summarized and removed {BATCH_SIZE} messages for user {user_id}.")
                 print(f"[BATCH SUMMARY] New summary: {new_summary[:80]}...")
+                # Log token usage for summary
+                if hasattr(response, 'usage'):
+                    await log_token_usage(user_id, MODEL, response.usage.prompt_tokens, response.usage.completion_tokens, response.usage.total_tokens)
             except Exception as e:
                 print(f"❌ Error updating batch summary: {e}")
         # Remove the batch from history
