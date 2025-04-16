@@ -14,6 +14,7 @@ A powerful Discord bot featuring GPT-4o vision capabilities, persistent conversa
 - **Token Usage Tracking**: Monitors API consumption for usage metrics
 - **Automatic Summarization**: Creates summaries of older messages to maintain context
 - **Invisible Image Descriptions**: Generates and stores image descriptions for follow-up questions
+- **Step-by-step Logging**: All process steps are logged via print statements (see Logging section)
 
 ## Setup
 
@@ -29,8 +30,9 @@ A powerful Discord bot featuring GPT-4o vision capabilities, persistent conversa
 1. Clone the repository
 2. Install dependencies:
    ```bash
-   pip install discord.py requests python-dotenv openai aiomysql pymupdf python-docx openpyxl llama-index striprtf
+   pip install discord.py python-dotenv openai aiomysql pymupdf python-docx openpyxl llama-index striprtf aiohttp aiofiles
    ```
+   > **Note:** `requests` is no longer required.
 3. Create a `.env` file with the following:
    ```
    DISCORD_TOKEN=your_discord_token
@@ -50,28 +52,27 @@ The bot automatically creates the required tables on first run:
 
 ## Configuration
 
-Edit these variables at the top of `bot.py`:
+All configuration is now in `config.py`:
 
 ```python
-# Model selection
+# config.py
 MODEL = "gpt-4o-mini"  # Default model
-
-# Memory settings
 MAX_TOKEN_LIMIT = 4000  # Maximum tokens to store in memory
 MAX_MESSAGES = 15       # Maximum messages to keep per user
 ENABLE_SUMMARIES = True # Enable conversation summarization
 MAX_HISTORY_DAYS = 7    # Days to keep conversation history
-
-# Access control
 ALLOWED_ROLES = {"Admin"}  # Roles allowed to use the bot
 ```
+
+You can also edit the system prompt and other settings in `config.py`.
 
 ## Usage
 
 1. Start the bot:
    ```bash
-   python main.py
+   python bot.py
    ```
+   > **Note:** The main entry point is now `bot.py` (not `main.py`).
 
 2. The bot will accept direct messages from users with authorized roles
 3. Users can:
@@ -79,6 +80,12 @@ ALLOWED_ROLES = {"Admin"}  # Roles allowed to use the bot
    - Share images for vision analysis
    - Upload documents for text extraction
    - Ask follow-up questions with context preserved
+
+## Logging
+
+- All process steps are logged using `print()` statements.
+- If you run the bot with output redirection or as a service, logs will appear in `bot.log` (e.g., `python bot.py >> bot.log 2>&1` or via your process manager).
+- This provides detailed, step-by-step visibility into the bot's operation.
 
 ## How It Works
 
