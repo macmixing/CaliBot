@@ -16,6 +16,7 @@ from config import (
     DISCORD_TOKEN, OPENAI_API_KEY, DB_HOST, DB_USER, DB_PASSWORD, DB_NAME,
     ALLOWED_ROLES, MODEL, MAX_TOKEN_LIMIT, MAX_MESSAGES, ENABLE_SUMMARIES, SUMMARY_PROMPT, MAX_HISTORY_DAYS, SYSTEM_INSTRUCTIONS, BATCH_SIZE
 )
+import signal
 
 # --- Globals and State ---
 BOT_ROLES = set()
@@ -204,20 +205,218 @@ async def send_long_message(channel, text):
         chunk = text[i:i + max_length]
         await channel.send(chunk)
 
+# --- Token Usage Tracking ---
+async def log_token_usage(user_id, model, prompt_tokens, completion_tokens, total_tokens):
+    global db_pool
+    try:
+        async with db_pool.acquire() as conn:
+            async with conn.cursor() as cursor:
+                query = """
+                INSERT INTO token_tracking 
+                (user_id, model, prompt_tokens, completion_tokens, total_tokens) 
+                VALUES (%s, %s, %s, %s, %s)
+                """
+                await cursor.execute(query, (user_id, model, prompt_tokens, completion_tokens, total_tokens))
+                await conn.commit()
+                print(f"✅ Token usage recorded - Model: {model}, Prompt: {prompt_tokens}, Completion: {completion_tokens}, Total: {total_tokens}")
+    except Exception as e:
+        print(f"❌ Failed to log token usage: {e}")
+
+# --- User Lookup Table ---
+async def update_username_lookup(user_id, username, display_name=None):
+    global db_pool
+    try:
+        async with db_pool.acquire() as conn:
+            async with conn.cursor() as cursor:
+                query = """
+                INSERT INTO user_lookup (user_id, username, display_name, last_updated) 
+                VALUES (%s, %s, %s, NOW()) AS new_user
+                ON DUPLICATE KEY UPDATE 
+                    username = new_user.username, 
+                    display_name = new_user.display_name,
+                    last_updated = NOW()
+                """
+                await cursor.execute(query, (user_id, username, display_name))
+                await conn.commit()
+                print(f"✅ Updated username mapping for {username} ({user_id})")
+    except Exception as e:
+        print(f"❌ Failed to update username lookup: {e}")
+
+# --- Table Creation/Verification ---
+async def ensure_token_tracking_table():
+    global db_pool
+    try:
+        async with db_pool.acquire() as conn:
+            async with conn.cursor() as cursor:
+                await cursor.execute("SHOW TABLES LIKE 'token_tracking'")
+                table_exists = await cursor.fetchone()
+                if not table_exists:
+                    create_table_query = """
+                    CREATE TABLE token_tracking (
+                        id INT AUTO_INCREMENT PRIMARY KEY,
+                        user_id VARCHAR(255) NOT NULL,
+                        model VARCHAR(255) DEFAULT NULL,
+                        prompt_tokens INT NOT NULL,
+                        completion_tokens INT NOT NULL,
+                        total_tokens INT NOT NULL,
+                        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+                    )
+                    """
+                    await cursor.execute(create_table_query)
+                    await conn.commit()
+                    print("✅ Token tracking table created")
+                else:
+                    print("✅ Token tracking table already exists")
+                await cursor.execute("SHOW TABLES LIKE 'user_lookup'")
+                user_lookup_exists = await cursor.fetchone()
+                if not user_lookup_exists:
+                    create_lookup_query = """
+                    CREATE TABLE user_lookup (
+                        user_id VARCHAR(255) PRIMARY KEY,
+                        username VARCHAR(255) NOT NULL,
+                        display_name VARCHAR(255),
+                        last_updated DATETIME DEFAULT CURRENT_TIMESTAMP
+                    )
+                    """
+                    await cursor.execute(create_lookup_query)
+                    await conn.commit()
+                    print("✅ User lookup table created")
+                else:
+                    print("✅ User lookup table already exists")
+    except Exception as e:
+        print(f"❌ Failed to check/create tables: {e}")
+
+# --- Role Management ---
+async def update_bot_roles():
+    global BOT_ROLES
+    BOT_ROLES.clear()
+    for guild in bot.guilds:
+        bot_member = guild.get_member(bot.user.id)
+        if bot_member:
+            for role in bot_member.roles:
+                if role.name != "@everyone":
+                    BOT_ROLES.add(role.name)
+    print(f"✅ Bot roles refreshed: {', '.join(BOT_ROLES) if BOT_ROLES else 'No special roles'}")
+    return BOT_ROLES
+
+# --- Background Tasks ---
+async def reset_memory_cache():
+    global memory_cache, db_pool
+    while True:
+        await asyncio.sleep(3600)
+        try:
+            async with db_pool.acquire() as conn:
+                async with conn.cursor() as cursor:
+                    query = """
+                    SELECT user_id FROM user_threads 
+                    WHERE last_used < NOW() - INTERVAL 24 HOUR
+                    """
+                    await cursor.execute(query)
+                    results = await cursor.fetchall()
+                    if results:
+                        for user_id in results:
+                            user_id = user_id[0]
+                            if user_id in memory_cache:
+                                del memory_cache[user_id]
+                                print(f"🧹 ✅ Removed cached memory for inactive user {user_id}.")
+                    else:
+                        print("🔍 No stale memory cache entries found.")
+        except Exception as e:
+            print(f"⚠️ Error during memory cache cleanup: {e}")
+
+async def cleanup_oversized_memory():
+    global db_pool
+    try:
+        async with db_pool.acquire() as conn:
+            async with conn.cursor() as cursor:
+                query = """
+                SELECT user_id, LENGTH(memory_json)/1024 as size_kb 
+                FROM user_threads 
+                WHERE LENGTH(memory_json) > 262144
+                """
+                await cursor.execute(query)
+                results = await cursor.fetchall()
+                if results:
+                    print(f"⚠️ Found {len(results)} users with oversized memory (>256KB)")
+                    for user_id, size_kb in results:
+                        print(f"User {user_id}: {size_kb:.2f} KB")
+                        reset_query = """
+                        UPDATE user_threads 
+                        SET memory_json = %s
+                        WHERE user_id = %s
+                        """
+                        reset_data = json.dumps({
+                            "messages": [{"role": "system", "content": "Previous conversation was too large and has been reset."}],
+                            "summary": "Memory was reset due to excessive size."
+                        })
+                        await cursor.execute(reset_query, (reset_data, user_id))
+                    await conn.commit()
+                    print(f"✅ Reset memory for {len(results)} users with oversized data")
+                else:
+                    print("✅ No oversized memory data found in database")
+    except Exception as e:
+        print(f"❌ Failed to clean up memory: {e}")
+
+# --- Shutdown Handling ---
+async def close_db_connection():
+    global db_pool
+    if db_pool:
+        db_pool.close()
+        await db_pool.wait_closed()
+        print("✅ Async database connection closed.")
+
+async def shutdown():
+    print("⏳ Initiating shutdown...")
+    if db_pool:
+        await close_db_connection()
+    print("✅ Shutdown complete. Exiting process now...")
+    os._exit(0)
+
+def handle_shutdown():
+    asyncio.create_task(shutdown())
+
+signal.signal(signal.SIGTERM, lambda signum, frame: handle_shutdown())
+signal.signal(signal.SIGINT, lambda signum, frame: handle_shutdown())
+
 # --- Event Handlers ---
 @bot.event
 async def on_ready():
     global db_pool, BOT_ROLES
     db_pool = await create_db_connection()
+    await update_bot_roles()
+    if db_pool:
+        print("✅ Async MySQL connection established.")
+        await ensure_token_tracking_table()
+        await cleanup_oversized_memory()
+        asyncio.create_task(reset_memory_cache())
+    else:
+        print("❌ Failed to connect to async MySQL.")
     print(f'✅ Logged in as {bot.user}')
+
+@bot.event
+async def on_guild_join(guild):
+    print(f"✅ Joined new server: {guild.name}")
+    await update_bot_roles()
+
+@bot.event
+async def on_guild_remove(guild):
+    print(f"⚠️ Left server: {guild.name}")
+    await update_bot_roles()
+
+@bot.event
+async def on_member_update(before, after):
+    if before.id == bot.user.id:
+        if set(before.roles) != set(after.roles):
+            print("✅ Bot roles changed, refreshing role list")
+            await update_bot_roles()
 
 @bot.event
 async def on_message(message):
     if message.author == bot.user:
         return
+    await update_bot_roles()
     if not isinstance(message.channel, discord.DMChannel):
         return
-    # For brevity, only allow all users in this refactor (add role checks as needed)
     asyncio.create_task(handle_user_message(message))
 
 async def handle_user_message(message):
@@ -226,6 +425,9 @@ async def handle_user_message(message):
     async with message.channel.typing():
         if isinstance(message.channel, discord.DMChannel):
             user_id = str(message.author.id)
+            username = message.author.name
+            display_name = getattr(message.author, 'display_name', username)
+            await update_username_lookup(user_id, username, display_name)
             memory = await get_memory(user_id)
             try:
                 all_content = ""
@@ -361,6 +563,7 @@ async def handle_user_message(message):
                     except Exception as e:
                         print(f"Warning: Could not add assistant message to LlamaIndex memory: {e}")
                     await save_memory(user_id, memory)
+                    await log_token_usage(user_id, MODEL, response.usage.prompt_tokens, response.usage.completion_tokens, response.usage.total_tokens)
                 else:
                     assistant_reply = "⚠️ No response from the assistant."
                 await send_long_message(message.channel, assistant_reply)
