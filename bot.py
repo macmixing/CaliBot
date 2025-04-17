@@ -17,6 +17,10 @@ from config import (
     ALLOWED_ROLES, MODEL, MAX_TOKEN_LIMIT, MAX_MESSAGES, ENABLE_SUMMARIES, SUMMARY_PROMPT, MAX_HISTORY_DAYS, SYSTEM_INSTRUCTIONS, BATCH_SIZE
 )
 import signal
+import reminders.reminder_handler as reminder_handler  # Add this import at the top
+import reminders.scheduler as reminder_scheduler
+import reminders.time_handler as reminder_time_handler
+from reminders.reminder_handler import AWAITING_LOCATION
 
 # --- Globals and State ---
 BOT_ROLES = set()
@@ -24,6 +28,7 @@ memory_cache = {}
 message_history_cache = {}
 conversation_summaries = {}
 db_pool = None
+MAIN_EVENT_LOOP = None  # <-- Add this global
 
 # --- Memory Management ---
 def create_new_memory():
@@ -384,7 +389,8 @@ signal.signal(signal.SIGINT, lambda signum, frame: handle_shutdown())
 # --- Event Handlers ---
 @bot.event
 async def on_ready():
-    global db_pool, BOT_ROLES
+    global db_pool, BOT_ROLES, MAIN_EVENT_LOOP
+    MAIN_EVENT_LOOP = asyncio.get_running_loop()
     db_pool = await create_db_connection()
     await update_bot_roles()
     if db_pool:
@@ -395,6 +401,52 @@ async def on_ready():
     else:
         print("❌ Failed to connect to async MySQL.")
     print(f'✅ Logged in as {bot.user}')
+
+    # --- REMINDER PATCHING AND SCHEDULER START ---
+    def send_discord_dm(recipient, content, **kwargs):
+        global MAIN_EVENT_LOOP
+        if not (MAIN_EVENT_LOOP and MAIN_EVENT_LOOP.is_running()):
+            print(f"❌ MAIN_EVENT_LOOP is not set or not running for recipient {recipient}")
+            return False
+        user = None
+        try:
+            if recipient.isdigit():
+                user = bot.get_user(int(recipient))
+                if not user:
+                    future = asyncio.run_coroutine_threadsafe(bot.fetch_user(int(recipient)), MAIN_EVENT_LOOP)
+                    user = future.result(timeout=10)
+        except Exception as e:
+            print(f"❌ Exception fetching user {recipient}: {e}")
+            user = None
+        if user:
+            try:
+                future = asyncio.run_coroutine_threadsafe(user.send(content), MAIN_EVENT_LOOP)
+                future.result(timeout=10)
+                return True
+            except Exception as e:
+                print(f"❌ Exception sending DM to {recipient}: {e}")
+                return False
+        else:
+            print(f"❌ Could not find user for recipient {recipient}")
+            return False
+
+    def reminders_log_token_usage(user_id_unused, model, prompt_tokens, completion_tokens, total_tokens):
+        if MAIN_EVENT_LOOP and MAIN_EVENT_LOOP.is_running():
+            asyncio.run_coroutine_threadsafe(log_token_usage(user_id_unused, model, prompt_tokens, completion_tokens, total_tokens), MAIN_EVENT_LOOP)
+
+    import reminders.reminder_handler as reminder_handler
+    import reminders.scheduler as reminder_scheduler
+    import reminders.time_handler as reminder_time_handler
+    reminder_handler.reminders_send_message = send_discord_dm
+    reminder_scheduler.reminders_send_message = send_discord_dm
+    reminder_time_handler.reminders_send_message = send_discord_dm
+    reminder_handler.reminders_log_token_usage = reminders_log_token_usage
+    reminder_scheduler.reminders_log_token_usage = reminders_log_token_usage
+    reminder_time_handler.reminders_log_token_usage = reminders_log_token_usage
+
+    # Start the reminder scheduler and log to the console
+    reminder_scheduler.start_reminder_scheduler()
+    print("[Reminder Scheduler] Started and running in the background.")
 
 @bot.event
 async def on_guild_join(guild):
@@ -431,6 +483,45 @@ async def handle_user_message(message):
             username = message.author.name
             display_name = getattr(message.author, 'display_name', username)
             await update_username_lookup(user_id, username, display_name)
+            # --- LOCATION RESPONSE HANDLING ---
+            if user_id in AWAITING_LOCATION and AWAITING_LOCATION[user_id] is not None:
+                reminder_handler.process_location_response(message.content, user_id)
+                return
+            # --- REMINDER INTEGRATION START ---
+            # Patch reminders_send_message in all reminders modules
+            def send_discord_dm(recipient, content, **kwargs):
+                coro = message.channel.send(content)
+                asyncio.run_coroutine_threadsafe(coro, MAIN_EVENT_LOOP)
+                return True
+            reminder_handler.reminders_send_message = send_discord_dm
+            reminder_scheduler.reminders_send_message = send_discord_dm
+            reminder_time_handler.reminders_send_message = send_discord_dm
+            # Patch reminders_log_token_usage to use our system
+            def reminders_log_token_usage(user_id_unused, model, prompt_tokens, completion_tokens, total_tokens):
+                if MAIN_EVENT_LOOP and MAIN_EVENT_LOOP.is_running():
+                    asyncio.run_coroutine_threadsafe(log_token_usage(user_id_unused, model, prompt_tokens, completion_tokens, total_tokens), MAIN_EVENT_LOOP)
+            reminder_handler.reminders_log_token_usage = reminders_log_token_usage
+            reminder_scheduler.reminders_log_token_usage = reminders_log_token_usage
+            reminder_time_handler.reminders_log_token_usage = reminders_log_token_usage
+            # Use the message content for detection
+            text = message.content.strip() if message.content else ""
+            if text:
+                op_type = reminder_handler.detect_reminder_operation(text, user_id)
+                if op_type == 'create':
+                    reminder_handler.process_reminder_request(text, user_id)
+                    return
+                elif op_type == 'list':
+                    reminders_list = reminder_handler.process_list_request(user_id)
+                    await message.channel.send(reminders_list)
+                    return
+                elif op_type == 'cancel':
+                    cancel_result = reminder_handler.process_cancel_request(text, user_id)
+                    await message.channel.send(cancel_result)
+                    return
+                elif op_type == 'location':
+                    reminder_handler.process_location_update(text, user_id)
+                    return
+            # --- REMINDER INTEGRATION END ---
             memory = await get_memory(user_id)
             try:
                 all_content = ""
