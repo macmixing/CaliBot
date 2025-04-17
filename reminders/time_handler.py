@@ -1,8 +1,3 @@
-"""
-Time handling functionality for AI Buddy
-Handles time queries and timezone conversions
-"""
-
 import logging
 import json
 import pytz
