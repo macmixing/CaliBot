@@ -145,10 +145,6 @@ You can also edit the system prompt and other settings in `config.py`.
 
 ## Limitations
 
-- Maximum 15 messages stored per user conversation
+- Maximum 20 messages stored per user conversation
 - Maximum memory size of 250KB per user
 - Messages over token limits are summarized and older ones removed
-
-## License
-
-[Your license information] 
