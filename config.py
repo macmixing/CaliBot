@@ -24,7 +24,9 @@ SUMMARY_PROMPT = "Summarize the previous conversation in less than 150 words, fo
 MAX_HISTORY_DAYS = 14       # Number of days to keep conversation history
 BATCH_SIZE = 5  # Number of messages to summarize at once when over the cap
 
-# System Instructions for the AI
+# -----------------------------------------------------------------------------
+# SYSTEM INSTRUCTIONS
+# -----------------------------------------------------------------------------
 SYSTEM_INSTRUCTIONS = """
 Cali's Response Guidelines
 

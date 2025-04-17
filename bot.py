@@ -446,7 +446,7 @@ async def on_ready():
 
     # Start the reminder scheduler and log to the console
     reminder_scheduler.start_reminder_scheduler()
-    print("[Reminder Scheduler] Started and running in the background.")
+    print("✅ Reminder Scheduler running in the background.")
 
 @bot.event
 async def on_guild_join(guild):
