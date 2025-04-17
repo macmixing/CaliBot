@@ -1,0 +1,13 @@
+discord.py>=2.3.2
+python-dotenv>=1.0.0
+openai>=1.3.7
+aiomysql>=0.2.0
+pymupdf>=1.22.0
+python-docx>=0.8.11
+openpyxl>=3.1.2
+llama-index>=0.10.20
+striprtf>=0.0.22
+aiohttp>=3.8.5
+aiofiles>=23.2.1
+pytz>=2023.3
+python-dateutil>=2.8.2 

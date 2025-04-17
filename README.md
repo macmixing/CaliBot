@@ -15,6 +15,55 @@ A powerful Discord bot featuring GPT-4o vision capabilities, persistent conversa
 - **Automatic Summarization**: Creates summaries of older messages to maintain context
 - **Invisible Image Descriptions**: Generates and stores image descriptions for follow-up questions
 - **Step-by-step Logging**: All process steps are logged via print statements (see Logging section)
+- **Reminders System**: Set, list, and cancel reminders with natural language (see below)
+
+## Reminders Functionality
+
+Cali can set, list, and cancel reminders for you using natural language. Reminders are delivered via Discord DM at the specified time.
+
+### Setting a Reminder
+- **Examples:**
+  - `Remind me to call mom in 5 minutes`
+  - `Set a reminder for tomorrow at 8pm to take medicine`
+  - `Don't let me forget to submit the report next Monday at 2pm`
+- **Supported time formats:**
+  - Relative: `in 10 minutes`, `in 2 hours`, `in 3 days`
+  - Absolute: `at 8pm`, `at 3:30pm`, `tomorrow at 9am`, `next Friday at 2pm`, `on April 15th at 3pm`
+  - Vague: `in the morning` (interpreted as 9:00 AM), `later` (in 2 hours), etc.
+- **Timezones:**
+  - By default, reminders use your last set or default timezone (UTC if not set).
+  - You can update your timezone by messaging: `Change my timezone to Pacific` or `I'm in New York now`.
+
+### Listing Your Reminders
+- **Examples:**
+  - `Show my reminders`
+  - `What are my reminders?`
+  - `Reminders?`
+- Cali will reply with a list of your pending reminders, grouped by today, tomorrow, and future dates.
+
+### Cancelling Reminders
+- **Examples:**
+  - `Cancel my reminder about calling mom`
+  - `Cancel today's reminders`
+  - `Cancel all my reminders`
+  - `Cancel that` (cancels the most recent reminder)
+- You can cancel by content, by time period (today/tomorrow/all), or all at once.
+
+### Notes & Limitations
+- **One reminder per message:** If you ask for multiple reminders in one message, Cali will ask you to set them one at a time.
+- **Unsupported formats:** Location-based, event-based, conditional, and recurring reminders are not supported (e.g., `when I get home`, `every day at 8am`).
+- **Time format:** Times are standardized to 12-hour format with AM/PM. Vague times are interpreted to the nearest reasonable time.
+- **Maximum reminders:** There is no hard-coded limit, but performance is optimized for typical user loads.
+- **Timezone support:** Cali can convert and store reminders in your preferred timezone. If not set, UTC is used.
+
+### Example Usage
+```
+Remind me to drink water in 30 minutes
+Remind me to call John at 8:00 PM
+Show my reminders
+Cancel my reminder about water
+Change my timezone to Eastern Time
+```
 
 ## Setup
 
