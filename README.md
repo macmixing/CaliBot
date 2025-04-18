@@ -148,3 +148,7 @@ You can also edit the system prompt and other settings in `config.py`.
 - Maximum 20 messages stored per user conversation
 - Maximum memory size of 250KB per user
 - Messages over token limits are summarized and older ones removed
+
+## Acknowledgments
+
+This project uses [LlamaIndex](https://github.com/jerryjliu/llama_index), an open-source data framework licensed under the MIT License.
