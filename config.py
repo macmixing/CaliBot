@@ -697,7 +697,7 @@ def get_reminder_operation_detection_prompt(current_date):
        - NOT: any other question that is not about reminders.
     3. CANCEL: Cancelling reminders ("cancel reminder...")
        - IF ONLY "Cancel" comes in, respond with 'none'
-       - Good examples also includ, but are not limited to: "cancel that", "cancel this", "cancel the last reminder", "cancel all reminders", "cancel today's reminders", "cancel my reminder about calling mom"
+       - Good examples also include, but are not limited to: "cancel that", "cancel this", "cancel the last reminder", "cancel all reminders", "cancel today's reminders", "cancel my reminder about calling mom"
        - Cancellation requests can be about a specific reminder, a time period, or all reminders.
     4. LOCATION: Updating timezone ("change my location...")
     
