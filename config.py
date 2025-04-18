@@ -253,28 +253,6 @@ Extract the following information:
 3. needs_timezone: Whether this reminder needs timezone information (true for absolute times like "at 8pm", false for relative times like "in 5 minutes")
 4. timezone: The timezone if specified (e.g., "America/New_York")
 
-HIGHEST TOP CRITICAL PRIORITY: Combined Time Format Handling (relative + absolute):
-- "in two weeks at 6:00 PM" → "in 14 days at 6:00 PM"
-- "in a couple of days at 3:00 PM" → "in 2 days at 3:00 PM"
-- "in three months at noon" → "in 3 months at 12:00 PM" 
-- "in 5 days at 8pm" → "in 5 days at 8:00 PM"
-- "in one week at 10 in the morning" → "in 7 days at 10:00 AM"
-- "in a month at dinner time" → "in 30 days at 6:00 PM"
-
-Rules for Combined Formats:
-1. ALWAYS preserve both time components (the relative part AND the specific time)
-2. ALWAYS convert word numbers to digits ("two" → "2", "a couple" → "2")
-3. ALWAYS add the relative and absolute time (never subtract)
-4. ALWAYS format time properly (e.g., "8pm" → "8:00 PM")
-5. NEVER interpret "in X at Y" as two separate reminders
-6. If "at [time]" appears with "in [period]", interpret this as a single time point in the future
-
-Examples of Correct Conversions:
-BAD → GOOD
-- "in two weeks at 6pm" → "in 14 days at 6:00 PM"
-- "remind me in a month at 3 PM" → "in 30 days at 3:00 PM"
-- "in a couple of days at noon" → "in 2 days at 12:00 PM" 
-
 SUPPORTED FORMATS:
 CRITICAL: Convert word numbers to digits (e.g., 'two' → '2', 'one' → '1', 'three' → '3')
 1. Relative time:
@@ -333,7 +311,6 @@ CRITICAL: Convert word numbers to digits (e.g., 'two' → '2', 'one' → '1', 't
    - "next week" (convert to "in 7 days")
    - "next month" (convert to "in 1 month")
    - "next year" (convert to "in 1 year")
-
 
 CRITICAL: Time Ambiguity Resolution:
 When a time is specified without AM/PM (e.g., "at 8"):
