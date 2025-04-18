@@ -534,14 +534,15 @@ async def handle_user_message(message):
                         file_url = attachment.url
                         filename = attachment.filename.lower()
                         parsed_url = urlparse(file_url)
-                        ALLOWED_EXTENSIONS = {".pdf", ".docx", ".xlsx", ".txt", ".rtf", ".png", ".jpg", ".jpeg", ".gif", ".webp"}
+                        ALLOWED_EXTENSIONS = {".pdf", ".docx", ".xlsx", ".txt", ".rtf", ".png", ".jpg", ".jpeg", ".gif", ".webp", ".ogg"}
                         file_extension = os.path.splitext(filename)[1]
                         if file_extension not in ALLOWED_EXTENSIONS:
                             print(f"⚠️ Unsupported file type: {filename}")
                             await message.channel.send(
                                 "⚠️ Unsupported file type detected. Please upload one of the supported formats:\n"
                                 "📄 Documents: .pdf, .docx, .xlsx, .txt, .rtf\n"
-                                "🖼️ Images: .png, .jpg, .jpeg, .gif, .webp"
+                                "🖼️ Images: .png, .jpg, .jpeg, .gif, .webp\n"
+                                "🔊 Audio: .ogg"
                             )
                             return
                         if filename.endswith((".png", ".jpg", ".jpeg", ".gif", ".webp")):
@@ -574,6 +575,76 @@ async def handle_user_message(message):
                                         print(f"❌ Image request failed, status code: {resp.status}")
                                         await message.channel.send("⚠️ Image download failed. Please try again.")
                                         return
+                        elif filename.endswith(".ogg"):
+                            print(f"🔊 Detected audio file: {file_url}")
+                            file_path = os.path.join(FILE_DIR, filename)
+                            async with aiohttp.ClientSession() as session:
+                                async with session.get(file_url) as resp:
+                                    if resp.status == 200:
+                                        async with aiofiles.open(file_path, "wb") as file:
+                                            async for chunk in resp.content.iter_chunked(1024):
+                                                await file.write(chunk)
+                                        print(f"✅ Audio file successfully saved at: {file_path}")
+                                    else:
+                                        print(f"❌ Audio file request failed, status code: {resp.status}")
+                                        await message.channel.send("⚠️ Audio file download failed. Please try again.")
+                                        return
+                            
+                            # Transcribe the audio file using Whisper API
+                            try:
+                                with open(file_path, "rb") as audio_file:
+                                    transcription = await asyncio.to_thread(
+                                        client.audio.transcriptions.create,
+                                        file=audio_file,
+                                        model="whisper-1"
+                                    )
+                                    transcribed_text = transcription.text
+                                    print(f"✅ Transcribed {len(transcribed_text)} characters from audio file")
+                                    
+                                    # Log token usage for the transcription
+                                    await log_token_usage(user_id, "whisper-1", 0, len(transcribed_text.split()), len(transcribed_text.split()))
+                                    
+                                    # Process the transcribed text directly as if user typed it
+                                    # Check if it's a reminder request first
+                                    op_type = reminder_handler.detect_reminder_operation(transcribed_text, user_id)
+                                    if op_type == 'create':
+                                        reminder_handler.process_reminder_request(transcribed_text, user_id)
+                                        # Clean up the file and return
+                                        os.remove(file_path)
+                                        print(f"✅ Deleted audio file: {file_path}")
+                                        return
+                                    elif op_type == 'list':
+                                        reminders_list = reminder_handler.process_list_request(user_id)
+                                        await message.channel.send(reminders_list)
+                                        # Clean up the file and return
+                                        os.remove(file_path)
+                                        print(f"✅ Deleted audio file: {file_path}")
+                                        return
+                                    elif op_type == 'cancel':
+                                        cancel_result = reminder_handler.process_cancel_request(transcribed_text, user_id)
+                                        await message.channel.send(cancel_result)
+                                        # Clean up the file and return
+                                        os.remove(file_path)
+                                        print(f"✅ Deleted audio file: {file_path}")
+                                        return
+                                    elif op_type == 'location':
+                                        reminder_handler.process_location_update(transcribed_text, user_id)
+                                        # Clean up the file and return
+                                        os.remove(file_path)
+                                        print(f"✅ Deleted audio file: {file_path}")
+                                        return
+                                    
+                                    # If not a reminder, continue with regular message processing
+                                    all_content += f"{transcribed_text}\n"
+                            except Exception as e:
+                                print(f"❌ Audio transcription failed: {e}")
+                                await message.channel.send("⚠️ Audio transcription failed. Please try again.")
+                                return
+                            finally:
+                                # Clean up the audio file if it hasn't been removed yet
+                                if os.path.exists(file_path):
+                                    os.remove(file_path)
+                                    print(f"✅ Deleted audio file: {file_path}")
                         elif filename.endswith((".pdf", ".docx", ".xlsx", ".txt", ".rtf")):
                             print(f"📄 Detected file: {file_url}")
                             file_path = os.path.join(FILE_DIR, filename)
