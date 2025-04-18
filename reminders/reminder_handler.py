@@ -687,11 +687,11 @@ def format_reminder_list(reminders: list, user_timezone: str) -> str:
             continue
     
     # Format the message
-    message = "📋 Here are your reminders:\n\n"
+    message = "📋 **Here are your reminders:**\n\n"
     
     # Today's reminders
     if today_reminders:
-        message += "Today:\n"
+        message += "**Today**:\n"
         for time, reminder in sorted(today_reminders, key=lambda x: (x[0], x[1]['content'])):
             content = ' '.join(word.capitalize() for word in reminder['content'].split())
             # For relative times, time is already formatted
@@ -704,7 +704,7 @@ def format_reminder_list(reminders: list, user_timezone: str) -> str:
     
     # Tomorrow's reminders
     if tomorrow_reminders:
-        message += "Tomorrow:\n"
+        message += "**Tomorrow**:\n"
         for time, reminder in sorted(tomorrow_reminders, key=lambda x: (x[0], x[1]['content'])):
             time_str = time.strftime("%I:%M %p").lstrip("0")
             content = ' '.join(word.capitalize() for word in reminder['content'].split())
@@ -713,7 +713,7 @@ def format_reminder_list(reminders: list, user_timezone: str) -> str:
     
     # Future reminders
     if future_reminders:
-        message += "Future:\n"
+        message += "**Future**:\n"
         for time, reminder in sorted(future_reminders, key=lambda x: (x[0], x[1]['content'])):
             # Show year if it's different from current year
             if time.year != now.year:
