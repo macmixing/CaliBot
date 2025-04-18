@@ -186,6 +186,61 @@ def process_reminder_time(time_str, current_time=None, timezone=None):
         # Check if it's a relative time (starts with "in" and contains a number and time unit)
         relative_pattern = r'^in\s+(\d+)\s+(second|seconds|minute|minutes|hour|hours|day|days|week|weeks|month|months|year|years)$'
         match = re.match(relative_pattern, time_str.lower())
+
+        # If not a simple relative time, check if it's a combined format (relative + specific time)
+        combined_pattern = r'^in\s*(\d+)\s*(second|seconds|minute|minutes|hour|hours|day|days|week|weeks|month|months|year|years)(?:\s+and)?\s+(?:at|for|on)\s+(.+)$'
+        combined_match = re.match(combined_pattern, time_str.lower())
+            
+        if combined_match:
+            logging.info("⏰ Detected combined time format")
+            number = int(combined_match.group(1))
+            unit = combined_match.group(2).rstrip('s')  # Remove trailing 's' for singular form
+            time_part = combined_match.group(3)  # The "at X:XX" part
+            
+            # First calculate the future date using the relative part
+            unit_map = {
+                'second': 'seconds',
+                'minute': 'minutes',
+                'hour': 'hours',
+                'day': 'days',
+                'week': 'weeks',
+                'month': 'days',  # Approximate
+                'year': 'days'    # Approximate
+            }
+            
+            delta_params = {unit_map[unit]: number}
+            if unit == 'month':
+                delta_params['days'] = number * 30
+            elif unit == 'year':
+                delta_params['days'] = number * 365
+                
+            # Get the future date from the relative part
+            future_date = current_time + timedelta(**delta_params)
+            
+            # Now parse the time part and apply it to the future date
+            try:
+                # Parse just the time part (e.g., "6pm")
+                parsed_time = parser.parse(time_part, fuzzy=True)
+
+                # Localize the parsed time to user timezone if it doesn't have a timezone
+                if parsed_time.tzinfo is None:
+                    parsed_time = user_tz.localize(parsed_time)
+
+                # Convert future_date to user timezone, apply the time, then convert back to UTC
+                future_date_local = future_date.astimezone(user_tz)
+                future_time_local = future_date_local.replace(
+                    hour=parsed_time.hour,
+                    minute=parsed_time.minute,
+                    second=0,
+                    microsecond=0
+                )
+                future_time = future_time_local.astimezone(pytz.UTC)
+
+                logging.info(f"⏰ Calculated combined time format: {future_time}")
+                return future_time
+            except Exception as e:
+                logging.error(f"❌ Error processing combined time format: {e}")
+                return None
         
         if match:
             logging.info("⏰ Detected relative time format")
