@@ -149,21 +149,23 @@ You can also edit the system prompt and other settings in `config.py`.
 - Maximum memory size of 250KB per user
 - Messages over token limits are summarized and older ones removed
 
-## Acknowledgements
+#### 📚 Acknowledgements
 
-This project uses the following open-source libraries and tools:
+This project uses the following open-source libraries:
 
-- [discord.py](https://github.com/Rapptz/discord.py) - For Discord bot functionality.
-- [OpenAI Python SDK](https://github.com/openai/openai-python) - For GPT-based interactions.
-- [llama-index](https://github.com/jerryjliu/llama_index) - For context and document retrieval.
-- [python-dotenv](https://github.com/theskumar/python-dotenv) - For environment variable management.
-- [aiomysql](https://github.com/aio-libs/aiomysql) - For async MySQL support.
-- [PyMuPDF](https://github.com/pymupdf/PyMuPDF) - For PDF parsing.
-- [python-docx](https://github.com/python-openxml/python-docx) - For .docx file parsing.
-- [openpyxl](https://github.com/chronossc/openpyxl) - For Excel file parsing.
-- [striprtf](https://github.com/iarna/striprtf) - For RTF parsing.
-- [aiohttp](https://github.com/aio-libs/aiohttp) and [aiofiles](https://github.com/Tinche/aiofiles) - For async networking and file I/O.
-- [pytz](https://github.com/stub42/pytz) and [python-dateutil](https://github.com/dateutil/dateutil) - For timezone and datetime manipulation.
+- [discord.py](https://github.com/Rapptz/discord.py) (MIT License) — Discord API wrapper for bots.
+- [python-dotenv](https://github.com/theskumar/python-dotenv) (BSD-3-Clause License) — Loads environment variables from `.env` files.
+- [openai](https://github.com/openai/openai-python) (MIT License) — Python client for OpenAI APIs.
+- [aiomysql](https://github.com/aio-libs/aiomysql) (MIT License) — Async support for MySQL with asyncio.
+- [PyMuPDF](https://github.com/pymupdf/PyMuPDF) (AGPL v3 License) — Used for internal PDF parsing only; not redistributed or modified.
+- [python-docx](https://github.com/python-openxml/python-docx) (MIT License) — Extracts content from Word `.docx` files.
+- [openpyxl](https://github.com/pyexcel/openpyxl) (MIT License) — Reads and writes Excel `.xlsx` files.
+- [llama-index](https://github.com/jerryjliu/llama_index) (MIT License) — Framework for connecting LLMs with external data.
+- [striprtf](https://github.com/Alir3z4/striprtf) (MIT License) — Converts RTF content to plain text.
+- [aiohttp](https://github.com/aio-libs/aiohttp) (Apache 2.0 License) — Async HTTP client/server framework.
+- [aiofiles](https://github.com/Tinche/aiofiles) (Apache 2.0 License) — Async file handling with asyncio.
+- [pytz](https://github.com/stub42/pytz) (MIT License) — Timezone support for Python.
+- [python-dateutil](https://github.com/dateutil/dateutil) (BSD License) — Enhanced datetime parsing and timezone calculations.
 
-This project complies with all license requirements, including MIT, Apache 2.0, and BSD-style licenses.
+> Note: PyMuPDF (AGPL v3) is used strictly for internal backend parsing of PDF content and is not redistributed or modified in this project.
 
