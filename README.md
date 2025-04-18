@@ -149,6 +149,21 @@ You can also edit the system prompt and other settings in `config.py`.
 - Maximum memory size of 250KB per user
 - Messages over token limits are summarized and older ones removed
 
-## Acknowledgments
+## Acknowledgements
 
-This project uses [LlamaIndex](https://github.com/jerryjliu/llama_index), an open-source data framework licensed under the MIT License.
+This project uses the following open-source libraries and tools:
+
+- [discord.py](https://github.com/Rapptz/discord.py) - For Discord bot functionality.
+- [OpenAI Python SDK](https://github.com/openai/openai-python) - For GPT-based interactions.
+- [llama-index](https://github.com/jerryjliu/llama_index) - For context and document retrieval.
+- [python-dotenv](https://github.com/theskumar/python-dotenv) - For environment variable management.
+- [aiomysql](https://github.com/aio-libs/aiomysql) - For async MySQL support.
+- [PyMuPDF](https://github.com/pymupdf/PyMuPDF) - For PDF parsing.
+- [python-docx](https://github.com/python-openxml/python-docx) - For .docx file parsing.
+- [openpyxl](https://github.com/chronossc/openpyxl) - For Excel file parsing.
+- [striprtf](https://github.com/iarna/striprtf) - For RTF parsing.
+- [aiohttp](https://github.com/aio-libs/aiohttp) and [aiofiles](https://github.com/Tinche/aiofiles) - For async networking and file I/O.
+- [pytz](https://github.com/stub42/pytz) and [python-dateutil](https://github.com/dateutil/dateutil) - For timezone and datetime manipulation.
+
+This project complies with all license requirements, including MIT, Apache 2.0, and BSD-style licenses.
+
