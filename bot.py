@@ -486,8 +486,13 @@ async def handle_user_message(message):
             await update_username_lookup(user_id, username, display_name)
             # --- LOCATION RESPONSE HANDLING ---
             if user_id in AWAITING_LOCATION and AWAITING_LOCATION[user_id] is not None:
-                reminder_handler.process_location_response(message.content, user_id)
-                return
+                # IMPORTANT: Only process if there's actual text content
+                # Otherwise, let the attachment handler process it for voice messages
+                if message.content and message.content.strip():
+                    print(f"💬 Processing text location response: '{message.content}'")
+                    reminder_handler.process_location_response(message.content, user_id)
+                    return
+                # If no content (voice message), continue to attachment handling
             # --- REMINDER INTEGRATION START ---
             # Patch reminders_send_message in all reminders modules
             def send_discord_dm(recipient, content, **kwargs):
@@ -611,20 +616,90 @@ async def handle_user_message(message):
                                     # Clean up the file
                                     os.remove(file_path)
                                     print(f"✅ Deleted audio file: {file_path}")
+
+                                    # COMPLETELY DIFFERENT APPROACH: Instead of creating a SimpleMessage and recursively calling,
+                                    # simply modify the original message's content and continue with the SAME handle_user_message function
+                                    print(f"✅ Processing transcribed voice message: '{transcribed_text}'")
                                     
-                                    # Create an entirely new message object
-                                    class SimpleMessage:
-                                        def __init__(self, original_message, content):
-                                            self.author = original_message.author
-                                            self.channel = original_message.channel
-                                            self.content = content
-                                            self.attachments = []
+                                    # Replace the message content with transcribed text
+                                    message.content = transcribed_text
                                     
-                                    # Create a new message without attachments to avoid loops
-                                    transcribed_message = SimpleMessage(message, transcribed_text)
-                                    
-                                    # Process the transcribed message through the standard pipeline
-                                    await handle_user_message(transcribed_message)
+                                    # Reset the function flow to the beginning of text processing
+                                    # This will process the message through the exact same pipeline as typed text
+                                    if isinstance(message.channel, discord.DMChannel):
+                                        # Skip username/lookup as we already did it
+                                        # Go directly to the location check
+                                        if user_id in AWAITING_LOCATION and AWAITING_LOCATION[user_id] is not None:
+                                            print(f"🌎 Processing transcribed location: {transcribed_text}")
+                                            reminder_handler.process_location_response(transcribed_text, user_id)
+                                            return
+                                            
+                                        # Rest of the reminder processing
+                                        if text := message.content.strip():
+                                            op_type = reminder_handler.detect_reminder_operation(text, user_id)
+                                            if op_type == 'create':
+                                                reminder_handler.process_reminder_request(text, user_id)
+                                                return
+                                            elif op_type == 'list':
+                                                reminders_list = reminder_handler.process_list_request(user_id)
+                                                await message.channel.send(reminders_list)
+                                                return
+                                            elif op_type == 'cancel':
+                                                cancel_result = reminder_handler.process_cancel_request(text, user_id)
+                                                await message.channel.send(cancel_result)
+                                                return
+                                            elif op_type == 'location':
+                                                reminder_handler.process_location_update(text, user_id)
+                                                return
+                                                
+                                        # If we get here, it's not a reminder operation
+                                        # Proceed with normal conversation processing
+                                        memory = await get_memory(user_id)
+                                        all_content = ""
+                                        if message.content:
+                                            print(f"📝 Processing transcribed text: {message.content}")
+                                            all_content += message.content + "\n"
+                                            
+                                        # Continue with normal conversation processing
+                                        # (Note: We're bypassing all the file attachment handling since we already did that)
+                                        user_message = {"role": "user", "content": all_content}
+                                        await manage_conversation_history(user_id, user_message)
+                                        try:
+                                            memory.put(user_message)
+                                        except Exception as e:
+                                            print(f"Warning: Could not add message to LlamaIndex memory: {e}")
+                                        messages = []
+                                        messages.append({"role": "system", "content": SYSTEM_INSTRUCTIONS})
+                                        if ENABLE_SUMMARIES and conversation_summaries[user_id]:
+                                            messages.append({"role": "system", "content": f"Previous conversation summary: {conversation_summaries[user_id]}"})
+                                        messages.extend(message_history_cache[user_id].copy())
+                                        
+                                        # Rest of normal message processing
+                                        response = None
+                                        async with message.channel.typing():
+                                            try:
+                                                response = await asyncio.to_thread(
+                                                    client.chat.completions.create,
+                                                    model=MODEL,
+                                                    messages=messages,
+                                                    temperature=0.7
+                                                )
+                                            except Exception as e:
+                                                await message.channel.send("⚠️ There was an error getting a response. Please try again later.")
+                                                return
+                                        if response and response.choices and len(response.choices) > 0:
+                                            assistant_reply = response.choices[0].message.content
+                                            assistant_message = {"role": "assistant", "content": assistant_reply}
+                                            await manage_conversation_history(user_id, assistant_message)
+                                            try:
+                                                memory.put(assistant_message)
+                                            except Exception as e:
+                                                print(f"Warning: Could not add assistant message to LlamaIndex memory: {e}")
+                                            await save_memory(user_id, memory)
+                                            await log_token_usage(user_id, MODEL, response.usage.prompt_tokens, response.usage.completion_tokens, response.usage.total_tokens)
+                                        else:
+                                            assistant_reply = "⚠️ No response from the assistant."
+                                        await send_long_message(message.channel, assistant_reply)
                                     return
                             except Exception as e:
                                 print(f"❌ Audio transcription failed: {e}")

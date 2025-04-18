@@ -109,11 +109,11 @@ def update_user_timezone(user_id, new_timezone):
     try:
         with get_db_connection() as conn:
             with conn.cursor() as cursor:
-                # First update all pending reminders
+                # First update all pending reminders EXCEPT relative time reminders (with timezone='UTC')
                 pending_query = """
                 UPDATE reminders 
                 SET timezone = %s 
-                WHERE user_id = %s AND status = 'pending'
+                WHERE user_id = %s AND status = 'pending' AND timezone != 'UTC'
                 """
                 cursor.execute(pending_query, (new_timezone, user_id))
                 pending_affected = cursor.rowcount
