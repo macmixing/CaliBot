@@ -608,14 +608,24 @@ async def handle_user_message(message):
                                     # Log token usage for the transcription
                                     await log_token_usage(user_id, "whisper-1", 0, len(transcribed_text.split()), len(transcribed_text.split()))
                                     
-                                    # Set message content directly - it will be processed through the reminder system
-                                    # later in the code flow rather than calling it directly here
-                                    message.content = transcribed_text
-                                    all_content = transcribed_text + "\n"
-                                    
                                     # Clean up the file
                                     os.remove(file_path)
                                     print(f"✅ Deleted audio file: {file_path}")
+                                    
+                                    # Create an entirely new message object
+                                    class SimpleMessage:
+                                        def __init__(self, original_message, content):
+                                            self.author = original_message.author
+                                            self.channel = original_message.channel
+                                            self.content = content
+                                            self.attachments = []
+                                    
+                                    # Create a new message without attachments to avoid loops
+                                    transcribed_message = SimpleMessage(message, transcribed_text)
+                                    
+                                    # Process the transcribed message through the standard pipeline
+                                    await handle_user_message(transcribed_message)
+                                    return
                             except Exception as e:
                                 print(f"❌ Audio transcription failed: {e}")
                                 await message.channel.send("⚠️ Audio transcription failed. Please try again.")
