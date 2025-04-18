@@ -21,6 +21,7 @@ import reminders.reminder_handler as reminder_handler  # Add this import at the 
 import reminders.scheduler as reminder_scheduler
 import reminders.time_handler as reminder_time_handler
 from reminders.reminder_handler import AWAITING_LOCATION
+import time
 
 # --- Globals and State ---
 BOT_ROLES = set()
@@ -577,7 +578,9 @@ async def handle_user_message(message):
                                         return
                         elif filename.endswith(".ogg"):
                             print(f"🔊 Detected audio file: {file_url}")
-                            file_path = os.path.join(FILE_DIR, filename)
+                            # Create a unique filename with timestamp and user ID to prevent collisions
+                            unique_filename = f"voice_{user_id}_{int(time.time())}.ogg"
+                            file_path = os.path.join(FILE_DIR, unique_filename)
                             async with aiohttp.ClientSession() as session:
                                 async with session.get(file_url) as resp:
                                     if resp.status == 200:
@@ -596,7 +599,8 @@ async def handle_user_message(message):
                                     transcription = await asyncio.to_thread(
                                         client.audio.transcriptions.create,
                                         file=audio_file,
-                                        model="whisper-1"
+                                        model="whisper-1",
+                                        timeout=30.0
                                     )
                                     transcribed_text = transcription.text
                                     print(f"✅ Transcribed {len(transcribed_text)} characters from audio file")
@@ -604,47 +608,20 @@ async def handle_user_message(message):
                                     # Log token usage for the transcription
                                     await log_token_usage(user_id, "whisper-1", 0, len(transcribed_text.split()), len(transcribed_text.split()))
                                     
-                                    # Process the transcribed text directly as if user typed it
-                                    # Check if it's a reminder request first
-                                    op_type = reminder_handler.detect_reminder_operation(transcribed_text, user_id)
-                                    if op_type == 'create':
-                                        reminder_handler.process_reminder_request(transcribed_text, user_id)
-                                        # Clean up the file and return
-                                        os.remove(file_path)
-                                        print(f"✅ Deleted audio file: {file_path}")
-                                        return
-                                    elif op_type == 'list':
-                                        reminders_list = reminder_handler.process_list_request(user_id)
-                                        await message.channel.send(reminders_list)
-                                        # Clean up the file and return
-                                        os.remove(file_path)
-                                        print(f"✅ Deleted audio file: {file_path}")
-                                        return
-                                    elif op_type == 'cancel':
-                                        cancel_result = reminder_handler.process_cancel_request(transcribed_text, user_id)
-                                        await message.channel.send(cancel_result)
-                                        # Clean up the file and return
-                                        os.remove(file_path)
-                                        print(f"✅ Deleted audio file: {file_path}")
-                                        return
-                                    elif op_type == 'location':
-                                        reminder_handler.process_location_update(transcribed_text, user_id)
-                                        # Clean up the file and return
-                                        os.remove(file_path)
-                                        print(f"✅ Deleted audio file: {file_path}")
-                                        return
+                                    # Set message content directly - it will be processed through the reminder system
+                                    # later in the code flow rather than calling it directly here
+                                    message.content = transcribed_text
+                                    all_content = transcribed_text + "\n"
                                     
-                                    # If not a reminder, continue with regular message processing
-                                    all_content += f"{transcribed_text}\n"
+                                    # Clean up the file
+                                    os.remove(file_path)
+                                    print(f"✅ Deleted audio file: {file_path}")
                             except Exception as e:
                                 print(f"❌ Audio transcription failed: {e}")
                                 await message.channel.send("⚠️ Audio transcription failed. Please try again.")
-                                return
-                            finally:
-                                # Clean up the audio file if it hasn't been removed yet
                                 if os.path.exists(file_path):
                                     os.remove(file_path)
-                                    print(f"✅ Deleted audio file: {file_path}")
+                                return
                         elif filename.endswith((".pdf", ".docx", ".xlsx", ".txt", ".rtf")):
                             print(f"📄 Detected file: {file_url}")
                             file_path = os.path.join(FILE_DIR, filename)
