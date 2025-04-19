@@ -49,10 +49,11 @@ def save_reminder(user_id, content, scheduled_time, timezone=None, status='pendi
             cursor = conn.cursor()
             
             # Insert the reminder with both timezone and original_timezone
+            # Explicitly use UTC_TIMESTAMP() for created_at
             cursor.execute("""
                 INSERT INTO reminders 
-                (user_id, content, scheduled_time, timezone, original_timezone, status)
-                VALUES (%s, %s, %s, %s, %s, %s)
+                (user_id, content, scheduled_time, timezone, original_timezone, status, created_at)
+                VALUES (%s, %s, %s, %s, %s, %s, UTC_TIMESTAMP())
             """, (user_id, content, formatted_utc, timezone or 'UTC', original_timezone, status))
             
             conn.commit()
@@ -299,7 +300,7 @@ def cancel_reminder(reminder_id: int, cancelled_by: str) -> bool:
                 query = """
                 UPDATE reminders 
                 SET status = 'cancelled', 
-                    cancelled_at = NOW(),
+                    cancelled_at = UTC_TIMESTAMP(),
                     cancelled_by = %s
                 WHERE id = %s AND status = 'pending'
                 """

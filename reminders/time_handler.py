@@ -115,7 +115,6 @@ def process_time_query(text: str, user_id: str = None) -> Tuple[str, Optional[Di
         # If no timezone and this is a current time query, use reminder system to get location
         if not timezone and query_type == 'current_time':
             # Import here to avoid circular imports
-            from messaging.imessage import send_imessage
             from .reminder_handler import AWAITING_LOCATION
             
             # Create placeholder reminder data
@@ -133,7 +132,7 @@ def process_time_query(text: str, user_id: str = None) -> Tuple[str, Optional[Di
             service_type = "SMS" if service and service.lower() == "sms" else "iMessage"
             
             # Ask for location using reminder system's flow
-            reminders_send_message(recipient, "I want to make sure I give you the right time ⏰, so I just need to know where you are ��—mind telling me?", user_id=user_id, service=service_type)
+            reminders_send_message(recipient, "I want to make sure I give you the right time ⏰, so I just need to know where you are 🌎—mind telling me?", user_id=user_id, service=service_type)
             
             # Store reminder data while waiting for location
             AWAITING_LOCATION[user_id] = reminder_data

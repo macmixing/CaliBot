@@ -576,6 +576,14 @@ async def handle_user_message(message):
                 elif op_type == 'location':
                     reminder_handler.process_location_update(text, user_id)
                     return
+                elif op_type == 'time':
+                    # Get response for time query
+                    response, _ = reminder_time_handler.process_time_query(text, user_id)
+                    
+                    # Only send a response if there is one (empty responses are used for location requests)
+                    if response:
+                        await message.channel.send(response)
+                    return
             # --- REMINDER INTEGRATION END ---
             memory = await get_memory(user_id)
             try:
