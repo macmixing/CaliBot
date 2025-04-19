@@ -769,7 +769,8 @@ def format_reminder_list(reminders: list, user_timezone: str) -> str:
     tomorrow = today + timedelta(days=1)
     
     # Group reminders by day
-    today_reminders = []
+    today_reminders_rel = []  # For relative time reminders (strings)
+    today_reminders_abs = []  # For absolute time reminders (datetimes)
     tomorrow_reminders = []
     future_reminders = []
     
@@ -795,7 +796,7 @@ def format_reminder_list(reminders: list, user_timezone: str) -> str:
                     time_str = f"in {days} day{'s' if days != 1 else ''}"
                 
                 # Add to today's reminders since relative times are always for today
-                today_reminders.append((time_str, reminder))
+                today_reminders_rel.append((time_str, reminder))
                 continue
             
             # For absolute time reminders, convert UTC to current user timezone for date grouping
@@ -815,7 +816,7 @@ def format_reminder_list(reminders: list, user_timezone: str) -> str:
             
             # Group by date
             if reminder_date == today:
-                today_reminders.append((display_time, reminder))
+                today_reminders_abs.append((display_time, reminder))
             elif reminder_date == tomorrow:
                 tomorrow_reminders.append((display_time, reminder))
             else:
@@ -828,16 +829,22 @@ def format_reminder_list(reminders: list, user_timezone: str) -> str:
     message = "📋 **Here are your reminders:**\n\n"
     
     # Today's reminders
-    if today_reminders:
+    if today_reminders_abs or today_reminders_rel:
         message += "**Today**:\n"
-        for time, reminder in sorted(today_reminders, key=lambda x: (x[0], x[1]['content'])):
+        
+        # Process relative time reminders FIRST (sorted by the timestring)
+        sorted_rel = sorted(today_reminders_rel, key=lambda x: (x[1]['scheduled_time'], x[1]['content']))
+        for time_str, reminder in sorted_rel:
             content = ' '.join(word.capitalize() for word in reminder['content'].split())
-            # For relative times, time is already formatted
-            if isinstance(time, str) and time.startswith('in '):
-                message += f"• {content} {time}\n"
-            else:
-                time_str = time.strftime("%I:%M %p").lstrip("0")
-                message += f"• {content} at {time_str}\n"
+            message += f"• {content} {time_str}\n"
+        
+        # Process absolute time reminders SECOND (sorted by time)
+        sorted_abs = sorted(today_reminders_abs, key=lambda x: (x[0], x[1]['content']))
+        for time, reminder in sorted_abs:
+            content = ' '.join(word.capitalize() for word in reminder['content'].split())
+            time_str = time.strftime("%I:%M %p").lstrip("0")
+            message += f"• {content} at {time_str}\n"
+        
         message += "\n"
     
     # Tomorrow's reminders
@@ -861,8 +868,9 @@ def format_reminder_list(reminders: list, user_timezone: str) -> str:
             time_str = time.strftime("%I:%M %p").lstrip("0")
             content = ' '.join(word.capitalize() for word in reminder['content'].split())
             message += f"• {content} on {date_str} at {time_str}\n"
-
-    if today_reminders or tomorrow_reminders or future_reminders:
+    
+    # Add help tip for cancellation
+    if today_reminders_abs or today_reminders_rel or tomorrow_reminders or future_reminders:
         message += "\n💡 **Tip:**\n"
         message += "• To cancel a reminder, type \"cancel reminder about [content]\"\n"
     
