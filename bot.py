@@ -515,10 +515,30 @@ async def on_member_update(before, after):
 @bot.event
 async def on_message(message):
     if message.author == bot.user:
-        return
+        return  # Ignore bot's own messages
+
+    # Check for updated bot roles with each message
     await update_bot_roles()
+
+    # Only process DMs
     if not isinstance(message.channel, discord.DMChannel):
-        return
+        return  # Ignore messages outside of DMs
+    
+    # Fetch the user's roles from mutual servers
+    user_roles = set()
+    for guild in bot.guilds:  # Check each server the bot is in
+        member = guild.get_member(message.author.id)  # Try to get the user
+        if member:
+            # Add their roles (except @everyone which everyone has)
+            for role in member.roles:
+                if role.name != "@everyone":
+                    user_roles.add(role.name)
+    
+    # Check if user has Admin role or any of the bot's roles
+    if not (user_roles.intersection(ALLOWED_ROLES) or user_roles.intersection(BOT_ROLES)):
+        await message.channel.send("🚫✨ **Access Denied**… for now! \n\n I'm still in *beta mode* 🧪 and only certain roles can chat with me right now. \n\n**Hang tight** — more access is coming soon!")
+        return  # Stop further processing
+    
     asyncio.create_task(handle_user_message(message))
 
 async def handle_user_message(message):
@@ -530,6 +550,21 @@ async def handle_user_message(message):
             username = message.author.name
             display_name = getattr(message.author, 'display_name', username)
             await update_username_lookup(user_id, username, display_name)
+            
+            # Get user's Discord roles
+            user_roles = set()
+            for guild in bot.guilds:
+                member = guild.get_member(message.author.id)
+                if member:
+                    for role in member.roles:
+                        if role.name != "@everyone":
+                            user_roles.add(role.name)
+            
+            # Format roles string
+            user_roles_str = ""
+            if user_roles:
+                user_roles_str = f"\nUser Discord Role(s): {', '.join(sorted(user_roles))}"
+            
             # --- LOCATION RESPONSE HANDLING ---
             if user_id in AWAITING_LOCATION and AWAITING_LOCATION[user_id] is not None:
                 # IMPORTANT: Only process if there's actual text content
@@ -726,7 +761,7 @@ async def handle_user_message(message):
                                         except Exception as e:
                                             print(f"Warning: Could not add message to LlamaIndex memory: {e}")
                                         messages = []
-                                        messages.append({"role": "system", "content": SYSTEM_INSTRUCTIONS})
+                                        messages.append({"role": "system", "content": SYSTEM_INSTRUCTIONS + user_roles_str})
                                         if ENABLE_SUMMARIES and conversation_summaries[user_id]:
                                             messages.append({"role": "system", "content": f"Previous conversation summary: {conversation_summaries[user_id]}"})
                                         messages.extend(message_history_cache[user_id].copy())
@@ -814,7 +849,7 @@ async def handle_user_message(message):
                 except Exception as e:
                     print(f"Warning: Could not add message to LlamaIndex memory: {e}")
                 messages = []
-                messages.append({"role": "system", "content": SYSTEM_INSTRUCTIONS})
+                messages.append({"role": "system", "content": SYSTEM_INSTRUCTIONS + user_roles_str})
                 if ENABLE_SUMMARIES and conversation_summaries[user_id]:
                     messages.append({"role": "system", "content": f"Previous conversation summary: {conversation_summaries[user_id]}"})
                 messages.extend(message_history_cache[user_id].copy())
