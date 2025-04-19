@@ -421,7 +421,10 @@ async def on_ready():
             user = None
         if user:
             try:
-                future = asyncio.run_coroutine_threadsafe(user.send(content), MAIN_EVENT_LOOP)
+                # Get the view if it exists in kwargs
+                view = kwargs.get('view', None)
+                # Pass the view to the send method
+                future = asyncio.run_coroutine_threadsafe(user.send(content, view=view), MAIN_EVENT_LOOP)
                 future.result(timeout=10)
                 return True
             except Exception as e:
@@ -448,6 +451,49 @@ async def on_ready():
     # Start the reminder scheduler and log to the console
     reminder_scheduler.start_reminder_scheduler()
     print("✅ Reminder Scheduler running in the background.")
+    
+    # --- PERSISTENT CANCEL BUTTON HANDLER ---
+    @bot.event
+    async def on_interaction(interaction):
+        # We only want to handle persistent buttons from previous sessions
+        # Current session buttons are handled by their regular callbacks
+        if interaction.type == discord.InteractionType.component:
+            if interaction.data.get('custom_id', '').startswith('cancel_reminder_'):
+                # Store the current time when this handler sees the interaction
+                interaction_time = time.time()
+                
+                # Wait a short time to see if the original handler processes it
+                # If the button was created in this session, the original handler will process it
+                # If the button is from before restart, the original handler won't exist
+                await asyncio.sleep(0.5)
+                
+                # Check if the interaction has been responded to already by the original handler
+                if interaction.response.is_done():
+                    # Original handler already processed it, nothing more to do
+                    return
+                
+                # If we get here, it's a persistent button from before restart
+                # that doesn't have its callback connected anymore
+                try:
+                    custom_id = interaction.data['custom_id']
+                    reminder_id = int(custom_id.split('_')[2])
+                    user_id = str(interaction.user.id)
+                    
+                    print(f"☑️ Processing persistent button from previous session: reminder {reminder_id} for user {user_id}")
+                    
+                    # Cancel the reminder
+                    from reminders.db import cancel_reminder
+                    success = cancel_reminder(reminder_id, user_id)
+                    
+                    if success:
+                        print(f"✅ Successfully cancelled reminder {reminder_id} via persistent button")
+                        await interaction.response.send_message("✅ Reminder cancelled successfully!", ephemeral=True)
+                    else:
+                        print(f"❌ Failed to cancel reminder {reminder_id} via persistent button")
+                        await interaction.response.send_message("❌ Failed to cancel reminder. It may have already been cancelled.", ephemeral=True)
+                except Exception as e:
+                    print(f"❌ Error in persistent cancel button: {e}")
+                    await interaction.response.send_message("❌ An error occurred while cancelling the reminder.", ephemeral=True)
 
 @bot.event
 async def on_guild_join(guild):
@@ -496,7 +542,10 @@ async def handle_user_message(message):
             # --- REMINDER INTEGRATION START ---
             # Patch reminders_send_message in all reminders modules
             def send_discord_dm(recipient, content, **kwargs):
-                coro = message.channel.send(content)
+                # Get the view if it exists in kwargs
+                view = kwargs.get('view', None)
+                # Pass the view to the send method
+                coro = message.channel.send(content, view=view)
                 asyncio.run_coroutine_threadsafe(coro, MAIN_EVENT_LOOP)
                 return True
             reminder_handler.reminders_send_message = send_discord_dm

@@ -8,6 +8,8 @@ from dateutil.relativedelta import relativedelta
 import sys
 import os
 import re
+import discord
+from discord.ui import Button, View
 
 # Add the parent directory to the path to help with imports
 current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -63,6 +65,64 @@ reminders_send_message = lambda recipient, content, **kwargs: (_ for _ in ()).th
 
 # Add a global token usage logger for Discord patching
 reminders_log_token_usage = lambda user_id, model, prompt_tokens, completion_tokens, total_tokens: None
+
+# Custom button for cancelling reminders
+class CancelReminderButton(Button):
+    def __init__(self, reminder_id):
+        # Ensure reminder_id is a proper integer
+        try:
+            reminder_id_int = int(reminder_id)
+            custom_id = f"cancel_reminder_{reminder_id_int}"
+            logging.info(f"⏰ Creating cancel button with ID: {reminder_id_int}")
+        except (ValueError, TypeError):
+            logging.error(f"❌ Invalid reminder ID for button: {reminder_id}")
+            custom_id = "cancel_reminder_invalid"
+            
+        super().__init__(
+            style=discord.ButtonStyle.secondary,  # Grey button (more subtle than red)
+            label="Cancel Reminder",
+            custom_id=custom_id
+        )
+        
+    async def callback(self, interaction):
+        try:
+            user_id = str(interaction.user.id)
+            
+            # Extract reminder ID from custom_id
+            custom_id_parts = self.custom_id.split('_')
+            if len(custom_id_parts) != 3 or custom_id_parts[0] != "cancel" or custom_id_parts[1] != "reminder":
+                logging.error(f"❌ Invalid custom_id format: {self.custom_id}")
+                await interaction.response.send_message("❌ Invalid reminder format. Please try cancelling manually.", ephemeral=True)
+                return
+                
+            reminder_id_str = custom_id_parts[2]
+            if reminder_id_str == "invalid":
+                logging.error(f"❌ Button has invalid reminder ID")
+                await interaction.response.send_message("❌ This button has an invalid reminder ID. Please try cancelling manually.", ephemeral=True)
+                return
+                
+            try:
+                reminder_id = int(reminder_id_str)
+            except ValueError:
+                logging.error(f"❌ Cannot convert {reminder_id_str} to integer")
+                await interaction.response.send_message("❌ Invalid reminder ID format. Please try cancelling manually.", ephemeral=True)
+                return
+            
+            logging.info(f"⚠️ Button clicked: Attempting to cancel reminder {reminder_id} for user {user_id}")
+            
+            # Cancel the reminder when clicked
+            success = cancel_reminder(reminder_id, user_id)
+            
+            if success:
+                logging.info(f"✅ Successfully cancelled reminder {reminder_id} via button")
+                await interaction.response.send_message("✅ Reminder cancelled successfully!", ephemeral=True)
+            else:
+                logging.error(f"❌ Failed to cancel reminder {reminder_id} via button. May be already cancelled.")
+                await interaction.response.send_message("❌ Failed to cancel reminder. It may have already been cancelled.", ephemeral=True)
+        except Exception as e:
+            logging.error(f"❌ Error in cancel button callback: {e}")
+            logging.error(f"⚠️ Button custom_id: {self.custom_id}")
+            await interaction.response.send_message("❌ An error occurred while cancelling the reminder.", ephemeral=True)
 
 def detect_reminder_request(text, user_id=None):
     """Determine if a message is requesting to set a reminder"""
@@ -428,7 +488,7 @@ def generate_confirmation_message(reminder_data, user_id=None):
         if date_str == "today":
             message = f"Got it! I'll remind you today at {formatted_time} ✅"
         elif date_str == "tomorrow":
-            message = f"Got it! I'll remind you tomorrow at {formatted_time} ✅"
+            message = f"OK! I'll remind you tomorrow at {formatted_time} ✅"
         else:
             message = f"Got it! I'll remind you on {date_str} at {formatted_time} ✅"
         
@@ -501,21 +561,37 @@ def process_reminder_request(text, user_id):
         return True
     
     # Save the reminder with the timezone
-    reminder_id = save_reminder(
+    save_success = save_reminder(
         user_id=user_id,
         content=reminder_data['content'],
         scheduled_time=scheduled_time,
         timezone=reminder_data['timezone']  # Always save the timezone
     )
     
-    if not reminder_id:
+    if not save_success:
         reminders_send_message(recipient, "Uh-oh! 🙈 I had a little trouble saving your reminder. Can you give it another go? Thanks for your patience! 😊🔄", user_id=user_id, service=service_type)
         return True
     
-    # Generate and send confirmation
+    # Get the actual reminder ID of the reminder we just created
+    last_reminder = get_last_created_reminder(user_id)
+    if not last_reminder:
+        reminders_send_message(recipient, "Your reminder was saved, but I couldn't create a cancel button. You can cancel it later using 'cancel my reminder about " + reminder_data['content'] + "'", user_id=user_id, service=service_type)
+        return True
+    
+    reminder_id = last_reminder['id']  # Get the actual numeric ID
+    logging.info(f"⏰ Created reminder with ID: {reminder_id}")
+    
+    # Generate confirmation message
     reminder_data['scheduled_time'] = scheduled_time.strftime('%Y-%m-%d %H:%M:%S')
     confirmation = generate_confirmation_message(reminder_data, user_id)
-    reminders_send_message(recipient, confirmation, user_id=user_id, service=service_type)
+    
+    # Create a view with a cancel button
+    view = View(timeout=None)  # No timeout so button works indefinitely
+    cancel_button = CancelReminderButton(reminder_id)
+    view.add_item(cancel_button)
+    
+    # Send confirmation with the button
+    reminders_send_message(recipient, confirmation, user_id=user_id, service=service_type, view=view)
     
     return True
 
@@ -597,7 +673,14 @@ def process_location_response(text, user_id):
         # Generate confirmation
         reminder_data['scheduled_time'] = scheduled_time.strftime('%Y-%m-%d %H:%M:%S')
         confirmation = generate_confirmation_message(reminder_data, user_id)
-        reminders_send_message(recipient, confirmation, user_id=user_id, service=service_type)
+        
+        # Create a view with a cancel button
+        view = View(timeout=None)  # No timeout so button works indefinitely
+        cancel_button = CancelReminderButton(reminder_id)
+        view.add_item(cancel_button)
+        
+        # Send confirmation with the button
+        reminders_send_message(recipient, confirmation, user_id=user_id, service=service_type, view=view)
         
         return True
     except Exception as e:
@@ -778,6 +861,10 @@ def format_reminder_list(reminders: list, user_timezone: str) -> str:
             time_str = time.strftime("%I:%M %p").lstrip("0")
             content = ' '.join(word.capitalize() for word in reminder['content'].split())
             message += f"• {content} on {date_str} at {time_str}\n"
+
+    if today_reminders or tomorrow_reminders or future_reminders:
+        message += "\n💡 **Tip:**\n"
+        message += "• To cancel a reminder, type \"cancel reminder about [content]\"\n"
     
     return message.strip()
 
@@ -791,6 +878,43 @@ def process_list_request(user_id: str) -> str:
     
     # Format the list
     return format_reminder_list(reminders, timezone)
+
+def modify_reminder_list_for_display(reminders, user_timezone):
+    """Convert reminder list to user-friendly format that includes time information"""
+    enhanced_reminders = []
+    user_tz = pytz.timezone(user_timezone)
+    
+    for reminder in reminders:
+        # Convert UTC time to user's timezone
+        utc_time = reminder['scheduled_time'].replace(tzinfo=pytz.UTC)
+        local_time = utc_time.astimezone(user_tz)
+        
+        # Format date/time nicely
+        now = datetime.now(user_tz)
+        today = now.date()
+        tomorrow = today + timedelta(days=1)
+        
+        if local_time.date() == today:
+            date_str = "today"
+        elif local_time.date() == tomorrow:
+            date_str = "tomorrow"
+        else:
+            date_str = local_time.strftime("%A, %B %d")
+            
+        time_str = local_time.strftime("%I:%M %p").lstrip("0")
+        
+        # Combine content with time information
+        content = reminder['content']
+        enhanced_content = f"{content} ({date_str} at {time_str})"
+        
+        # Keep track of both the enhanced content and the original reminder
+        enhanced_reminders.append({
+            'content': content,
+            'enhanced_content': enhanced_content,
+            'original': reminder
+        })
+    
+    return enhanced_reminders
 
 def process_cancel_request(text: str, user_id: str) -> str:
     """Process a request to cancel a reminder"""
@@ -807,10 +931,16 @@ def process_cancel_request(text: str, user_id: str) -> str:
         today = now.date()
         tomorrow = today + timedelta(days=1)
         
-        # Create the prompt with current reminders
-        reminder_list = [r['content'] for r in all_reminders]
+        # Enhanced reminders with date/time info for better matching
+        enhanced_reminders = modify_reminder_list_for_display(all_reminders, timezone)
+        
+        # Create two lists: one for display to the model with enhanced content (includes date/time)
+        # and one that preserves the original reminder data
+        enhanced_reminder_list = [r['enhanced_content'] for r in enhanced_reminders]
+        
+        # Create the prompt with enhanced reminders
         system_prompt = get_reminder_cancellation_extraction_prompt(datetime.now().strftime('%Y-%m-%d'))
-        user_prompt = f"""Current reminders: {reminder_list}
+        user_prompt = f"""Current reminders: {enhanced_reminder_list}
         
         Request: {text}"""
         
@@ -853,18 +983,19 @@ def process_cancel_request(text: str, user_id: str) -> str:
                         # Capitalize the first letter of each word in the reminder content
                         content = ' '.join(word.capitalize() for word in last_reminder['content'].split())
                         return f"✅ Cancelled your reminder: {content}"
-                return "I couldn't find your most recent reminder. Would you like to see your current reminders?"
+                return "I couldn't find your most recent reminder. Please say \"cancel my reminder about [content]\" to cancel a specific reminder."
                 
             elif cancel_data["type"] == "timeperiod":
                 # Convert reminders to user's timezone and group them
                 reminders_by_date = {}
-                for reminder in all_reminders:
+                for i, reminder in enumerate(all_reminders):
                     reminder_time = reminder['scheduled_time'].replace(tzinfo=pytz.UTC)
                     local_time = reminder_time.astimezone(user_tz)
                     reminder_date = local_time.date()
                     if reminder_date not in reminders_by_date:
                         reminders_by_date[reminder_date] = []
-                    reminders_by_date[reminder_date].append(reminder)
+                    # Store both the reminder and its index
+                    reminders_by_date[reminder_date].append((i, reminder))
                 
                 target_date = None
                 if cancel_data["timeperiod"] == "today":
@@ -883,12 +1014,47 @@ def process_cancel_request(text: str, user_id: str) -> str:
                     else:
                         return "Sorry, I had trouble cancelling the reminders. Please try again."
                 
+                # Check if the timeperiod cancellation also has specific matches (for date-specific cancellations)
+                if cancel_data.get("matches") and len(cancel_data["matches"]) > 0:
+                    # We have specific matches, treat it like a content cancellation
+                    cancelled_count = 0
+                    cancelled_content = None
+                    
+                    for index in cancel_data["matches"]:
+                        if 0 <= index < len(enhanced_reminders):
+                            # Get the original reminder from our enhanced list
+                            original_reminder = enhanced_reminders[index]['original']
+                            if cancel_reminder(original_reminder['id'], user_id):
+                                cancelled_count += 1
+                                # Save the content of the first cancelled reminder
+                                if not cancelled_content:
+                                    cancelled_content = original_reminder['content']
+                    
+                    if cancelled_count == 1 and cancelled_content:
+                        # If we cancelled exactly one reminder, show its content
+                        content = ' '.join(word.capitalize() for word in cancelled_content.split())
+                        return f"✅ Cancelled your reminder: {content}"
+                    elif cancelled_count > 0:
+                        # If we cancelled multiple reminders, just show the count
+                        return f"✅ Cancelled {cancelled_count} reminder{'s' if cancelled_count > 1 else ''}."
+                    else:
+                        return "Sorry, I had trouble cancelling the reminder. Please try again."
+                
+                # Regular timeperiod handling (today/tomorrow)
                 if target_date:
                     if target_date not in reminders_by_date:
                         return f"You don't have any reminders scheduled for {'today' if target_date == today else 'tomorrow'}."
                     
+                    # If there's only one reminder on the target date, cancel it directly
+                    if len(reminders_by_date[target_date]) == 1:
+                        idx, reminder = reminders_by_date[target_date][0]
+                        if cancel_reminder(reminder['id'], user_id):
+                            content = ' '.join(word.capitalize() for word in reminder['content'].split())
+                            return f"✅ Cancelled your reminder: {content}"
+                    
+                    # Otherwise cancel all reminders for the target date
                     cancelled_count = 0
-                    for reminder in reminders_by_date[target_date]:
+                    for _, reminder in reminders_by_date[target_date]:
                         if cancel_reminder(reminder['id'], user_id):
                             cancelled_count += 1
                     
@@ -912,19 +1078,32 @@ def process_cancel_request(text: str, user_id: str) -> str:
             elif cancel_data["type"] == "content":
                 # Cancel reminders matching the content
                 if not cancel_data.get("matches"):
-                    return "I couldn't find any reminders matching that description. Would you like to see your current reminders?"
+                    return "I couldn't find any reminders matching that description. Please say \"cancel my reminder about [content]\" to cancel a specific reminder."
                 
+                # If there's exactly one match, cancel it and return its original content
+                if len(cancel_data["matches"]) == 1:
+                    index = cancel_data["matches"][0]
+                    if 0 <= index < len(enhanced_reminders):
+                        original_reminder = enhanced_reminders[index]['original']
+                        original_content = enhanced_reminders[index]['content']  # Get the original content without date/time
+                        
+                        if cancel_reminder(original_reminder['id'], user_id):
+                            # Use the original reminder content, not the query text
+                            content = ' '.join(word.capitalize() for word in original_content.split())
+                            return f"✅ Cancelled your reminder: {content}"
+                
+                # If there are multiple matches, cancel them all
                 cancelled_count = 0
                 for index in cancel_data["matches"]:
-                    if 0 <= index < len(all_reminders):
-                        reminder = all_reminders[index]
-                        if cancel_reminder(reminder['id'], user_id):
+                    if 0 <= index < len(enhanced_reminders):
+                        # Get the original reminder from our enhanced list
+                        original_reminder = enhanced_reminders[index]['original']
+                        if cancel_reminder(original_reminder['id'], user_id):
                             cancelled_count += 1
                 
                 if cancelled_count > 0:
-                    # Capitalize the first letter of each word in the reminder content
-                    content = ' '.join(word.capitalize() for word in cancel_data["content"].split())
-                    return f"✅ Cancelled your reminder: {content}"
+                    # For multiple reminders, just show the count
+                    return f"✅ Cancelled {cancelled_count} reminder{'s' if cancelled_count > 1 else ''}."
                 else:
                     return "Sorry, I had trouble cancelling the reminder. Please try again."
             

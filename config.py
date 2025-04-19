@@ -725,12 +725,17 @@ def get_reminder_cancellation_extraction_prompt(current_date):
     1. If it's about cancelling the most recent reminder ("cancel that", "cancel this", "cancel the last reminder")
     2. If it's about cancelling by time period ("cancel today's reminders", "cancel all reminders")
     3. If it's about cancelling a specific reminder by content ("cancel reminder about calling mom")
+    4. If it's about cancelling a specific reminder by date/time ("cancel my reminder at 3pm", "cancel the meeting on Friday")
 
     For content-based cancellations, you will be provided with a list of existing reminders.
     Match the request against these reminders semantically (meaning, not exact text).
-    For example:
-    - "Cancel eating reminder" should match "eat", "have dinner", "lunch", etc.
-    - "Cancel reminder about mom" should match "call my mom", "visit mother", etc.
+    The reminder list will include both content and scheduled time information.
+
+    Examples:
+    - "Cancel eating reminder" should match "eat (today at 2:00 PM)"
+    - "Cancel reminder about mom" should match "call my mom (tomorrow at 9:00 AM)"
+    - "Cancel my reminder at 3 PM" should match "doctor appointment (today at 3:00 PM)"
+    - "Cancel reminder for Friday" should match any reminder with "(Friday, April 19 at ...)"
 
     Format your response as JSON:
     {{
@@ -744,8 +749,11 @@ def get_reminder_cancellation_extraction_prompt(current_date):
     Input: "cancel that reminder"
     Output: {{"type": "recent", "content": null, "timeperiod": null, "matches": []}}
 
-    Input: "cancel my reminder about calling mom" with reminders ["call my mom", "eat dinner"]
+    Input: "cancel my reminder about calling mom" with reminders ["call my mom (tomorrow at 9:00 AM)", "eat dinner (today at 6:00 PM)"]
     Output: {{"type": "content", "content": "calling mom", "timeperiod": null, "matches": [0]}}
+
+    Input: "cancel my reminder at 6 PM" with reminders ["call mom (today at 3:00 PM)", "eat dinner (today at 6:00 PM)"]
+    Output: {{"type": "content", "content": "reminder at 6 PM", "timeperiod": null, "matches": [1]}}
 
     Input: "cancel all my reminders"
     Output: {{"type": "all", "content": null, "timeperiod": "all", "matches": []}}
