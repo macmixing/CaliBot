@@ -14,7 +14,7 @@ import aiohttp
 import aiofiles
 from config import (
     DISCORD_TOKEN, OPENAI_API_KEY, DB_HOST, DB_USER, DB_PASSWORD, DB_NAME,
-    ALLOWED_ROLES, MODEL, MAX_TOKEN_LIMIT, MAX_MESSAGES, ENABLE_SUMMARIES, SUMMARY_PROMPT, MAX_HISTORY_DAYS, SYSTEM_INSTRUCTIONS, BATCH_SIZE
+    ALLOWED_ROLES, MODEL, MAX_TOKEN_LIMIT, MAX_MESSAGES, ENABLE_SUMMARIES, SUMMARY_PROMPT, MAX_HISTORY_DAYS, SYSTEM_INSTRUCTIONS, BATCH_SIZE, IMAGE_ANALYSIS_SYSTEM_PROMPT
 )
 import signal
 import reminders.reminder_handler as reminder_handler  # Add this import at the top
@@ -654,19 +654,16 @@ async def handle_user_message(message):
                                                 await file.write(chunk)
                                         with open(image_path, "rb") as image_file:
                                             try:
-                                                file_response = await asyncio.to_thread(client.files.create, file=image_file, purpose="vision")
-                                                file_id = file_response.id
-                                                image_base64 = base64.b64encode(open(image_path, 'rb').read()).decode('utf-8')
+                                                image_base64 = base64.b64encode(image_file.read()).decode('utf-8')
                                                 image_files.append({
-                                                    "type": "image_url", 
+                                                    "type": "image_url",
                                                     "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
                                                 })
                                                 all_content += f"[Image: {filename}]\n"
                                                 print(f"✅ Image successfully saved at: {image_path}")
-                                                print(f"✅ Image uploaded to OpenAI. File ID: {file_id}")
                                             except Exception as upload_error:
-                                                print(f"❌ OpenAI upload failed: {upload_error}")
-                                                await message.channel.send("⚠️ Image upload failed.")
+                                                print(f"❌ Image base64 conversion failed: {upload_error}")
+                                                await message.channel.send("⚠️ Image processing failed.")
                                                 return
                                         os.remove(image_path)
                                     else:
@@ -842,6 +839,103 @@ async def handle_user_message(message):
                     print("❌ No valid input for AI. Skipping processing.")
                     await message.channel.send("⚠️ Please send a message, an image, or a supported file.")
                     return
+                # IMAGE FLOW: If we have at least one image, use the new image analysis pipeline
+                if image_files:
+                    # Build multimodal content (text + all images)
+                    multimodal_content = []
+                    if all_content.strip():
+                        multimodal_content.append({"type": "text", "text": all_content.strip()})
+                    multimodal_content.extend(image_files)
+                    user_message = {"role": "user", "content": multimodal_content}
+                    # Build the system prompt and message list
+                    messages = []
+                    messages.append({"role": "system", "content": IMAGE_ANALYSIS_SYSTEM_PROMPT})
+                    # Add previous chat history (excluding system prompts and fake image URLs)
+                    for msg in message_history_cache[user_id]:
+                        if msg.get("role") == "system":
+                            continue
+                        content = msg.get("content")
+                        # Skip fake image URLs or system image descriptions
+                        if (
+                            isinstance(content, list)
+                            and any(
+                                item.get("type") == "image_url" and (
+                                    "[Image:" in item.get("image_url", {}).get("url", "") or
+                                    item.get("image_url", {}).get("url", "").startswith("[Image")
+                                )
+                                for item in content if isinstance(item, dict)
+                            )
+                        ):
+                            # Convert to plain text summary if possible
+                            text = None
+                            for item in content:
+                                if isinstance(item, dict) and item.get("type") == "text":
+                                    text = item.get("text")
+                                    break
+                            if not text:
+                                for item in content:
+                                    if isinstance(item, dict) and item.get("type") == "image_url":
+                                        text = item.get("image_url", {}).get("url")
+                                        break
+                            if text:
+                                messages.append({"role": msg.get("role", "user"), "content": text})
+                        else:
+                            messages.append(msg)
+                    # Add the new user message (with image and/or prompt)
+                    messages.append(user_message)
+                    # Call the LLM
+                    import re
+                    response = await asyncio.to_thread(
+                        client.chat.completions.create,
+                        model=MODEL,
+                        messages=messages,
+                        temperature=0.7
+                    )
+                    response_text = response.choices[0].message.content
+                    # Log token usage for image analysis
+                    if hasattr(response, 'usage'):
+                        await log_token_usage(
+                            user_id,
+                            MODEL,
+                            getattr(response.usage, 'prompt_tokens', 0),
+                            getattr(response.usage, 'completion_tokens', 0),
+                            getattr(response.usage, 'total_tokens', 0)
+                        )
+                    # Parse JSON for detailed_description and prompt_response
+                    try:
+                        match = re.search(r'\{.*\}', response_text, re.DOTALL)
+                        if match:
+                            json_str = match.group(0)
+                            json_str = re.sub(r',\s*}', '}', json_str)
+                            json_str = re.sub(r',\s*]', ']', json_str)
+                            parsed = json.loads(json_str)
+                            detailed_description = parsed.get("detailed_description")
+                            prompt_response = parsed.get("prompt_response")
+                        else:
+                            raise ValueError("No JSON object found in LLM response")
+                    except Exception as e:
+                        print(f"[ImageAnalysis] Failed to parse LLM JSON response: {e}")
+                        print(f"[ImageAnalysis] Raw LLM response: {response_text}")
+                        detailed_description = None
+                        prompt_response = None
+                    # Add the multimodal message to memory
+                    await manage_conversation_history(user_id, user_message)
+                    # Add the detailed description as a plain user message for context
+                    if detailed_description:
+                        await manage_conversation_history(user_id, {"role": "user", "content": f"[Image description: {detailed_description}]"})
+                    # Add the prompt_response as an assistant message for context
+                    if prompt_response:
+                        await manage_conversation_history(user_id, {"role": "assistant", "content": prompt_response})
+                    await save_memory(user_id, memory)
+                    # Send the appropriate response to the user
+                    if all_content.strip() and prompt_response:
+                        await send_long_message(message.channel, prompt_response)
+                    elif detailed_description:
+                        await send_long_message(message.channel, detailed_description)
+                    else:
+                        await message.channel.send("I couldn't analyze that image. Please try again with a clearer image.")
+                    return
+                # TEXT/DOC FLOW: If we get here, it's a text/file message (no images)
                 user_message = {"role": "user", "content": all_content}
                 await manage_conversation_history(user_id, user_message)
                 try:
@@ -853,14 +947,6 @@ async def handle_user_message(message):
                 if ENABLE_SUMMARIES and conversation_summaries[user_id]:
                     messages.append({"role": "system", "content": f"Previous conversation summary: {conversation_summaries[user_id]}"})
                 messages.extend(message_history_cache[user_id].copy())
-                if image_files and messages:
-                    for i in range(len(messages) - 1, -1, -1):
-                        if messages[i]["role"] == "user":
-                            if isinstance(messages[i].get("content"), str):
-                                content = [{"type": "text", "text": messages[i]["content"]}]
-                                content.extend(image_files)
-                                messages[i]["content"] = content
-                            break
                 response = None
                 async with message.channel.typing():
                     try:

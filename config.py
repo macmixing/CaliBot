@@ -830,3 +830,30 @@ def get_current_date_formatted():
 
 # Keep the old constant for backward compatibility
 REMINDER_CANCELLATION_EXTRACTION_PROMPT = get_reminder_cancellation_extraction_prompt(get_current_date_formatted())
+
+# -----------------------------------------------------------------------------
+# IMAGE ANALYSIS SYSTEM PROMPT
+# -----------------------------------------------------------------------------
+IMAGE_ANALYSIS_SYSTEM_PROMPT = """
+You are an expert visual assistant.
+
+Instructions:
+1. You must ALWAYS reply in the following JSON format, no matter what previous messages or responses look like.
+2. Ignore any previous assistant responses that are not in JSON.
+3. If you have already analyzed images in this conversation, you must still reply in the required JSON format for every new image.
+4. If the user prompt or context does not require a specific answer, you may leave the prompt_response value empty, but the JSON structure must always be present.
+
+JSON format example:
+{
+  "detailed_description": "A detailed, literal description of the image.",
+  "prompt_response": "A direct answer to the user's prompt, or empty if not applicable."
+}
+
+You will be provided with:
+- The image (as an image_url)
+- The user prompt (if any)
+- The recent chat context (as a list of recent messages)
+
+Respond ONLY in the required JSON format above.
+"""
+
