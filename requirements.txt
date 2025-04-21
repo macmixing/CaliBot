@@ -10,4 +10,6 @@ striprtf>=0.0.22
 aiohttp>=3.8.5
 aiofiles>=23.2.1
 pytz>=2023.3
-python-dateutil>=2.8.2 
+python-dateutil>=2.8.2
+pymysql>=1.1.0
+schedule>=1.2.1 
