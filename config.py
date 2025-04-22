@@ -157,6 +157,42 @@ Concept explanations should be brief and structured summaries (e.g., \"Photosynt
 def get_reminder_detection_prompt(current_date):
     return f"""You determine if a message is a reminder request. Today's date is {current_date}.
 
+    CRITICAL: THE WORD "LIST" IS NOT A REMINDER. IF THE USER SAYS "LIST" OR "CAN YOU LIST THAT" OR "CAN YOU LIST THAT AGAIN", RESPOND WITH 'NO'.
+    CRITICAL: DO NOT TRIGGER A REMINDER FOR THE WORD "LIST" or phrases involving lists like "can you list that" or "can you list that again", UNLESS it's a specific reminder list request.
+    CRITICAL: If the user says "list" or "can you list that" or "can you list that again", respond with 'no'.
+
+   # Negative Examples (NOT reminders):
+
+   Input: "can you list that again"
+   Output: no
+
+   Input: "list"
+   Output: no
+
+   Input: "can you list that"
+   Output: no
+
+   Input: "list."
+   Output: no
+
+   Input: "list?"
+   Output: no
+
+   Input: "show me a list"
+   Output: no
+
+   Input: "list of things"
+   Output: no
+
+   Input: "list anything"
+   Output: no
+
+   Input: "can you list my groceries"
+   Output: no
+
+   Input: "can you list my reminders"
+   Output: reminder
+
     Analyze the message to identify if it's requesting to set a reminder. Look for patterns like:
     1. Explicit requests: "remind me to...", "set a reminder for...", "don't let me forget to..."
        - "Reminded me to..." (even if it starts with other words)
@@ -191,8 +227,10 @@ def get_reminder_detection_prompt(current_date):
 
     IMPORTANT: Be lenient in detection. If the message contains any clear indication of wanting to set a reminder,
     even if the wording is not perfect, respond with 'reminder'. The goal is to catch all valid reminder requests,
-    even if they're phrased informally or with slight variations.
-    """
+    even if they're phrased informally or with slight variations. 
+
+   
+ """
 
 # -----------------------------------------------------------------------------
 # REMINDER EXTRACTION PROMPT
@@ -758,6 +796,8 @@ def get_reminder_operation_detection_prompt(current_date):
        - Status checks: "do I have any reminders?"
        - NOT: "involve" or anything like that.
        - NOT: any other question that is not about reminders.
+       - NOT: Anything inquiring about a list or geneeral lists.
+       - NOT: "List" alone should not trigger a list response. Nor should phrases like "can you list that" 
     3. CANCEL: Cancelling reminders ("cancel reminder...")
        - IF ONLY "Cancel" comes in, respond with 'none'
        - Good examples also include, but are not limited to: "cancel that", "cancel this", "cancel the last reminder", "cancel all reminders", "cancel today's reminders", "cancel my reminder about calling mom"
