@@ -834,6 +834,8 @@ def get_reminder_cancellation_extraction_prompt(current_date):
     Match the request against these reminders semantically (meaning, not exact text).
     The reminder list will include both content and scheduled time information.
 
+    CRITICAL: Always match reminders and requests in a case-insensitive way (ignore capitalization).
+
     Examples:
     - "Cancel eating reminder" should match "eat (today at 2:00 PM)"
     - "Cancel reminder about mom" should match "call my mom (tomorrow at 9:00 AM)"
