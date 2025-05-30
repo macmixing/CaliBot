@@ -922,7 +922,7 @@ async def handle_user_message(message):
                     await manage_conversation_history(user_id, user_message)
                     # Add the detailed description as a plain user message for context
                     if detailed_description:
-                        await manage_conversation_history(user_id, {"role": "user", "content": f"[Image description: {detailed_description}]"})
+                        await manage_conversation_history(user_id, {"role": "assistant", "content": f"[Image description: {detailed_description}]"})
                     # Add the prompt_response as an assistant message for context
                     if prompt_response:
                         await manage_conversation_history(user_id, {"role": "assistant", "content": prompt_response})
