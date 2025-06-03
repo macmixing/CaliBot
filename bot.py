@@ -165,10 +165,9 @@ async def save_memory(user_id, memory):
                     await cursor.execute(query, (memory_json, user_id))
                 else:
                     query = """
-                    INSERT INTO user_threads 
-                    VALUES (%s, %s, %s, NOW())
+                    INSERT INTO user_threads (user_id, memory_json) VALUES (%s, %s)
                     """
-                    await cursor.execute(query, (user_id, user_id, memory_json))
+                    await cursor.execute(query, (user_id, memory_json))
                 await conn.commit()
                 print(f"✅ Saved memory for user {user_id}")
     except Exception as e:
