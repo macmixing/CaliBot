@@ -595,6 +595,18 @@ async def handle_user_message(message):
             # Use the message content for detection
             text = message.content.strip() if message.content else ""
             if text:
+                # Respond to timezone help queries (very flexible)
+                import re
+                # Only show help if NOT a direct change command
+                if re.search(r"\bchange\b.*\btime[\s-]?zone\b", text, re.IGNORECASE) and not re.search(r"\bchange\b.*\btime[\s-]?zone\b.*\bto\b.*\w+", text, re.IGNORECASE):
+                    await message.channel.send('🌎 To change your timezone, type "change my timezone to [location]".')
+                    return
+                # Respond to 'what is my timezone' queries (very flexible)
+                from reminders.db import get_user_timezone
+                if re.search(r"what('?s| is|\s+is)?\s+(my|the)?\s*time[\s-]?zone( am i in| do i have| is it)?\b", text, re.IGNORECASE):
+                    tz = get_user_timezone(user_id) or 'Not set'
+                    await message.channel.send(f'🌎 **Timezone:** {tz}')
+                    return
                 op_type = reminder_handler.detect_reminder_operation(text, user_id)
                 if op_type == 'create':
                     reminder_handler.process_reminder_request(text, user_id)
@@ -724,6 +736,16 @@ async def handle_user_message(message):
                                             
                                         # Rest of the reminder processing
                                         if text := message.content.strip():
+                                            import re
+                                            # Only show help if NOT a direct change command
+                                            if re.search(r"\bchange\b.*\btime[\s-]?zone\b", text, re.IGNORECASE) and not re.search(r"\bchange\b.*\btime[\s-]?zone\b.*\bto\b.*\w+", text, re.IGNORECASE):
+                                                await message.channel.send('🌎 To change your timezone, type "change my timezone to [location]".')
+                                                return
+                                            from reminders.db import get_user_timezone
+                                            if re.search(r"what('?s| is|\s+is)?\s+(my|the)?\s*time[\s-]?zone( am i in| do i have| is it)?\b", text, re.IGNORECASE):
+                                                tz = get_user_timezone(user_id) or 'Not set'
+                                                await message.channel.send(f'🌎 **Timezone:** {tz}')
+                                                return
                                             op_type = reminder_handler.detect_reminder_operation(text, user_id)
                                             if op_type == 'create':
                                                 reminder_handler.process_reminder_request(text, user_id)

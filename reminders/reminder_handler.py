@@ -572,7 +572,7 @@ def process_reminder_request(text, user_id):
         reminders_send_message(recipient, "Uh-oh! 🙈 I had a little trouble saving your reminder. Can you give it another go? Thanks for your patience! 😊🔄", user_id=user_id, service=service_type)
         return True
     
-    logging.info(f"⏰ Created reminder with ID: {reminder_id}")
+    print(f"[REMINDER CREATED] User {user_id}: '{text}' -> Reminder ID: {reminder_id}")
     
     # Generate confirmation message
     reminder_data['scheduled_time'] = scheduled_time.strftime('%Y-%m-%d %H:%M:%S')
@@ -753,7 +753,7 @@ def detect_reminder_operation(text: str, user_id=None) -> str:
 def format_reminder_list(reminders: list, user_timezone: str) -> str:
     """Format a list of reminders in a user-friendly way"""
     if not reminders:
-        return "You don't have any reminders set up yet. 📝"
+        return f"📝 You don't have any reminders set up yet.\n🌎 **Timezone:** {user_timezone}"
     
     # Get current time in user's timezone for date comparisons
     user_tz = pytz.timezone(user_timezone)
@@ -866,6 +866,8 @@ def format_reminder_list(reminders: list, user_timezone: str) -> str:
     if today_reminders_abs or today_reminders_rel or tomorrow_reminders or future_reminders:
         message += "\n💡 **Tip:**\n"
         message += "• To cancel a reminder, type \"cancel reminder about [content]\"\n"
+        message += "• To change your timezone, type \"change my timezone to [location]\"\n"
+        message += f"\n🌎 **Timezone:** {user_timezone}\n"
     
     return message.strip()
 
