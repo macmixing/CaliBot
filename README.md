@@ -32,7 +32,7 @@ Cali can set, list, and cancel reminders for you using natural language. Reminde
   - Vague: `in the morning` (interpreted as 9:00 AM), `later` (in 2 hours), etc.
 - **Timezones:**
   - By default, reminders use your last set or default timezone (UTC if not set).
-  - You can update your timezone by messaging: `Change my timezone to Pacific` or `I'm in New York now`.
+  - You can update your timezone by messaging: `Change my timezone to Pacific`.
 
 ### Listing Your Reminders
 - **Examples:**
