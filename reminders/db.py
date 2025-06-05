@@ -55,24 +55,18 @@ def save_reminder(user_id, content, scheduled_time, timezone=None, status='pendi
                 (user_id, content, scheduled_time, timezone, original_timezone, status, created_at)
                 VALUES (%s, %s, %s, %s, %s, %s, UTC_TIMESTAMP())
             """, (user_id, content, formatted_utc, timezone or 'UTC', original_timezone, status))
-            
+            reminder_id = cursor.lastrowid
             conn.commit()
-            
-            # Verify the saved time
             cursor.execute("""
                 SELECT scheduled_time, timezone, original_timezone 
                 FROM reminders 
-                WHERE id = LAST_INSERT_ID()
-            """)
+                WHERE id = %s
+            """, (reminder_id,))
             saved_reminder = cursor.fetchone()
-            
             if saved_reminder:
                 saved_time, saved_tz, saved_orig_tz = saved_reminder
                 logging.info(f"✅ Saved reminder with time: {saved_time}, timezone: {saved_tz}, original_timezone: {saved_orig_tz}")
-                return True
-            else:
-                logging.error("❌ Failed to verify saved reminder")
-                return False
+            return reminder_id
                 
     except Exception as e:
         logging.error(f"❌ Error saving reminder: {e}")
@@ -308,10 +302,10 @@ def cancel_reminder(reminder_id: int, cancelled_by: str) -> bool:
                 conn.commit()
                 
                 if cursor.rowcount > 0:
-                    logging.info(f"✅ Cancelled reminder {reminder_id}")
+                    print(f"✅ Cancelled reminder {reminder_id}")
                     return True
                 else:
-                    logging.info(f"ℹ️ No pending reminder found with ID {reminder_id}")
+                    print(f"ℹ️ No pending reminder found with ID {reminder_id}")
                     return False
     except Exception as e:
         logging.error(f"❌ Error cancelling reminder: {e}")

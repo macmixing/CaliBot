@@ -561,24 +561,17 @@ def process_reminder_request(text, user_id):
         return True
     
     # Save the reminder with the timezone
-    save_success = save_reminder(
+    reminder_id = save_reminder(
         user_id=user_id,
         content=reminder_data['content'],
         scheduled_time=scheduled_time,
         timezone=reminder_data['timezone']  # Always save the timezone
     )
     
-    if not save_success:
+    if not reminder_id:
         reminders_send_message(recipient, "Uh-oh! 🙈 I had a little trouble saving your reminder. Can you give it another go? Thanks for your patience! 😊🔄", user_id=user_id, service=service_type)
         return True
     
-    # Get the actual reminder ID of the reminder we just created
-    last_reminder = get_last_created_reminder(user_id)
-    if not last_reminder:
-        reminders_send_message(recipient, "Your reminder was saved, but I couldn't create a cancel button. You can cancel it later using 'cancel my reminder about " + reminder_data['content'] + "'", user_id=user_id, service=service_type)
-        return True
-    
-    reminder_id = last_reminder['id']  # Get the actual numeric ID
     logging.info(f"⏰ Created reminder with ID: {reminder_id}")
     
     # Generate confirmation message

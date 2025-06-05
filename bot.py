@@ -739,6 +739,11 @@ async def handle_user_message(message):
                                             elif op_type == 'location':
                                                 reminder_handler.process_location_update(text, user_id)
                                                 return
+                                            elif op_type == 'time':
+                                                response, _ = reminder_time_handler.process_time_query(text, user_id)
+                                                if response:
+                                                    await message.channel.send(response)
+                                                return
                                                 
                                         # If we get here, it's not a reminder operation
                                         # Proceed with normal conversation processing
