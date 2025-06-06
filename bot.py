@@ -211,9 +211,15 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 # --- Utility Functions ---
 async def send_long_message(channel, text):
     max_length = 2000
-    for i in range(0, len(text), max_length):
-        chunk = text[i:i + max_length]
-        await channel.send(chunk)
+    start = 0
+    while start < len(text):
+        end = min(start + max_length, len(text))
+        if end < len(text):
+            split_at = max(text.rfind(p, start, end) for p in ('.', '!', '?', '\n'))
+            if split_at > start:
+                end = split_at + 1
+        await channel.send(text[start:end].strip())
+        start = end
 
 # --- Token Usage Tracking ---
 async def log_token_usage(user_id, model, prompt_tokens, completion_tokens, total_tokens):
