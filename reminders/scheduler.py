@@ -33,11 +33,23 @@ reminders_send_message = lambda recipient, content, **kwargs: (_ for _ in ()).th
 # Add a global token usage logger for Discord patching
 reminders_log_token_usage = lambda user_id, model, prompt_tokens, completion_tokens, purpose=None, chat_guid=None: None
 
+import os
+from config import DB_HOST, DB_USER, DB_PASSWORD, DB_NAME
+import reminders.db_pool
+
 async def run_scheduler_async():
     logging.info("🔔 Reminder scheduler running with 1 second interval (async)")
+    print(f"[Scheduler] DB_HOST={os.environ.get('DB_HOST', DB_HOST)} DB_USER={os.environ.get('DB_USER', DB_USER)} DB_NAME={os.environ.get('DB_NAME', DB_NAME)}", flush=True)
+    # Wait for db_pool to be initialized
+    while reminders.db_pool.db_pool is None:
+        logging.info("[Scheduler] Waiting for db_pool to be initialized...")
+        await asyncio.sleep(0.5)
+    import aiomysql
+    from reminders.db_pool import create_db_pool
+    reconnect_delay = 5  # seconds, can increase with backoff if desired
     while not stop_event.is_set():
         try:
-            due_reminders = get_due_reminders()
+            due_reminders = await get_due_reminders()
             if due_reminders:
                 for reminder in due_reminders:
                     try:
@@ -49,13 +61,13 @@ async def run_scheduler_async():
                         # Send the notification with is_reminder_notification=True
                         send_success = await asyncio.to_thread(reminders_send_message, user_id, notification, is_reminder_notification=True)
                         if send_success:
-                            if mark_reminder_sent(reminder_id):
+                            if await mark_reminder_sent(reminder_id):
                                 logging.info(f"✅ Sent reminder {reminder_id} to {user_id}")
                             else:
                                 logging.error(f"❌ Sent reminder {reminder_id} but failed to mark as sent")
                         else:
                             logging.error(f"❌ Failed to send reminder {reminder_id} to {user_id}. Marking as sent to avoid retry loop.")
-                            mark_reminder_sent(reminder_id)
+                            await mark_reminder_sent(reminder_id)
                             continue
                         await asyncio.sleep(1)
                     except Exception as e:
@@ -63,6 +75,20 @@ async def run_scheduler_async():
                         logging.exception("Full traceback:")
             await asyncio.sleep(1)
         except Exception as e:
+            # Check for MySQL connection lost error and attempt recovery
+            import pymysql
+            error_str = str(e)
+            if (isinstance(e, pymysql.err.OperationalError) and e.args and e.args[0] == 2013) or 'Lost connection to MySQL server' in error_str or 'aiomysql' in error_str:
+                logging.error(f"🔄 Lost MySQL connection in scheduler. Attempting to reconnect...")
+                try:
+                    reminders.db_pool.db_pool = None
+                    await create_db_pool()
+                    logging.info("🔄 Successfully reconnected to MySQL.")
+                except Exception as pool_e:
+                    logging.error(f"❌ Failed to reconnect MySQL pool: {pool_e}")
+                    logging.exception("Full traceback:")
+                await asyncio.sleep(reconnect_delay)
+                continue  # retry loop
             logging.error(f"❌ Error in scheduler loop: {e}")
             logging.exception("Full traceback:")
             await asyncio.sleep(1)

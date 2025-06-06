@@ -4,6 +4,8 @@ import asyncio
 import json
 import fitz  # PDF Processing (PyMuPDF)
 import aiomysql  # Async MySQL Database
+import reminders.db_pool
+from reminders.db_pool import create_db_pool
 import openpyxl  # Excel (.XLSX) Processing
 from docx import Document  # DOCX Processing
 from openai import OpenAI
@@ -28,7 +30,7 @@ BOT_ROLES = set()
 memory_cache = {}
 message_history_cache = {}
 conversation_summaries = {}
-db_pool = None
+
 MAIN_EVENT_LOOP = None  # <-- Add this global
 
 # --- Memory Management ---
@@ -44,7 +46,7 @@ async def get_memory(user_id):
     if user_id in memory_cache:
         return memory_cache[user_id]
     try:
-        async with db_pool.acquire() as conn:
+        async with reminders.db_pool.db_pool.acquire() as conn:
             async with conn.cursor() as cursor:
                 await cursor.execute("SELECT memory_json FROM user_threads WHERE user_id = %s", (user_id,))
                 result = await cursor.fetchone()
@@ -152,7 +154,7 @@ async def save_memory(user_id, memory):
         data_size_kb = len(memory_json) / 1024
         print(f"Reduced memory size for user {user_id}: {data_size_kb:.2f} KB")
     try:
-        async with db_pool.acquire() as conn:
+        async with reminders.db_pool.db_pool.acquire() as conn:
             async with conn.cursor() as cursor:
                 await cursor.execute("SELECT 1 FROM user_threads WHERE user_id = %s", (user_id,))
                 exists = await cursor.fetchone()
@@ -215,9 +217,9 @@ async def send_long_message(channel, text):
 
 # --- Token Usage Tracking ---
 async def log_token_usage(user_id, model, prompt_tokens, completion_tokens, total_tokens):
-    global db_pool
+    
     try:
-        async with db_pool.acquire() as conn:
+        async with reminders.db_pool.db_pool.acquire() as conn:
             async with conn.cursor() as cursor:
                 query = """
                 INSERT INTO token_tracking 
@@ -232,19 +234,25 @@ async def log_token_usage(user_id, model, prompt_tokens, completion_tokens, tota
 
 # --- User Lookup Table ---
 async def update_username_lookup(user_id, username, display_name=None):
-    global db_pool
+    
     try:
-        async with db_pool.acquire() as conn:
+        async with reminders.db_pool.db_pool.acquire() as conn:
             async with conn.cursor() as cursor:
+                # Step 1: Get current privacy_notified value if exists
+                await cursor.execute("SELECT privacy_notified FROM user_lookup WHERE user_id=%s", (user_id,))
+                row = await cursor.fetchone()
+                privacy_notified = bool(row[0]) if row is not None else False
+                # Step 2: Upsert with correct privacy_notified value
                 query = """
-                INSERT INTO user_lookup (user_id, username, display_name, last_updated) 
-                VALUES (%s, %s, %s, NOW()) AS new_user
+                INSERT INTO user_lookup (user_id, username, display_name, last_updated, privacy_notified) 
+                VALUES (%s, %s, %s, NOW(), %s) AS new_user
                 ON DUPLICATE KEY UPDATE 
                     username = new_user.username, 
                     display_name = new_user.display_name,
-                    last_updated = NOW()
+                    last_updated = NOW(),
+                    privacy_notified = new_user.privacy_notified
                 """
-                await cursor.execute(query, (user_id, username, display_name))
+                await cursor.execute(query, (user_id, username, display_name, privacy_notified))
                 await conn.commit()
                 print(f"✅ Updated username mapping for {username} ({user_id})")
     except Exception as e:
@@ -252,9 +260,9 @@ async def update_username_lookup(user_id, username, display_name=None):
 
 # --- Table Creation/Verification ---
 async def ensure_token_tracking_table():
-    global db_pool
+    
     try:
-        async with db_pool.acquire() as conn:
+        async with reminders.db_pool.db_pool.acquire() as conn:
             async with conn.cursor() as cursor:
                 await cursor.execute("SHOW TABLES LIKE 'token_tracking'")
                 table_exists = await cursor.fetchone()
@@ -283,13 +291,26 @@ async def ensure_token_tracking_table():
                         user_id VARCHAR(255) PRIMARY KEY,
                         username VARCHAR(255) NOT NULL,
                         display_name VARCHAR(255),
-                        last_updated DATETIME DEFAULT CURRENT_TIMESTAMP
+                        last_updated DATETIME DEFAULT CURRENT_TIMESTAMP,
+                        privacy_notified BOOLEAN DEFAULT FALSE
                     )
                     """
                     await cursor.execute(create_lookup_query)
                     await conn.commit()
                     print("✅ User lookup table created")
                 else:
+                    # Ensure privacy_notified column exists
+                    try:
+                        await cursor.execute("SHOW COLUMNS FROM user_lookup LIKE 'privacy_notified'")
+                        col_exists = await cursor.fetchone()
+                        if not col_exists:
+                            await cursor.execute("ALTER TABLE user_lookup ADD COLUMN privacy_notified BOOLEAN DEFAULT FALSE")
+                            await conn.commit()
+                            print("✅ Added privacy_notified column to user_lookup table")
+                        else:
+                            print("✅ privacy_notified column already exists in user_lookup table")
+                    except Exception as e:
+                        print(f"❌ Failed to ensure privacy_notified column: {e}")
                     print("✅ User lookup table already exists")
     except Exception as e:
         print(f"❌ Failed to check/create tables: {e}")
@@ -313,7 +334,7 @@ async def reset_memory_cache():
     while True:
         await asyncio.sleep(3600)
         try:
-            async with db_pool.acquire() as conn:
+            async with reminders.db_pool.db_pool.acquire() as conn:
                 async with conn.cursor() as cursor:
                     query = """
                     SELECT user_id FROM user_threads 
@@ -333,9 +354,9 @@ async def reset_memory_cache():
             print(f"⚠️ Error during memory cache cleanup: {e}")
 
 async def cleanup_oversized_memory():
-    global db_pool
+    
     try:
-        async with db_pool.acquire() as conn:
+        async with reminders.db_pool.db_pool.acquire() as conn:
             async with conn.cursor() as cursor:
                 query = """
                 SELECT user_id, LENGTH(memory_json)/1024 as size_kb 
@@ -367,16 +388,16 @@ async def cleanup_oversized_memory():
 
 # --- Shutdown Handling ---
 async def close_db_connection():
-    global db_pool
-    if db_pool:
-        db_pool.close()
-        await db_pool.wait_closed()
+    
+    if reminders.db_pool.db_pool:
+        reminders.db_pool.db_pool.close()
+        await reminders.db_pool.db_pool.wait_closed()
         print("✅ Async database connection closed.")
 
 async def shutdown():
     print("⏳ Initiating shutdown...")
-    if db_pool:
-        await close_db_connection()
+    if reminders.db_pool.db_pool:
+        await close_db_connection()  # This function should also be updated to use reminders.db_pool.db_pool if needed
     print("✅ Shutdown complete. Exiting process now...")
     os._exit(0)
 
@@ -389,17 +410,33 @@ signal.signal(signal.SIGINT, lambda signum, frame: handle_shutdown())
 # --- Event Handlers ---
 @bot.event
 async def on_ready():
-    global db_pool, BOT_ROLES, MAIN_EVENT_LOOP
+    global BOT_ROLES, MAIN_EVENT_LOOP
     MAIN_EVENT_LOOP = asyncio.get_running_loop()
-    db_pool = await create_db_connection()
+    import traceback
+    import sys
+    import traceback
+    try:
+        await create_db_pool()
+        print(f"[bot.py] db_pool after create_db_pool: {reminders.db_pool.db_pool} id={id(reminders.db_pool.db_pool)} type={type(reminders.db_pool.db_pool)}", flush=True)
+    except Exception as e:
+        print(f"❌ Failed to connect to async MySQL: {e}", flush=True)
+        import sys
+        traceback.print_exc(file=sys.stdout)
+        print('--- END TRACEBACK ---', flush=True)
+        import os
+        import time
+        time.sleep(1)
+        os._exit(1)
     await update_bot_roles()
-    if db_pool:
+    if reminders.db_pool.db_pool:
         print("✅ Async MySQL connection established.")
         await ensure_token_tracking_table()
         await cleanup_oversized_memory()
         asyncio.create_task(reset_memory_cache())
     else:
         print("❌ Failed to connect to async MySQL.")
+        import sys
+        sys.exit(1)
     print(f'✅ Logged in as {bot.user}')
 
     # --- REMINDER PATCHING AND SCHEDULER START ---
@@ -452,8 +489,8 @@ async def on_ready():
     print("✅ Reminder Scheduler running in the background.")
     
     # --- PERSISTENT CANCEL BUTTON HANDLER ---
-    @bot.event
-    async def on_interaction(interaction):
+@bot.event
+async def on_interaction(interaction):
         # We only want to handle persistent buttons from previous sessions
         # Current session buttons are handled by their regular callbacks
         if interaction.type == discord.InteractionType.component:
@@ -535,10 +572,40 @@ async def on_message(message):
     
     # Check if user has Admin role or any of the bot's roles
     if not (user_roles.intersection(ALLOWED_ROLES) or user_roles.intersection(BOT_ROLES)):
-        await message.channel.send("🚫✨ **Access Denied**… for now! \n\n I'm still in *beta mode* 🧪 and only certain roles can chat with me right now. \n\n**Hang tight** — more access is coming soon!")
+        await send_with_privacy("🚫✨ **Access Denied**… for now! \n\n I'm still in *beta mode* 🧪 and only certain roles can chat with me right now. \n\n**Hang tight** — more access is coming soon!")
         return  # Stop further processing
     
     asyncio.create_task(handle_user_message(message))
+
+async def set_privacy_notified(user_id):
+    
+    try:
+        async with reminders.db_pool.db_pool.acquire() as conn:
+            async with conn.cursor() as cursor:
+                await cursor.execute("UPDATE user_lookup SET privacy_notified=TRUE WHERE user_id=%s", (user_id,))
+                await conn.commit()
+    except Exception as e:
+        print(f"❌ Failed to update privacy_notified: {e}")
+
+async def privacy_notice_needed(user_id):
+    
+    try:
+        async with reminders.db_pool.db_pool.acquire() as conn:
+            async with conn.cursor() as cursor:
+                await cursor.execute("SELECT privacy_notified FROM user_lookup WHERE user_id=%s", (user_id,))
+                row = await cursor.fetchone()
+                if row is None:
+                    return True
+                return not bool(row[0])
+    except Exception as e:
+        print(f"❌ Failed to check privacy_notified: {e}")
+        return False
+
+async def send_privacy_notice(channel):
+    notice = "⚠️ For quality assurance, your recent messages may be logged. Please don’t share sensitive information."
+    async with channel.typing():
+        await asyncio.sleep(1)
+        await channel.send(notice)
 
 async def handle_user_message(message):
     if message.author == bot.user:
@@ -549,6 +616,27 @@ async def handle_user_message(message):
             username = message.author.name
             display_name = getattr(message.author, 'display_name', username)
             await update_username_lookup(user_id, username, display_name)
+            privacy_needed = await privacy_notice_needed(user_id)
+            
+            # ... (rest of your code here)
+            
+            # At the very end of your DM handling logic, after all responses:
+            async def maybe_send_privacy():
+                if privacy_needed:
+                    await asyncio.sleep(2)
+                    await send_privacy_notice(message.channel)
+                    await set_privacy_notified(user_id)
+
+            def privacy_wrap_send(func):
+                async def wrapped(*args, **kwargs):
+                    result = await func(*args, **kwargs)
+                    await maybe_send_privacy()
+                    return result
+                return wrapped
+
+            send_with_privacy = privacy_wrap_send(message.channel.send)
+            send_long_with_privacy = privacy_wrap_send(send_long_message)
+
             
             # Get user's Discord roles
             user_roles = set()
@@ -599,13 +687,13 @@ async def handle_user_message(message):
                 import re
                 # Only show help if NOT a direct change command
                 if re.search(r"\bchange\b.*\btime[\s-]?zone\b", text, re.IGNORECASE) and not re.search(r"\bchange\b.*\btime[\s-]?zone\b.*\bto\b.*\w+", text, re.IGNORECASE):
-                    await message.channel.send('🌎 To change your timezone, type "change my timezone to [location]".')
+                    await send_with_privacy('🌎 To change your timezone, type "change my timezone to [location]".')
                     return
                 # Respond to 'what is my timezone' queries (very flexible)
                 from reminders.db import get_user_timezone
                 if re.search(r"what('?s| is|\s+is)?\s+(my|the)?\s*time[\s-]?zone( am i in| do i have| is it)?\b", text, re.IGNORECASE):
                     tz = get_user_timezone(user_id) or 'Not set'
-                    await message.channel.send(f'🌎 **Timezone:** {tz}')
+                    await send_with_privacy(f'🌎 **Timezone:** {tz}')
                     return
                 op_type = reminder_handler.detect_reminder_operation(text, user_id)
                 if op_type == 'create':
@@ -613,11 +701,11 @@ async def handle_user_message(message):
                     return
                 elif op_type == 'list':
                     reminders_list = reminder_handler.process_list_request(user_id)
-                    await message.channel.send(reminders_list)
+                    await send_with_privacy(reminders_list)
                     return
                 elif op_type == 'cancel':
                     cancel_result = reminder_handler.process_cancel_request(text, user_id)
-                    await message.channel.send(cancel_result)
+                    await send_with_privacy(cancel_result)
                     return
                 elif op_type == 'location':
                     reminder_handler.process_location_update(text, user_id)
@@ -628,7 +716,7 @@ async def handle_user_message(message):
                     
                     # Only send a response if there is one (empty responses are used for location requests)
                     if response:
-                        await message.channel.send(response)
+                        await send_with_privacy(response)
                     return
             # --- REMINDER INTEGRATION END ---
             memory = await get_memory(user_id)
@@ -647,7 +735,7 @@ async def handle_user_message(message):
                         file_extension = os.path.splitext(filename)[1]
                         if file_extension not in ALLOWED_EXTENSIONS:
                             print(f"⚠️ Unsupported file type: {filename}")
-                            await message.channel.send(
+                            await send_with_privacy(
                                 "⚠️ Unsupported file type detected. Please upload one of the supported formats:\n"
                                 "📄 Documents: .pdf, .docx, .xlsx, .txt, .rtf\n"
                                 "🖼️ Images: .png, .jpg, .jpeg, .gif, .webp\n"
@@ -674,12 +762,12 @@ async def handle_user_message(message):
                                                 print(f"✅ Image successfully saved at: {image_path}")
                                             except Exception as upload_error:
                                                 print(f"❌ Image base64 conversion failed: {upload_error}")
-                                                await message.channel.send("⚠️ Image processing failed.")
+                                                await send_with_privacy("⚠️ Image processing failed.")
                                                 return
                                         os.remove(image_path)
                                     else:
                                         print(f"❌ Image request failed, status code: {resp.status}")
-                                        await message.channel.send("⚠️ Image download failed. Please try again.")
+                                        await send_with_privacy("⚠️ Image download failed. Please try again.")
                                         return
                         elif filename.endswith(".ogg"):
                             print(f"🔊 Detected audio file: {file_url}")
@@ -695,7 +783,7 @@ async def handle_user_message(message):
                                         print(f"✅ Audio file successfully saved at: {file_path}")
                                     else:
                                         print(f"❌ Audio file request failed, status code: {resp.status}")
-                                        await message.channel.send("⚠️ Audio file download failed. Please try again.")
+                                        await send_with_privacy("⚠️ Audio file download failed. Please try again.")
                                         return
                             
                             # Transcribe the audio file using Whisper API
@@ -739,12 +827,12 @@ async def handle_user_message(message):
                                             import re
                                             # Only show help if NOT a direct change command
                                             if re.search(r"\bchange\b.*\btime[\s-]?zone\b", text, re.IGNORECASE) and not re.search(r"\bchange\b.*\btime[\s-]?zone\b.*\bto\b.*\w+", text, re.IGNORECASE):
-                                                await message.channel.send('🌎 To change your timezone, type "change my timezone to [location]".')
+                                                await send_with_privacy('🌎 To change your timezone, type "change my timezone to [location]".')
                                                 return
                                             from reminders.db import get_user_timezone
                                             if re.search(r"what('?s| is|\s+is)?\s+(my|the)?\s*time[\s-]?zone( am i in| do i have| is it)?\b", text, re.IGNORECASE):
                                                 tz = get_user_timezone(user_id) or 'Not set'
-                                                await message.channel.send(f'🌎 **Timezone:** {tz}')
+                                                await send_with_privacy(f'🌎 **Timezone:** {tz}')
                                                 return
                                             op_type = reminder_handler.detect_reminder_operation(text, user_id)
                                             if op_type == 'create':
@@ -752,11 +840,11 @@ async def handle_user_message(message):
                                                 return
                                             elif op_type == 'list':
                                                 reminders_list = reminder_handler.process_list_request(user_id)
-                                                await message.channel.send(reminders_list)
+                                                await send_with_privacy(reminders_list)
                                                 return
                                             elif op_type == 'cancel':
                                                 cancel_result = reminder_handler.process_cancel_request(text, user_id)
-                                                await message.channel.send(cancel_result)
+                                                await send_with_privacy(cancel_result)
                                                 return
                                             elif op_type == 'location':
                                                 reminder_handler.process_location_update(text, user_id)
@@ -764,7 +852,7 @@ async def handle_user_message(message):
                                             elif op_type == 'time':
                                                 response, _ = reminder_time_handler.process_time_query(text, user_id)
                                                 if response:
-                                                    await message.channel.send(response)
+                                                    await send_with_privacy(response)
                                                 return
                                                 
                                         # If we get here, it's not a reminder operation
@@ -800,7 +888,7 @@ async def handle_user_message(message):
                                                     temperature=0.7
                                                 )
                                             except Exception as e:
-                                                await message.channel.send("⚠️ There was an error getting a response. Please try again later.")
+                                                await send_with_privacy("⚠️ There was an error getting a response. Please try again later.")
                                                 return
                                         if response and response.choices and len(response.choices) > 0:
                                             assistant_reply = response.choices[0].message.content
@@ -814,11 +902,11 @@ async def handle_user_message(message):
                                             await log_token_usage(user_id, MODEL, response.usage.prompt_tokens, response.usage.completion_tokens, response.usage.total_tokens)
                                         else:
                                             assistant_reply = "⚠️ No response from the assistant."
-                                        await send_long_message(message.channel, assistant_reply)
+                                        await send_long_with_privacy(message.channel, assistant_reply)
                                     return
                             except Exception as e:
                                 print(f"❌ Audio transcription failed: {e}")
-                                await message.channel.send("⚠️ Audio transcription failed. Please try again.")
+                                await send_with_privacy("⚠️ Audio transcription failed. Please try again.")
                                 if os.path.exists(file_path):
                                     os.remove(file_path)
                                 return
@@ -833,7 +921,7 @@ async def handle_user_message(message):
                                                 await file.write(chunk)
                                     else:
                                         print(f"❌ File request failed, status code: {resp.status}")
-                                        await message.channel.send("⚠️ File download failed. Please try again.")
+                                        await send_with_privacy("⚠️ File download failed. Please try again.")
                                         return
                             extracted_text = None
                             if filename.endswith(".pdf"):
@@ -859,11 +947,11 @@ async def handle_user_message(message):
                                 print(f"✅ Extracted {len(extracted_text)} characters from {filename}")
                                 all_content += f"\n[Content from {filename}]:\n{extracted_text}\n"
                             else:
-                                await message.channel.send("⚠️ No readable content found in the file.")
+                                await send_with_privacy("⚠️ No readable content found in the file.")
                             os.remove(file_path)
                 if not all_content and not image_files:
                     print("❌ No valid input for AI. Skipping processing.")
-                    await message.channel.send("⚠️ Please send a message, an image, or a supported file.")
+                    await send_with_privacy("⚠️ Please send a message, an image, or a supported file.")
                     return
                 # IMAGE FLOW: If we have at least one image, use the new image analysis pipeline
                 if image_files:
@@ -955,11 +1043,11 @@ async def handle_user_message(message):
                     await save_memory(user_id, memory)
                     # Send the appropriate response to the user
                     if all_content.strip() and prompt_response:
-                        await send_long_message(message.channel, prompt_response)
+                        await send_long_with_privacy(message.channel, prompt_response)
                     elif detailed_description:
-                        await send_long_message(message.channel, detailed_description)
+                        await send_long_with_privacy(message.channel, detailed_description)
                     else:
-                        await message.channel.send("I couldn't analyze that image. Please try again with a clearer image.")
+                        await send_with_privacy("I couldn't analyze that image. Please try again with a clearer image.")
                     return
                 # TEXT/DOC FLOW: If we get here, it's a text/file message (no images)
                 user_message = {"role": "user", "content": all_content}
@@ -983,7 +1071,7 @@ async def handle_user_message(message):
                             temperature=0.7
                         )
                     except Exception as e:
-                        await message.channel.send("⚠️ There was an error getting a response. Please try again later.")
+                        await send_with_privacy("⚠️ There was an error getting a response. Please try again later.")
                         return
                 if response and response.choices and len(response.choices) > 0:
                     assistant_reply = response.choices[0].message.content
@@ -997,9 +1085,9 @@ async def handle_user_message(message):
                     await log_token_usage(user_id, MODEL, response.usage.prompt_tokens, response.usage.completion_tokens, response.usage.total_tokens)
                 else:
                     assistant_reply = "⚠️ No response from the assistant."
-                await send_long_message(message.channel, assistant_reply)
+                await send_long_with_privacy(message.channel, assistant_reply)
             except Exception as e:
-                await message.channel.send("⚠️ An error occurred while processing your message.")
+                await send_with_privacy("⚠️ An error occurred while processing your message.")
 
 if __name__ == "__main__":
     bot.run(DISCORD_TOKEN) 

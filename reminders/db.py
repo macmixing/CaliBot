@@ -8,11 +8,13 @@ from config import (
 
 def get_db_connection():
     """Get a connection to the MySQL database"""
+    import os
+    logging.info("[PyMySQL] Attempting to connect to database.")
     return pymysql.connect(
-        host=DB_HOST,
-        user=DB_USER,
-        password=DB_PASSWORD,
-        database=DB_NAME,
+        host=os.environ.get('DB_HOST', DB_HOST),
+        user=os.environ.get('DB_USER', DB_USER),
+        password=os.environ.get('DB_PASSWORD', DB_PASSWORD),
+        database=os.environ.get('DB_NAME', DB_NAME),
         charset='utf8mb4',
         cursorclass=pymysql.cursors.DictCursor
     )
@@ -142,17 +144,15 @@ def update_user_timezone(user_id, new_timezone):
         logging.error(f"❌ Error updating user timezone: {e}")
         return 0
 
-def get_due_reminders():
-    """Get all reminders that are due to be sent"""
+import reminders.db_pool
+import aiomysql
+
+async def get_due_reminders():
+    """Get all reminders that are due to be sent (async, using aiomysql)"""
     try:
-        # Get current time in UTC
         now_utc = datetime.now(pytz.UTC)
-        
-        # Create a fresh connection each time
-        conn = get_db_connection()
-        try:
-            with conn.cursor() as cursor:
-                # Get all pending reminders
+        async with reminders.db_pool.db_pool.acquire() as conn:
+            async with conn.cursor(aiomysql.DictCursor) as cursor:
                 query = """
                 SELECT id, user_id, content, scheduled_time, timezone,
                        TIMEDIFF(NOW(), scheduled_time) as time_since_due
@@ -160,39 +160,24 @@ def get_due_reminders():
                 WHERE status = 'pending' 
                 ORDER BY scheduled_time ASC
                 """
-                
-                cursor.execute(query)
-                all_reminders = cursor.fetchall()
-                
-                # Filter reminders that are due based on their timezone
+                await cursor.execute(query)
+                all_reminders = await cursor.fetchall()
                 due_reminders = []
                 for reminder in all_reminders:
                     try:
-                        # Get reminder's timezone (default to UTC if not set)
                         reminder_tz = pytz.timezone(reminder['timezone']) if reminder['timezone'] else pytz.UTC
-                        
-                        # Get the scheduled time in UTC (it's stored in UTC)
                         scheduled_utc = reminder['scheduled_time'].replace(tzinfo=pytz.UTC)
-                        
-                        # Compare times in UTC - no need to convert to local time
-                        # A reminder is due if its UTC time is less than or equal to now UTC
                         if scheduled_utc <= now_utc:
                             due_reminders.append(reminder)
-                            
                     except Exception as e:
                         logging.error(f"❌ Error checking reminder {reminder['id']}: {e}")
                         continue
-                
                 return due_reminders
-                
-        finally:
-            conn.close()
-            
     except Exception as e:
-        logging.error(f"❌ Error getting due reminders: {e}")
+        logging.error(f"❌ Error fetching due reminders: {e}")
         return []
 
-def mark_reminder_sent(reminder_id):
+async def mark_reminder_sent(reminder_id):
     """Mark a reminder as sent with retry mechanism"""
     max_retries = 3
     base_delay = 1  # seconds

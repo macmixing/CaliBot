@@ -781,15 +781,18 @@ def format_reminder_list(reminders: list, user_timezone: str) -> str:
                 # Format the relative time
                 if total_minutes < 60:
                     time_str = f"in {total_minutes} minute{'s' if total_minutes != 1 else ''}"
+                    # Show short relative reminders under today
+                    today_reminders_rel.append((time_str, reminder))
                 elif total_minutes < 1440:  # Less than 24 hours
                     hours = total_minutes // 60
                     time_str = f"in {hours} hour{'s' if hours != 1 else ''}"
+                    today_reminders_rel.append((time_str, reminder))
                 else:
                     days = total_minutes // 1440
                     time_str = f"in {days} day{'s' if days != 1 else ''}"
-                
-                # Add to today's reminders since relative times are always for today
-                today_reminders_rel.append((time_str, reminder))
+                    # For reminders >= 1 day, show under future with date
+                    local_time = utc_time.astimezone(user_tz)
+                    future_reminders.append((local_time, reminder, time_str))
                 continue
             
             # For absolute time reminders, convert UTC to current user timezone for date grouping
@@ -852,14 +855,19 @@ def format_reminder_list(reminders: list, user_timezone: str) -> str:
     # Future reminders
     if future_reminders:
         message += "**Future**:\n"
-        for time, reminder in sorted(future_reminders, key=lambda x: (x[0], x[1]['content'])):
+        for future_item in sorted(future_reminders, key=lambda x: (x[0], x[1]['content'])):
+            # Support both (local_time, reminder, time_str) and (local_time, reminder) tuples
+            if len(future_item) == 3:
+                time, reminder, _ = future_item  # ignore rel_time_str
+            else:
+                time, reminder = future_item
             # Show year if it's different from current year
             if time.year != now.year:
                 date_str = time.strftime("%B %d, %Y")
             else:
                 date_str = time.strftime("%B %d")
-            time_str = time.strftime("%I:%M %p").lstrip("0")
             content = ' '.join(word.capitalize() for word in reminder['content'].split())
+            time_str = time.strftime("%I:%M %p").lstrip("0")
             message += f"• {content} on {date_str} at {time_str}\n"
     
     # Add help tip for cancellation
