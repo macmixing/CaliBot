@@ -602,7 +602,7 @@ async def privacy_notice_needed(user_id):
         return False
 
 async def send_privacy_notice(channel):
-    notice = "⚠️ For quality assurance, your recent messages may be logged. Please don’t share sensitive information."
+    notice = "⚠️ For quality assurance, your recent messages may be stored temporarily to help me remember things about you. 😊 Please don’t share sensitive information."
     async with channel.typing():
         await asyncio.sleep(1)
         await channel.send(notice)
