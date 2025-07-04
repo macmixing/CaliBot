@@ -578,7 +578,7 @@ async def on_message(message):
     
     # Check if user has Admin role or any of the bot's roles
     if not (user_roles.intersection(ALLOWED_ROLES) or user_roles.intersection(BOT_ROLES)):
-        await send_with_privacy("🚫✨ **Access Denied**… for now! \n\n I'm still in *beta mode* 🧪 and only certain roles can chat with me right now. \n\n**Hang tight** — more access is coming soon!")
+        await message.channel.send("🚫✨ **Access Denied**… for now! \n\n I'm still in *beta mode* 🧪 and only certain roles can chat with me right now. \n\n**Hang tight** — more access is coming soon!")
         return  # Stop further processing
     
     asyncio.create_task(handle_user_message(message))
