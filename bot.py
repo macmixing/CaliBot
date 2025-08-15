@@ -16,7 +16,7 @@ import aiohttp
 import aiofiles
 from config import (
     DISCORD_TOKEN, OPENAI_API_KEY, DB_HOST, DB_USER, DB_PASSWORD, DB_NAME,
-    ALLOWED_ROLES, MODEL, MAX_TOKEN_LIMIT, MAX_MESSAGES, ENABLE_SUMMARIES, SUMMARY_PROMPT, MAX_HISTORY_DAYS, SYSTEM_INSTRUCTIONS, BATCH_SIZE, IMAGE_ANALYSIS_SYSTEM_PROMPT
+    ALLOWED_ROLES, MODEL, MAX_TOKEN_LIMIT, MAX_MESSAGES, ENABLE_SUMMARIES, SUMMARY_PROMPT, MAX_HISTORY_DAYS, SYSTEM_INSTRUCTIONS, BATCH_SIZE, IMAGE_ANALYSIS_SYSTEM_PROMPT, GREETING_SYSTEM_PROMPT
 )
 import signal
 import reminders.reminder_handler as reminder_handler  # Add this import at the top
@@ -578,7 +578,7 @@ async def on_message(message):
     
     # Check if user has Admin role or any of the bot's roles
     if not (user_roles.intersection(ALLOWED_ROLES) or user_roles.intersection(BOT_ROLES)):
-        await message.channel.send("🚫✨ **Access Denied**… for now! \n\n I'm still in *beta mode* 🧪 and only certain roles can chat with me right now. \n\n**Hang tight** — more access is coming soon!")
+        await send_with_privacy("🚫✨ **Access Denied**… for now! \n\n I'm still in *beta mode* 🧪 and only certain roles can chat with me right now. \n\n**Hang tight** — more access is coming soon!")
         return  # Stop further processing
     
     asyncio.create_task(handle_user_message(message))
@@ -877,11 +877,17 @@ async def handle_user_message(message):
                                             memory.put(user_message)
                                         except Exception as e:
                                             print(f"Warning: Could not add message to LlamaIndex memory: {e}")
+                                        # Determine if this is the user's first-ever message
+                                        is_first_message = len(message_history_cache.get(user_id, [])) == 1  # already appended this one
                                         messages = []
-                                        messages.append({"role": "system", "content": SYSTEM_INSTRUCTIONS + user_roles_str})
-                                        if ENABLE_SUMMARIES and conversation_summaries[user_id]:
-                                            messages.append({"role": "system", "content": f"Previous conversation summary: {conversation_summaries[user_id]}"})
-                                        messages.extend(message_history_cache[user_id].copy())
+                                        if is_first_message:
+                                            messages.append({"role": "system", "content": GREETING_SYSTEM_PROMPT})
+                                            messages.append(user_message)
+                                        else:
+                                            messages.append({"role": "system", "content": SYSTEM_INSTRUCTIONS + user_roles_str})
+                                            if ENABLE_SUMMARIES and conversation_summaries[user_id]:
+                                                messages.append({"role": "system", "content": f"Previous conversation summary: {conversation_summaries[user_id]}"})
+                                            messages.extend(message_history_cache[user_id].copy())
                                         
                                         # Rest of normal message processing
                                         response = None
@@ -961,6 +967,8 @@ async def handle_user_message(message):
                     return
                 # IMAGE FLOW: If we have at least one image, use the new image analysis pipeline
                 if image_files:
+                    # Detect first message before altering history
+                    is_first_message = len(message_history_cache.get(user_id, [])) == 0
                     # Build multimodal content (text + all images)
                     multimodal_content = []
                     if all_content.strip():
@@ -1047,15 +1055,56 @@ async def handle_user_message(message):
                     if prompt_response:
                         await manage_conversation_history(user_id, {"role": "assistant", "content": prompt_response})
                     await save_memory(user_id, memory)
-                    # Send the appropriate response to the user
+                    # Compose the outgoing response, optionally prepending a greeting for first-time users
+                    main_image_reply = None
                     if all_content.strip() and prompt_response:
-                        await send_long_with_privacy(message.channel, prompt_response)
+                        main_image_reply = prompt_response
                     elif detailed_description:
-                        await send_long_with_privacy(message.channel, detailed_description)
+                        main_image_reply = detailed_description
                     else:
-                        await send_with_privacy("I couldn't analyze that image. Please try again with a clearer image.")
+                        main_image_reply = None
+
+                    final_reply = None
+                    if is_first_message:
+                        # Generate a short greeting using the dedicated greeting prompt
+                        try:
+                            greet_messages = [
+                                {"role": "system", "content": GREETING_SYSTEM_PROMPT},
+                                {"role": "user", "content": all_content.strip() or "[User sent an image]"}
+                            ]
+                            greet_resp = await asyncio.to_thread(
+                                client.chat.completions.create,
+                                model=MODEL,
+                                messages=greet_messages,
+                                temperature=0.7
+                            )
+                            greet_text = greet_resp.choices[0].message.content if (greet_resp and greet_resp.choices) else ""
+                            # Log tokens for the greeting call if available
+                            if hasattr(greet_resp, 'usage'):
+                                await log_token_usage(
+                                    user_id,
+                                    MODEL,
+                                    getattr(greet_resp.usage, 'prompt_tokens', 0),
+                                    getattr(greet_resp.usage, 'completion_tokens', 0),
+                                    getattr(greet_resp.usage, 'total_tokens', 0)
+                                )
+                        except Exception as e:
+                            print(f"[ImageAnalysis] Greeting generation failed: {e}")
+                            greet_text = ""
+
+                        if main_image_reply:
+                            final_reply = (greet_text + "\n\n" + main_image_reply).strip()
+                        else:
+                            final_reply = greet_text or "I couldn't analyze that image. Please try again with a clearer image."
+                    else:
+                        final_reply = main_image_reply or "I couldn't analyze that image. Please try again with a clearer image."
+
+                    # Send combined reply
+                    await send_long_with_privacy(message.channel, final_reply)
                     return
                 # TEXT/DOC FLOW: If we get here, it's a text/file message (no images)
+                # Determine if this is the user's first-ever message (no prior history loaded)
+                is_first_message = len(message_history_cache.get(user_id, [])) == 0
                 user_message = {"role": "user", "content": all_content}
                 await manage_conversation_history(user_id, user_message)
                 try:
@@ -1063,10 +1112,15 @@ async def handle_user_message(message):
                 except Exception as e:
                     print(f"Warning: Could not add message to LlamaIndex memory: {e}")
                 messages = []
-                messages.append({"role": "system", "content": SYSTEM_INSTRUCTIONS + user_roles_str})
-                if ENABLE_SUMMARIES and conversation_summaries[user_id]:
-                    messages.append({"role": "system", "content": f"Previous conversation summary: {conversation_summaries[user_id]}"})
-                messages.extend(message_history_cache[user_id].copy())
+                if is_first_message:
+                    # Use dedicated greeting prompt instead of normal system instructions
+                    messages.append({"role": "system", "content": GREETING_SYSTEM_PROMPT})
+                    messages.append(user_message)
+                else:
+                    messages.append({"role": "system", "content": SYSTEM_INSTRUCTIONS + user_roles_str})
+                    if ENABLE_SUMMARIES and conversation_summaries[user_id]:
+                        messages.append({"role": "system", "content": f"Previous conversation summary: {conversation_summaries[user_id]}"})
+                    messages.extend(message_history_cache[user_id].copy())
                 response = None
                 async with message.channel.typing():
                     try:
